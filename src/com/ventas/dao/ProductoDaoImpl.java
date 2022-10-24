@@ -61,7 +61,7 @@ private Conexion conexion = Conexion.getInstance();
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));
 				 productoResponse.setDescripcion(rs.getString(2));
-				 productoResponse.setPrecio(rs.getInt(3));
+				 productoResponse.setPrecio(rs.getInt(5));
 			}
 		 }finally {
 			 rs.close();
@@ -86,9 +86,10 @@ private Conexion conexion = Conexion.getInstance();
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();
-				 producto.setId(rs.getInt(4));
-				 producto.setDescripcion(rs.getString(2));
-				 producto.setPrecio(rs.getInt(1));
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
 				

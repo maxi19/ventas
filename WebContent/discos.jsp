@@ -27,7 +27,7 @@
       <ul id="menu">
         <li><a href="">COMPONENTES:</a>
         <ul>
-          <li><a href="discos.html">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
           <li><a href="ram.html">MEMORIAS RAM</a></li>
           <li><a href="micro.html">PROCESADORES</a></li>
           <li><a href="cooler.html">COOLERS</a></li>
@@ -49,19 +49,19 @@
  	    <%if (i == 0){%>
  	    
  	     		 <div id="fuego">
-		       		<img src="media/proddisco.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		       		<img src="media/proddisco.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 		      		 <a href="#miModal"><button>INFO</button></a> 
 		      	</div>	
 				
  	    <%}else if(i == 1){%>
  	          <div id="p">
-        		<img src="media/proddisco2.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        		<img src="media/proddisco2.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        			 <a href="#miModal2"><button>INFO</button></a> 
      		</div>
 
 		<%} else { %>
 		      <div id="f">
-        		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue">$ 12.800</font></p><button>COMPRAR</button>
+        		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        			 <a href="#miModal3"><button>INFO</button></a> 
      			 </div>
 		<%}} %>
