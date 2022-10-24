@@ -1,5 +1,9 @@
+<%@page import="com.ventas.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.List"%>
+
+
 
 <!DOCTYPE html>
   <html>
@@ -35,22 +39,35 @@
       </ul>
     </nav>
     </header>
-    <section id="inicio">
+    
+     <section id="inicio">
       <h1>Discos Rigidos de Western Digital:</h1>
       <div id="prod1">
-      <div id="fuego">
-       <img src="media/proddisco.jpg" align="left"><p>Disco Rígido WD 1TB BLUE 64MB SATA 6.0GB/s</p><br></br><p><font color="blue">$ 8.450</font></p><button>COMPRAR</button>
-       <a href="#miModal"><button>INFO</button></a> 
-      </div>
-      <div id="p">
-        <img src="media/proddisco2.jpg" align="left"><p>Disco Rigido WD 8TB Red Pro 7.2K RPM 256MB</p><br></br><p><font color="blue">$ 54.280</font></p><button>COMPRAR</button>
-        <a href="#miModal2"><button>INFO</button></a> 
-      </div>
-      <div id="f">
-        <img src="media/proddisco3.jpg" align="left"><p>Disco Rígido WD 3TB PURPLE 64MB SATA 6.0GB/s</p><br></br><p><font color="blue">$ 12.800</font></p><button>COMPRAR</button>
-        <a href="#miModal3"><button>INFO</button></a> 
-      </div>
-    </div>
+     	<% List<Producto> productos = (List<Producto>) request.getAttribute("productos"); %>
+      		 <% for (int i = 0; i < productos.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
+ 	    
+ 	     		 <div id="fuego">
+		       		<img src="media/proddisco.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		      		 <a href="#miModal"><button>INFO</button></a> 
+		      	</div>	
+				
+ 	    <%}else if(i == 1){%>
+ 	          <div id="p">
+        		<img src="media/proddisco2.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       			 <a href="#miModal2"><button>INFO</button></a> 
+     		</div>
+
+		<%} else { %>
+		      <div id="f">
+        		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getNombre()%></p><br></br><p><font color="blue">$ 12.800</font></p><button>COMPRAR</button>
+       			 <a href="#miModal3"><button>INFO</button></a> 
+     			 </div>
+		<%}} %>
+     </div>
+    
+
     <h1>Discos Solido de Team:</h1>
       <div id="prod1">
       <div id="fuego">

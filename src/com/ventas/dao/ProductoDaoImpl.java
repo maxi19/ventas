@@ -74,7 +74,7 @@ private Conexion conexion = Conexion.getInstance();
 	
 	
 	@Override
-	public List<Producto> listarProductos() throws SQLException{
+	public List<Producto> listarProductosAlmacenamiento() throws SQLException{
 		
 		 Statement st =null;
 		 ResultSet rs = null;
@@ -82,7 +82,7 @@ private Conexion conexion = Conexion.getInstance();
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos");
+			rs = st.executeQuery ("select * from productos where marca = 'Western Digital'and tipo = 'almacenamiento'");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();

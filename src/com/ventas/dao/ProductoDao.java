@@ -11,6 +11,6 @@ public interface ProductoDao {
 
 	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException;
 	public Producto obtenerProducto( int id) throws SQLException;
-	public List<Producto> listarProductos() throws SQLException;
+	public List<Producto> listarProductosAlmacenamiento() throws SQLException;
 
 }

@@ -38,7 +38,7 @@ public class ListadoServlet extends HttpServlet {
 	
 		try {
 
-			req.setAttribute("productos", dao.listarProductos());
+			req.setAttribute("productos", dao.listarProductosAlmacenamiento());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
