@@ -21,7 +21,7 @@ import com.ventas.entity.Producto;
 
 
 @WebServlet(urlPatterns = { "/discos"})
-public class ListadoServlet extends HttpServlet {
+public class DiscosServlet extends HttpServlet {
 
 	
 	public static List<Producto> productos = new ArrayList<Producto>();

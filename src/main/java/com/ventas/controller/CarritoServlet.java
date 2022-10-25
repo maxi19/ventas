@@ -34,7 +34,7 @@ public class CarritoServlet extends HttpServlet{
 		Producto productoEncontrado = null;
 		String idString = (String)req.getParameter("id");
 		
-		for (Producto prod : 	ListadoServlet.productos) {
+		for (Producto prod : 	DiscosServlet.productos) {
 			if (Integer.parseInt(idString)  == prod.getId()) {
 				productoEncontrado =  prod;
 			}
