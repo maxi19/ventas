@@ -14,12 +14,18 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		boolean check = false;		
+		String user = (String)req.getParameter("user");
+		String password = (String) req.getParameter("password");
 		
-		boolean check = false;
+		if ("admin".equals(user) && "admin".equals(password)) {
+			check= true;
+		}
+		
 		//sies ok, guardamos en session y redirigimos al home de stocks
 		if(check==true) 
 		{
-		        RequestDispatcher rd=req.getRequestDispatcher("/Login.jsp");
+		        RequestDispatcher rd=req.getRequestDispatcher("/discos");
 		        rd.forward(req, resp);
 		}
 		else
