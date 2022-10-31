@@ -24,12 +24,10 @@ private Conexion conexion = Conexion.getInstance();
 	
 	
 	private Connection con;
-	
-	
-	
-	@Override
-	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException{
-		
+
+
+	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException {
+
 		 Producto productoAmodificar = obtenerProducto(id);
 		 Statement st = null;
 		 if (cantidad > productoAmodificar.getStock() ) {
@@ -49,10 +47,9 @@ private Conexion conexion = Conexion.getInstance();
 		}
 			
 	}
-	
-	@Override
-	public Producto obtenerProducto( int id) throws SQLException{
-		
+
+
+	public Producto obtenerProducto(int id) throws SQLException {
 		 Statement st =conexion.dameConnection().createStatement();
 		 Producto productoResponse = null;
 		 try{
@@ -69,13 +66,10 @@ private Conexion conexion = Conexion.getInstance();
 		     con.close ();	
 		}
 		return productoResponse;
-		 
 	}
-	
-	
-	@Override
-	public List<Producto> listarProductosAlmacenamiento() throws SQLException{
-		
+
+
+	public List<Producto> listarProductosAlmacenamiento() throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
@@ -101,9 +95,64 @@ private Conexion conexion = Conexion.getInstance();
 		}
 		 
 		return productos;
-		
 	}
-	
-	
+
+
+	public List<Producto> listarProductosAlmacenamientoTeam() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Team'and tipo = 'almacenamiento'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductosAlmacenamientoHyP() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Hikvision y PNY'and tipo = 'almacenamiento'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
 	
 }

@@ -38,7 +38,21 @@ public class DiscosServlet extends HttpServlet {
 	
 		try {
 
-			req.setAttribute("productos", dao.listarProductosAlmacenamiento());
+			req.setAttribute("wd", dao.listarProductosAlmacenamiento());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+
+			req.setAttribute("team", dao.listarProductosAlmacenamientoTeam());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+
+			req.setAttribute("hp", dao.listarProductosAlmacenamientoHyP());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

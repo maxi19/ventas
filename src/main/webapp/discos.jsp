@@ -43,7 +43,7 @@
      <section id="inicio">
       <h1>Discos Rigidos de Western Digital:</h1>
       <div id="prod1">
-     	<% List<Producto> productos = (List<Producto>) request.getAttribute("productos"); %>
+     	<% List<Producto> productos = (List<Producto>) request.getAttribute("wd"); %>
       		 <% for (int i = 0; i < productos.size(); i++) { %>
  	    
  	    <%if (i == 0){%>
@@ -64,45 +64,60 @@
         		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        			 <a href="#miModal3"><button>INFO</button></a> 
      			 </div>
-		<%}} %>
+		<%}
+ 	    } %>
      </div>
     
-
     <h1>Discos Solido de Team:</h1>
-      <div id="prod1">
+    <div id="prod1">
+    <% List<Producto> team = (List<Producto>) request.getAttribute("team"); %>
+      		 <% for (int i = 0; i < team.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodssd.jpg" align="left"><p>Disco Solido SSD Team 240GB T-Force Vulcan Z 540MB/s</p><br></br><p><font color="blue">$ 5.600</font></p><button>COMPRAR</button>
+       <img src="media/prodssd.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal4"><button>INFO</button></a>  
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodsdd2.jpg" align="left"><p>Disco Solido SSD Team 1TB T-Force Vulcan Z 550MB/s</p><br></br><p><font color="blue">$ 16.400</font></p><button>COMPRAR</button>
+        <img src="media/prodsdd2.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodssd3.jpg" align="left"><p>Disco Solido SSD M.2 Team 2TB T-Create 2100MB/s NVMe PCI-E x4</p><p><font color="blue">$ 39.290</font></p><button>COMPRAR</button>
+        <img src="media/prodssd3.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
+      <%}
+       } %>
     </div>
+     
     <h1>Discos Solido de Hikvision y PNY:</h1>
       <div id="prod1">
+      <% List<Producto> hp = (List<Producto>) request.getAttribute("hp"); %>
+      		 <% for (int i = 0; i < hp.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodssd4.jpg" align="left"><p>Disco Solido SSD HIKVISION C100 120GB 460MB/s</p><br></br><p><font color="blue">$ 3.250</font></p><button>COMPRAR</button>
+        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal7"><button>INFO</button></a>   
       </div>
+       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodssd4.jpg" align="left"><p>Disco Solido SSD HIKVISION C100 240GB 550MB/s</p><br></br><p><font color="blue">$ 5.230</font></p><button>COMPRAR</button>
+        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
+       <%} else { %>
       <div id="f">
-        <img src="media/prodssd5.jpg" align="left"><p>Disco Solido SSD M.2 PNY 1TB PCI-E NVMe Gen4 x4 </p><br></br><p><font color="blue">$ 26.640</font></p><button>COMPRAR</button>
+        <img src="media/prodssd5.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal9"><button>INFO</button></a> 
       </div>
+      <%}
+       } %>
     </div>
     </section>
     <footer>
     <div id="ayuda">
             <h2>AYUDA</h2>
-            <p>Si tenés sugerencias o comentarios</p>
+            <p>Si tenes sugerencias o comentarios</p>
             <a href="conta.php"><button>contactos</button></a>
             </div>
             <div id="conct">
