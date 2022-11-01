@@ -1,6 +1,7 @@
 package com.ventas.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,35 +10,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ventas.dao.UsuariosDao;
+import com.ventas.dao.UsuariosDaoImpl;
+import com.ventas.entity.Usuario;
+import com.ventas.excepciones.MercaditoException;
+
 @WebServlet(urlPatterns = { "/login"})
 public class LoginServlet extends HttpServlet{
 
+	
+	private UsuariosDao usuariosService = new UsuariosDaoImpl();
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		boolean check = false;		
-		String user = (String)req.getParameter("user");
-		String password = (String) req.getParameter("password");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/discos");
+
+		boolean existeUsuario = false;	
+		Usuario usuario = null;
+		String usuarioIngresado = (String)req.getParameter("user");
+		String passwordIngresado = (String) req.getParameter("password");
 		
-		if ("admin".equals(user) && "admin".equals(password)) {
-			check= true;
-		}
-		
-		//sies ok, guardamos en session y redirigimos al home de stocks
-		if(check==true) 
-		{
-		        RequestDispatcher rd=req.getRequestDispatcher("/discos");
-		        rd.forward(req, resp);
-		}
-		else
-		{
-			//enviamos a una pagina de error
-			
-				RequestDispatcher rd=req.getRequestDispatcher("/error.jsp");
-		        rd.forward(req, resp);
-		}	
-		
-		
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-	}
+				try {
+				existeUsuario =	usuariosService.verificarUsuario(usuarioIngresado);	
+				if (existeUsuario) 
+					usuario = usuariosService.obtenerUsuario(usuarioIngresado);
+
+				if (usuario.getPassword().equals(passwordIngresado)){
+					resp.sendRedirect("/home");
+					//rd.forward(req, resp);
+				}else {
+					throw new MercaditoException("Datos ingresados incorrectos");
+				}
+					     
+				} catch (MercaditoException e) {
+					resp.sendRedirect("/error.jsp");
+				}
+	
+	}		
 }
