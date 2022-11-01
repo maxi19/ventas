@@ -28,7 +28,7 @@
         <li><a href="">COMPONENTES:</a>
         <ul>
           <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
           <li><a href="micro.html">PROCESADORES</a></li>
           <li><a href="cooler.html">COOLERS</a></li>
           <li><a href="placa.html">PLACAS MADRES</a></li>

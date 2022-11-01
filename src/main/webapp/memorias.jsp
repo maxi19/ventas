@@ -1,5 +1,7 @@
+<%@page import="com.ventas.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
   <html>
@@ -23,13 +25,13 @@
       <ul id="menu">
         <li><a href="">COMPONENTES:</a>
         <ul>
-          <li><a href="discos.html">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
-          <li><a href="micro.html">PROCESADORES</a></li>
-          <li><a href="cooler.html">COOLERS</a></li>
-          <li><a href="placa.html">PLACAS MADRES</a></li>
-          <li><a href="gabinete.html">GABINETES</a></li>
-          <li><a href="fuente.html">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
       </li>
       </ul>
@@ -38,48 +40,72 @@
     <section id="inicio">
       <h1>Memorias Ram De Geil:</h1>
       <div id="prod1">
-      <div id="fuego">
-       <img src="media/prodram1.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Orion RGB Red</p><br></br><p><font color="blue">$ 13.350</font></p><button>COMPRAR</button>
-       <a href="#miModal"><button>INFO</button></a>   
-      </div>
-      <div id="p">
-        <img src="media/prodram2.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Super Luce RGB Black</p><br></br><p><font color="blue">$ 15.950</font></p><button>COMPRAR</button>
-        <a href="#miModal2"><button>INFO</button></a> 
-      </div>
-      <div id="f">
-        <img src="media/prodram4.jpg" align="left"><p>Memoria GeiL DDR4 8GB 3000MHZ EVO POTENZA Black</p><br></br><p><font color="blue">$ 6.800</font></p><button>COMPRAR</button>
-        <a href="#miModal3"><button>INFO</button></a> 
-      </div>
+      <% List<Producto> geil = (List<Producto>) request.getAttribute("geil"); %>
+      		 <% for (int i = 0; i < geil.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
+		      <div id="fuego">
+		       <img src="media/prodram1.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Orion RGB Red</p><br></br><p><font color="blue">$ 13.350</font></p><button>COMPRAR</button>
+		       <a href="#miModal"><button>INFO</button></a>   
+		      </div>
+	      <%}else if(i == 1){%>
+		      <div id="p">
+		        <img src="media/prodram2.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Super Luce RGB Black</p><br></br><p><font color="blue">$ 15.950</font></p><button>COMPRAR</button>
+		        <a href="#miModal2"><button>INFO</button></a> 
+		      </div>
+	      <%} else { %>
+		      <div id="f">
+		        <img src="media/prodram4.jpg" align="left"><p>Memoria GeiL DDR4 8GB 3000MHZ EVO POTENZA Black</p><br></br><p><font color="blue">$ 6.800</font></p><button>COMPRAR</button>
+		        <a href="#miModal3"><button>INFO</button></a> 
+		      </div>
+	      <%}
+ 	    } %>
     </div>
+    
+    
     <h1>Memorias Ram De Patriot</h1>
       <div id="prod1">
-      <div id="fuego">
-       <img src="media/prodram4.jpg" align="left"><p>Memoria Patriot DDR4 8GB (2x4GB) 3200Mhz Steel</p><br></br><p><font color="blue">$ 7.300</font></p><button>COMPRAR</button>
-       <a href="#miModal4"><button>INFO</button></a>   
-      </div>
-      <div id="p">
-        <img src="media/prodram5.jpg" align="left"><p>Memoria Patriot Viper DDR4 16GB (2x8GB) 3200MHz Steel CL16</p><br></br><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
-        <a href="#miModal5"><button>INFO</button></a> 
-      </div>
-      <div id="f">
-        <img src="media/prodram6.jpg" align="left"><p>Memoria Patriot Viper DDR4 32GB (2x16GB) 3200Mhz Steel RGB Black</p><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
-        <a href="#miModal6"><button>INFO</button></a> 
-      </div>
+      <% List<Producto> patriot = (List<Producto>) request.getAttribute("patriot"); %>
+      		 <% for (int i = 0; i < patriot.size(); i++) { %>
+       <%if (i == 0){%>
+		      <div id="fuego">
+		       <img src="media/prodram4.jpg" align="left"><p>Memoria Patriot DDR4 8GB (2x4GB) 3200Mhz Steel</p><br></br><p><font color="blue">$ 7.300</font></p><button>COMPRAR</button>
+		       <a href="#miModal4"><button>INFO</button></a>   
+		      </div>
+		<%}else if(i == 1){%>
+		      <div id="p">
+		        <img src="media/prodram5.jpg" align="left"><p>Memoria Patriot Viper DDR4 16GB (2x8GB) 3200MHz Steel CL16</p><br></br><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
+		        <a href="#miModal5"><button>INFO</button></a> 
+		      </div>
+		<%} else { %>
+		      <div id="f">
+		        <img src="media/prodram6.jpg" align="left"><p>Memoria Patriot Viper DDR4 32GB (2x16GB) 3200Mhz Steel RGB Black</p><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
+		        <a href="#miModal6"><button>INFO</button></a> 
+		      </div>
+		 <%}
+       } %>
     </div>
     <h1>Memorias Ram De Adata:</h1>
       <div id="prod1">
-      <div id="fuego">
-        <img src="media/prodram7.jpg" align="left"><p>Memoria Adata DDR4 8GB 3200Mhz XPG Gammix D30</p><br></br><p><font color="blue">$ 7.650</font></p><button>COMPRAR</button>
-        <a href="#miModal7"><button>INFO</button></a>   
-      </div>
-      <div id="p">
-        <img src="media/prodram8.jpg" align="left"><p>Memoria Adata DDR4 16GB 3000MHz XPG Gammix D10 Black</p><br></br><p><font color="blue">$ 13.900</font></p><button>COMPRAR</button>
-        <a href="#miModal8"><button>INFO</button></a> 
-      </div>
-      <div id="f">
-        <img src="media/prodram9.jpg" align="left"><p>Memoria ADATA DDR4 16GB 3600MHZ XPG Spectrix D41 RGB Black</p><p><font color="blue">$ 15.250</font></p><button>COMPRAR</button>
-        <a href="#miModal9"><button>INFO</button></a> 
-      </div>
+      <% List<Producto> adata = (List<Producto>) request.getAttribute("adata"); %>
+      		 <% for (int i = 0; i < adata.size(); i++) { %>
+       <%if (i == 0){%>
+	      <div id="fuego">
+	        <img src="media/prodram7.jpg" align="left"><p>Memoria Adata DDR4 8GB 3200Mhz XPG Gammix D30</p><br></br><p><font color="blue">$ 7.650</font></p><button>COMPRAR</button>
+	        <a href="#miModal7"><button>INFO</button></a>   
+	      </div>
+      <%}else if(i == 1){%>
+	      <div id="p">
+	        <img src="media/prodram8.jpg" align="left"><p>Memoria Adata DDR4 16GB 3000MHz XPG Gammix D10 Black</p><br></br><p><font color="blue">$ 13.900</font></p><button>COMPRAR</button>
+	        <a href="#miModal8"><button>INFO</button></a> 
+	      </div>
+      <%} else { %>
+	      <div id="f">
+	        <img src="media/prodram9.jpg" align="left"><p>Memoria ADATA DDR4 16GB 3600MHZ XPG Spectrix D41 RGB Black</p><p><font color="blue">$ 15.250</font></p><button>COMPRAR</button>
+	        <a href="#miModal9"><button>INFO</button></a> 
+	      </div>
+      <%}
+       } %>
     </div>
     </section>
     <footer>
@@ -93,7 +119,7 @@
               <h2>REDES</h2>
               <a href="https://www.instagram.com/compragamer_oficial/"><img src="media/instagram.png" height="50" width="50" hspace="8"></a>
               <a href="https://twitter.com/CompraGamerOK"><img src="media/twitter.png" height="50" width="50" hspace="6"></a>
-                  </center>
+              </center>
               </div>
             <div id="ayuda2">
               <h2>INFORMACION</h2>
