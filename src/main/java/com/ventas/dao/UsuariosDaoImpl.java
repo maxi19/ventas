@@ -3,10 +3,7 @@ package com.ventas.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.ventas.entity.Producto;
 import com.ventas.entity.Usuario;
 import com.ventas.excepciones.MercaditoException;
 

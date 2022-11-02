@@ -10,7 +10,7 @@
   <head>
 	  <title>Discos:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo2.css">
   </head>
   <body>
     <header>
