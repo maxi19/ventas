@@ -2,6 +2,7 @@ package com.ventas.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,10 +20,19 @@ public class HomeServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/home.jsp");
-	
+		HttpSession misession= req.getSession(true);	
+
+		//valida si no existe una session, entonces redirecionamos
+		if (misession.getAttribute("usuario") == null) {
+			resp.sendRedirect("/discos");	
+		}
 		
-		dispatcher.forward(req, resp);
+		//si existe una session vamos a home
+		if (misession.getAttribute("usuario") != null) {
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/home.jsp");
+			dispatcher.forward(req, resp);			
+		}
+
 	}
 	
 	
