@@ -1,17 +1,19 @@
+<%@page import="com.ventas.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
   <html>
   <head>
 	  <title>PLacas:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo2.css">
   </head>
   <body>
     <header>
       <div id="log">
-      <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
+      <a href="inicio"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
       <a href=""> <button>cerrar sesion</button></a>
       </div>
       <nav> 
@@ -23,13 +25,13 @@
       <ul id="menu">
         <li><a href="">COMPONENTES:</a>
         <ul>
-          <li><a href="discos.html">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
-          <li><a href="micro.html">PROCESADORES</a></li>
-          <li><a href="cooler.html">COOLERS</a></li>
-          <li><a href="placa.html">PLACAS MADRES</a></li>
-          <li><a href="gabinete.html">GABINETES</a></li>
-          <li><a href="fuente.html">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="ram">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
       </li>
       </ul>
@@ -38,44 +40,70 @@
     <section id="inicio">
       <h1>Mother ASUS:</h1>
       <div id="prod1">
+      <% List<Producto> asus = (List<Producto>) request.getAttribute("asus"); %>
+      		 <% for (int i = 0; i < asus.size(); i++) { %>
+      		 
+      		 <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodpla.jpg" align="left"><p>Mother ASUS PRIME A520M-K AM4</p><br></br><p><font color="blue">$ 14.820</font></p><button>COMPRAR</button>
+       <img src="media/prodpla.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal"><button>INFO</button></a>   
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodpla2.jpg" align="left"><p>Mother ASUS PRIME B550M-K AM4 </p><br></br><p><font color="blue">$ 23.990</font></p><button>COMPRAR</button>
+        <img src="media/prodpla2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodpla3.jpg" align="left"><p>Mother ASUS TUF GAMING B550-PLUS WIFI II AM4</p><br></br><p><font color="blue">$ 40.000</font></p><button>COMPRAR</button>
+        <img src="media/prodpla3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
+     <%}
+      		 }%>
     </div>
+    
     <h1>Mother Asrock:</h1>
       <div id="prod1">
+      <% List<Producto> asrock = (List<Producto>) request.getAttribute("asrock"); %>
+      		 <% for (int i = 0; i < asrock.size(); i++) { %>
+      		 
+      		 <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodpla4.jpg" align="left"><p>Mother Asrock A320M-HDV R4.0 Ryzen M-ATX </p><br></br><p><font color="blue">$ 10.350</font></p><button>COMPRAR</button>
+       <img src="media/prodpla4.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal4"><button>INFO</button></a>   
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodpla5.jpg" align="left"><p>Mother Asrock B550 Pro4 AM4</p><br></br><p><font color="blue">$ 28.450</font></p><button>COMPRAR</button>
+        <img src="media/prodpla5.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodpla6.jpg" align="left"><p>Mother Asrock B450 Steel Legend AM4 RGB Dual M.2 Dual USB 3.1</p><p><font color="blue">$ 30.850</font></p><button>COMPRAR</button>
+        <img src="media/prodpla6.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
+    <%}
+      		 }%>
     </div>
+    
     <h1>Mother Gigabyte:</h1>
       <div id="prod1">
+      <% List<Producto> gigabyte = (List<Producto>) request.getAttribute("gigabyte"); %>
+      		 <% for (int i = 0; i < gigabyte.size(); i++) { %>
+      		 
+      		 <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodpla7.jpg" align="left"><p>Mother Gigabyte GA-A320M-H AM4</p><br></br><p><font color="blue">$ 11.400</font></p><button>COMPRAR</button>
+        <img src="media/prodpla7.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal7"><button>INFO</button></a>   
       </div>
+      <%} else { %>
       <div id="p">
-        <img src="media/prodpla8.jpg" align="left"><p>Mother Gigabyte A520M H AM4</p><br></br><p><font color="blue">$ 15.499s</font></p><button>COMPRAR</button>
+        <img src="media/prodpla8.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
+          <%}
+      		 }%>
+      
     </div>
     </section>
     <footer>
