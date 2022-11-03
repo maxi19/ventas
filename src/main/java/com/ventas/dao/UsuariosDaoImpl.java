@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.ventas.config.Conexion;
 import com.ventas.entity.Usuario;
 import com.ventas.excepciones.MercaditoException;
 

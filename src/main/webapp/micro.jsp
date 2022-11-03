@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page import="java.util.List"%>
+     <%@page import="com.ventas.entity.Producto"%>
 
 <!DOCTYPE html>
   <html>
@@ -38,54 +40,55 @@
     <section id="inicio">
       <h1>Micropocesadores de AMD:</h1>
       <div id="prod1">
+      <% List<Producto> amd = (List<Producto>) request.getAttribute("amd"); %>
+      		 <% for (int i = 0; i < amd.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodram3.jpg" align="left"><p>Procesador AMD Ryzen 5 5600X 4.6GHz Turbo AM4 + Wraith Stealth Cooler</p><p><font color="blue">$ 61.950</font></p><button>COMPRAR</button>
+       <img src="media/prodram3.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodram3.jpg" align="left"><p>Procesador AMD RYZEN 5 3600 4.2GHz Turbo AM4 Wraith Stealth Coole</p><p><font color="blue">$ 36.700</font></p><button>COMPRAR</button>
+        <img src="media/prodram3.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodpro.jpg" align="left"><p>Procesador AMD Ryzen 7 5700G 4.6GHz Turbo + Wraith Stealth Cooler</p><p><font color="blue">$ 69.250</font></p><button>COMPRAR</button>
+        <img src="media/prodpro.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
+      <%}
+ 	    } %>
     </div>
     <h1>Micropocesadores de INTEL:</h1>
       <div id="prod1">
+       <% List<Producto> intel = (List<Producto>) request.getAttribute("intel"); %>
+      		 <% for (int i = 0; i < intel.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodpro2.jpg" align="left"><p>Procesador Intel Core i5 10400F 4.3GHz Turbo 1200 Comet Lake</p><p><font color="blue">$ 34.400</font></p><button>COMPRAR</button>
+       <img src="media/prodpro2.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal4"><button>INFO</button></a>   
       </div>
+       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodpro3.jpg" align="left"><p>Procesador Intel Core i9 12900KF 5.2GHz Turbo Socket 1700</p><br></br><p><font color="blue">$ 134.850</font></p><button>COMPRAR</button>
+        <img src="media/prodpro3.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodpro4.jpg" align="left"><p>Procesador Intel Core i3 12100 12th Gen S1700</p><br></br><p><font color="blue">$ 34.500</font></p><button>COMPRAR</button>
+        <img src="media/prodpro4.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
-    </div>
-    <h1>Algunos Cooler:</h1>
-      <div id="prod1">
-      <div id="fuego">
-        <img src="media/prodcoo.jpg" align="left"><p>Cooler CPU Deepcool ICE EDGE Mini FS V2 </p><br></br><p><font color="blue">$ 2.750</font></p><button>COMPRAR</button>
-        <a href="#miModal7"><button>INFO</button></a>   
-      </div>
-      <div id="p">
-        <img src="media/prodcoo2.jpg" align="left"><p>Cooler CPU ID-Cooling SE-224-XT Basic</p><br></br><p><font color="blue">$ 5.850</font></p><button>COMPRAR</button>
-        <a href="#miModal8"><button>INFO</button></a> 
-      </div>
-      <div id="f">
-        <img src="media/prodcoo3.jpg" align="left"><p>Cooler CPU Deepcool GAMMAXX 400EX</p><p><font color="blue">$ 9.300</font></p><br></br><button>COMPRAR</button>
-        <a href="#miModal9"><button>INFO</button></a> 
-      </div>
+      <%}
+ 	    } %>
     </div>
     </section>
     <footer>
     <div id="ayuda">
             <h2>AYUDA</h2>
-            <p>Si tenés sugerencias o comentarios</p>
+            <p>Si tenes sugerencias o comentarios</p>
             <a href="conta.php"><button>contactos</button></a>
             </div>
             <div id="conct">

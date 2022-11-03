@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page import="java.util.List"%>
+     <%@page import="com.ventas.entity.Producto"%>
     
 <!DOCTYPE html>
   <html>
@@ -12,7 +14,7 @@
     <header>
       <div id="log">
       <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      <a href=""> <button>cerrar sesion</button></a>
+      <a href=""><button>cerrar sesion</button></a>
       </div>
       <nav> 
       <p>Buscador: <input type="search" name="busqueda" placeholder="gabinetes,fuentes,etc">
@@ -38,48 +40,72 @@
     <section id="inicio">
       <h1>Coolers De ID-Cooling:</h1>
       <div id="prod1">
+      <% List<Producto> ic = (List<Producto>) request.getAttribute("ic"); %>
+      		 <% for (int i = 0; i < ic.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodcoo2.jpg" align="left"><p>Cooler CPU ID-Cooling SE-224-XT Basic</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 5.850</font></p><button>COMPRAR</button>
-        <a href="#miModal"><button>INFO</button></a>   
+        <img src="media/prodcoo2.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		   <a href="#miModal"><button>INFO</button></a>  
       </div>
+       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo5.jpg" align="left"><p>Cooler CPU ID-Cooling SE-226-XT Black</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 10.300</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo5.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
+       <%} else { %>
       <div id="f">
-        <img src="media/prodcoo6.jpg" align="left"><p>Cooler CPU ID-Cooling SE-207-XT Black</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 12.900</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo6.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
+        <%}
+ 	    } %>
     </div>
     <h1>Coolers Master Hype:</h1>
       <div id="prod1">
+      <% List<Producto> mh = (List<Producto>) request.getAttribute("mh"); %>
+      		 <% for (int i = 0; i < mh.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodcoo7.jpg" align="left"><p>Cooler CPU Cooler Master Hyper T20*</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 3.400</font></p><button>COMPRAR</button>
+       <img src="media/prodcoo7.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal4"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo8.jpg" align="left"><p>Cooler CPU Cooler Master Hyper 212 White LED</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 8.400</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo8.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+       <%} else { %>
       <div id="f">
-        <img src="media/prodcoo9.jpg" align="left"><p>Cooler CPU Cooler Master MasterAir MA410M ARGB</p><input type="number" placeholder="cantidad" name="catidad"/><p><font color="blue">$ 18.150</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo9.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
+       <%}
+ 	    } %>
     </div>
     <h1>Coolers De Deepcool:</h1>
       <div id="prod1">
+      <% List<Producto> dp = (List<Producto>) request.getAttribute("dp"); %>
+      		 <% for (int i = 0; i < mh.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodcoo.jpg" align="left"><p>Cooler CPU Deepcool ICE EDGE Mini FS V2 </p><br></br><p><font color="blue">$ 2.750</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal7"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo4.jpg" align="left"><p>Cooler CPU DeepCool Gammaxx 400 V2 RED</p><br></br><p><font color="blue">$ 4.700</font></p><button>COMPRAR</button>
+        <img src="media/prodcoo4.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodcoo3.jpg" align="left"><p>Cooler CPU Deepcool GAMMAXX 400EX</p><p><font color="blue">$ 9.300</font></p><br></br><button>COMPRAR</button>
+        <img src="media/prodcoo3.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><br></br><button>COMPRAR</button>
         <a href="#miModal9"><button>INFO</button></a> 
       </div>
+       <%}
+ 	    } %>
     </div>
     </section>
     <footer>

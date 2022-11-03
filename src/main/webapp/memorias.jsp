@@ -45,17 +45,17 @@
  	    
  	    <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram1.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Orion RGB Red</p><br></br><p><font color="blue">$ 13.350</font></p><button>COMPRAR</button>
-		       <a href="#miModal"><button>INFO</button></a>   
+		       <img src="media/prodram1.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <a href="#miModal"><button>INFO</button></a>    
 		      </div>
 	      <%}else if(i == 1){%>
 		      <div id="p">
-		        <img src="media/prodram2.jpg" align="left"><p>Memoria GeiL DDR4 16GB 3000MHz Super Luce RGB Black</p><br></br><p><font color="blue">$ 15.950</font></p><button>COMPRAR</button>
+		        <img src="media/prodram2.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 		        <a href="#miModal2"><button>INFO</button></a> 
 		      </div>
 	      <%} else { %>
 		      <div id="f">
-		        <img src="media/prodram4.jpg" align="left"><p>Memoria GeiL DDR4 8GB 3000MHZ EVO POTENZA Black</p><br></br><p><font color="blue">$ 6.800</font></p><button>COMPRAR</button>
+		        <img src="media/prodram4.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 		        <a href="#miModal3"><button>INFO</button></a> 
 		      </div>
 	      <%}
@@ -69,17 +69,17 @@
       		 <% for (int i = 0; i < patriot.size(); i++) { %>
        <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram4.jpg" align="left"><p>Memoria Patriot DDR4 8GB (2x4GB) 3200Mhz Steel</p><br></br><p><font color="blue">$ 7.300</font></p><button>COMPRAR</button>
-		       <a href="#miModal4"><button>INFO</button></a>   
+		       <img src="media/prodram4.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <a href="#miModal"><button>INFO</button></a>    
 		      </div>
 		<%}else if(i == 1){%>
 		      <div id="p">
-		        <img src="media/prodram5.jpg" align="left"><p>Memoria Patriot Viper DDR4 16GB (2x8GB) 3200MHz Steel CL16</p><br></br><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
+		        <img src="media/prodram5.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 		        <a href="#miModal5"><button>INFO</button></a> 
 		      </div>
 		<%} else { %>
 		      <div id="f">
-		        <img src="media/prodram6.jpg" align="left"><p>Memoria Patriot Viper DDR4 32GB (2x16GB) 3200Mhz Steel RGB Black</p><p><font color="blue">$ 13.600</font></p><button>COMPRAR</button>
+		        <img src="media/prodram6.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 		        <a href="#miModal6"><button>INFO</button></a> 
 		      </div>
 		 <%}
@@ -91,17 +91,17 @@
       		 <% for (int i = 0; i < adata.size(); i++) { %>
        <%if (i == 0){%>
 	      <div id="fuego">
-	        <img src="media/prodram7.jpg" align="left"><p>Memoria Adata DDR4 8GB 3200Mhz XPG Gammix D30</p><br></br><p><font color="blue">$ 7.650</font></p><button>COMPRAR</button>
-	        <a href="#miModal7"><button>INFO</button></a>   
+	        <img src="media/prodram7.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <a href="#miModal"><button>INFO</button></a> 
 	      </div>
       <%}else if(i == 1){%>
 	      <div id="p">
-	        <img src="media/prodram8.jpg" align="left"><p>Memoria Adata DDR4 16GB 3000MHz XPG Gammix D10 Black</p><br></br><p><font color="blue">$ 13.900</font></p><button>COMPRAR</button>
+	        <img src="media/prodram8.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 	        <a href="#miModal8"><button>INFO</button></a> 
 	      </div>
       <%} else { %>
 	      <div id="f">
-	        <img src="media/prodram9.jpg" align="left"><p>Memoria ADATA DDR4 16GB 3600MHZ XPG Spectrix D41 RGB Black</p><p><font color="blue">$ 15.250</font></p><button>COMPRAR</button>
+	        <img src="media/prodram9.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
 	        <a href="#miModal9"><button>INFO</button></a> 
 	      </div>
       <%}

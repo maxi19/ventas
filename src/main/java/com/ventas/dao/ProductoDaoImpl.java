@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ventas.config.Conexion;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
@@ -135,6 +136,232 @@ private Conexion conexion = Conexion.getInstance();
 		 try{
 			st = conexion.dameConnection().createStatement();
 			rs = st.executeQuery ("select * from productos where marca = 'Hikvision y PNY'and tipo = 'almacenamiento'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductosprocesadorAMD() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'AMD'and tipo = 'Microprocesador'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductosprocesadorINTEL() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'INTEL'and tipo = 'Microprocesador'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductoscoolerIDCooling() throws SQLException {
+		Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'ID-Cooling'and tipo = 'Cooler'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductoscoolerMH() throws SQLException {
+		Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Master Hype'and tipo = 'Cooler'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+
+
+	public List<Producto> listarProductoscoolerDeepcool() throws SQLException {
+		Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Deepcool'and tipo = 'Cooler'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+	public List<Producto> listarProductosMemoriaGeil() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Geil'and tipo = 'Memoria'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+	public List<Producto> listarProductosMemoriaPatriot() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Patriot'and tipo = 'Memoria'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));;
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
+	public List<Producto> listarProductosMemoriaAdata() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Adata'and tipo = 'Memoria'");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();

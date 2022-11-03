@@ -15,49 +15,36 @@ import javax.servlet.http.HttpSession;
 
 import com.ventas.dao.ProductoDao;
 import com.ventas.dao.ProductoDaoImpl;
-import com.ventas.dao.ProductoMemoria;
-import com.ventas.dao.ProductoMemoriaImpl;
 import com.ventas.entity.Producto;
+@WebServlet(urlPatterns = { "/micro"})
+public class MicroprocServlet extends HttpServlet {
 
-
-
-
-@WebServlet(urlPatterns = { "/memorias"})
-public class MemoriaServlet extends HttpServlet {
-
-    public static List<Producto> productos = new ArrayList<Producto>();
+	public static List<Producto> productos = new ArrayList<Producto>();
 	
 
 	
 	private ProductoDao dao =  new ProductoDaoImpl();
 	
 	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/memorias.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/micro.jsp");
 	
 		try {
 
-			req.setAttribute("geil", dao.listarProductosMemoriaGeil());
+			req.setAttribute("amd", dao.listarProductosprocesadorAMD());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 
-			req.setAttribute("adata", dao.listarProductosMemoriaAdata());
+			req.setAttribute("intel", dao.listarProductosprocesadorINTEL());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-
-			req.setAttribute("patriot", dao.listarProductosMemoriaPatriot());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
 		HttpSession misession= req.getSession(true);	
 
 		if(misession.getAttribute("carrito") != null) {
@@ -69,5 +56,8 @@ public class MemoriaServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 		
 	}
+
+	
+	
 	
 }
