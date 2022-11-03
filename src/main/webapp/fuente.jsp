@@ -1,11 +1,13 @@
+<%@page import="com.ventas.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
   <html>
   <head>
 	  <title>Fuentes:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo2.css">
   </head>
   <body>
     <header>
@@ -22,13 +24,13 @@
       <ul id="menu">
         <li><a href="">COMPONENTES:</a>
         <ul>
-          <li><a href="discos.html">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
-          <li><a href="micro.html">PROCESADORES</a></li>
-          <li><a href="cooler.html">COOLERS</a></li>
-          <li><a href="placa.html">PLACAS MADRES</a></li>
-          <li><a href="gabinete.html">GABINETES</a></li>
-          <li><a href="fuente.html">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
       </li>
       </ul>
@@ -37,48 +39,69 @@
     <section id="inicio">
       <h1>Fuente De Alimentacion ASUS:</h1>
       <div id="prod1">
+      <% List<Producto> asus = (List<Producto>) request.getAttribute("asus"); %>
+      		 <% for (int i = 0; i < asus.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodfue1.jpg" align="left"><p>Fuente ASUS TUF 550B 80 Plus Bronze 550W</p><br></br><p><font color="blue">$ 15.530</font></p><button>COMPRAR</button>
+       <img src="media/prodfue1.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue2.jpg" align="left"><p>Fuente ASUS ROG STRIX 850G 80 Plus Gold 850W Full Modular </p><p><font color="blue">$ 30.999</font></p><button>COMPRAR</button>
+        <img src="media/prodfue2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodfue3.jpg" align="left"><p>Fuente ASUS TUF 750B 80 Plus Bronze 750W</p><br></br><p><font color="blue">$ 21.670</font></p><button>COMPRAR</button>
+        <img src="media/prodfue3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
+      <%}
+       } %>
     </div>
     <h1>Fuente De Alimentacion Cooler Master:</h1>
       <div id="prod1">
+      <% List<Producto> cooler = (List<Producto>) request.getAttribute("cooler"); %>
+      		 <% for (int i = 0; i < cooler.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodfue4.jpg" align="left"><p>Fuente Cooler Master ELITE V3 500W</p><br></br><p><font color="blue">$ 7.440</font></p><button>COMPRAR</button>
+       <img src="media/prodfue4.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><button>COMPRAR</button>
        <a href="#miModal4"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue5.jpg" align="left"><p>Fuente Cooler Master MWE V2 750W 80 Plus Bronze</p><br></br><p><font color="blue">$ 19.560</font></p><button>COMPRAR</button>
+        <img src="media/prodfue5.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodfue6.jpg" align="left"><p>Fuente Cooler Master MWE 850W 80+ Gold Full Modular</p><br></br><p><font color="blue">$ 36.000</font></p><button>COMPRAR</button>
+        <img src="media/prodfue6.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
+       <%}
+       }%>
     </div>
-    <h1>Gabinete Kolink:</h1>
+    <h1>Fuente Kolink:</h1>
       <div id="prod1">
+      <% List<Producto> kolink = (List<Producto>) request.getAttribute("kolink"); %>
+      		 <% for (int i = 0; i < kolink.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodfue7.jpg" align="left"><p>Fuente Gigabyte 550W 80 Plus Bronze P550B</p><br></br><p><font color="blue">$ 12.200</font></p><button>COMPRAR</button>
+        <img src="media/prodfue7.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal7"><button>INFO</button></a> 
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue8.jpg" align="left"><p>Fuente Gigabyte 850W 80 Plus Gold Full Modular P850GM</p><br></br><p><font color="blue">$ 23.790</font></p><button>COMPRAR</button>
+        <img src="media/prodfue8.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
+       <%} else { %>
       <div id="f">
-        <img src="media/prodfue9.jpg" align="left"><p>Fuente Gigabyte 1000W 80 Plus Gold Full Modular P1000GM</p><p><font color="blue">$ 40.400</font></p><button>COMPRAR</button>
+        <img src="media/prodfue9.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><button>COMPRAR</button>
         <a href="#miModal9"><button>INFO</button></a> 
       </div>
+       <%}
+       }%>
     </div>
     </section>
     <footer>

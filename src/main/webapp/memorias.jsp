@@ -8,7 +8,7 @@
   <head>
 	  <title>Ram:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo2.css">
   </head>
   <body>
   <header>
@@ -45,8 +45,8 @@
  	    
  	    <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram1.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
-       <a href="#miModal"><button>INFO</button></a>    
+		       <img src="media/prodram1.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		       <a href="#miModal"><button>INFO</button></a>   
 		      </div>
 	      <%}else if(i == 1){%>
 		      <div id="p">
@@ -69,8 +69,8 @@
       		 <% for (int i = 0; i < patriot.size(); i++) { %>
        <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram4.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
-       <a href="#miModal"><button>INFO</button></a>    
+		       <img src="media/prodram4.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		       <a href="#miModal4"><button>INFO</button></a>   
 		      </div>
 		<%}else if(i == 1){%>
 		      <div id="p">
@@ -91,8 +91,8 @@
       		 <% for (int i = 0; i < adata.size(); i++) { %>
        <%if (i == 0){%>
 	      <div id="fuego">
-	        <img src="media/prodram7.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
-       <a href="#miModal"><button>INFO</button></a> 
+	        <img src="media/prodram7.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+	        <a href="#miModal7"><button>INFO</button></a>   
 	      </div>
       <%}else if(i == 1){%>
 	      <div id="p">

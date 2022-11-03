@@ -11,7 +11,7 @@ import com.ventas.config.Conexion;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
-public class ProductoMemoriaImpl implements ProductoMemoria{
+public class ProductoFuenteImpl implements ProductoFuente{
 private Conexion conexion = Conexion.getInstance();
 	
 	private Statement stmt = null;
@@ -63,14 +63,14 @@ private Conexion conexion = Conexion.getInstance();
 		return productoResponse;
 	}
 
-	public List<Producto> listarProductosMemoriaGeil() throws SQLException {
+	public List<Producto> listarProductosFuenteASUS() throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos where marca = 'Geil'and tipo = 'Memoria'");
+			rs = st.executeQuery ("select * from productos where marca = 'ASUS'and tipo = 'Fuente'");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();
@@ -90,14 +90,14 @@ private Conexion conexion = Conexion.getInstance();
 		 
 		return productos;
 	}
-	public List<Producto> listarProductosMemoriaPatriot() throws SQLException {
+	public List<Producto> listarProductosFuenteCoolerMaster() throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos where marca = 'Patriot'and tipo = 'Memoria'");
+			rs = st.executeQuery ("select * from productos where marca = 'Cooler Master'and tipo = 'Fuente'");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();
@@ -117,14 +117,14 @@ private Conexion conexion = Conexion.getInstance();
 		 
 		return productos;
 	}
-	public List<Producto> listarProductosMemoriaAdata() throws SQLException {
+	public List<Producto> listarProductosFuenteKolink() throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos where marca = 'Adata'and tipo = 'Memoria'");
+			rs = st.executeQuery ("select * from productos where marca = 'Kolink'and tipo = 'Fuente'");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();

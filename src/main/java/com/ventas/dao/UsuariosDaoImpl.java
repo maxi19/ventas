@@ -17,7 +17,6 @@ public class UsuariosDaoImpl implements UsuariosDao {
 	private Conexion conexion = Conexion.getInstance();
 
 	
-	@Override
 	public boolean verificarUsuario(String usuario) throws MercaditoException {
 		 Statement st =null;
 		 ResultSet rs = null;
@@ -47,7 +46,6 @@ public class UsuariosDaoImpl implements UsuariosDao {
 		}
 	}
 
-	@Override
 	public Usuario obtenerUsuario(String usuario) throws MercaditoException {
 		 Statement st =null;
 		 ResultSet rs = null;
