@@ -385,9 +385,7 @@ private Conexion conexion = Conexion.getInstance();
 	}
 
 
-	@Override
 	public void registrarVentaItem(Item item, String nombreyApellido, String direccion, String factura) throws SQLException {
-	
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
@@ -409,7 +407,6 @@ private Conexion conexion = Conexion.getInstance();
 	}
 
 
-	@Override
 	public Producto obtenerProcucto(int idProducto) throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
@@ -435,8 +432,26 @@ private Conexion conexion = Conexion.getInstance();
 		}
 		return null;
 	}
-
-
+	
+	public void	modificarStock (Producto producto, int cantidad) throws MercaditoException{
+		Statement st =null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			st.executeQuery("UPDATE productos SET stock ="+ cantidad +" WHERE id=" + producto.getId() );			
+			
+			
+		 }catch (SQLException ex) {
+			 System.out.println("Error en consulta tabla productos : producto id -> "+ producto.getId());
+			 throw new  MercaditoException("Error en consulta tabla productos : producto id -> " + producto.getId()) ;
+		 } finally {
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+	}
 
 
 	

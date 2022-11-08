@@ -24,7 +24,7 @@ public interface ProductoDao {
 	public List<Producto> listarProductosMemoriaPatriot() throws SQLException;
 	public List<Producto> listarProductosMemoriaAdata() throws SQLException;
 	public void registrarVentaItem(Item item , String nombreyApellido, String direccion, String factura) throws SQLException;
-	
 	public Producto obtenerProcucto(int idProducto) throws SQLException;
+	public void	modificarStock (Producto producto, int cantidad) throws MercaditoException;
 
 }
