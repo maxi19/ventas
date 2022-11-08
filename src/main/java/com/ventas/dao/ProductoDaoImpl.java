@@ -5,9 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.ventas.config.Conexion;
+import com.ventas.entity.Item;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
@@ -381,5 +383,62 @@ private Conexion conexion = Conexion.getInstance();
 		 
 		return productos;
 	}
+
+
+	@Override
+	public void registrarVentaItem(Item item, String nombreyApellido, String direccion, String factura) throws SQLException {
+	
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+		    st.getConnection().setAutoCommit(false);
+			st.executeUpdate("INSERT INTO ventas(factura,producto,cantidad,importe,nombre,direccion,total,fecha,pago) "
+					+ "VALUES("+factura+","+item.getProducto().getId()+","+item.getCantidad()+","+item.getTotal()+","+nombreyApellido+","+direccion+","+0+",'','' )");
+		    st.getConnection().commit();
+		 }catch (Exception e) {
+			st.getConnection().rollback();
+		}finally {
+			st.close();
+			rs.close();
+		}
+		
+		
+	}
+
+
+	@Override
+	public Producto obtenerProcucto(int idProducto) throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 Producto producto;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery("SELECT  * from productos WHERE id = '"+idProducto+"'");			
+			if (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 return producto;
+			}
+			
+		 }catch (SQLException ex) {
+			 System.out.println("Error en consulta tabla productos : producto id -> "+ idProducto);
+
+		 }finally {
+				st.close();
+				rs.close();
+		}
+		return null;
+	}
+
+
+
+
+	
 	
 }

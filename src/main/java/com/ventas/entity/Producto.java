@@ -1,6 +1,6 @@
 package com.ventas.entity;
 
-public class Producto {
+public class Producto implements Facturable {
 	
 	private int id ;
 	
@@ -74,6 +74,16 @@ public class Producto {
 	
 	public Producto() {
 		
+	}
+
+	@Override
+	public Item toItem(int cantidad, Producto producto) {
+		Item item = new Item();
+		int total = cantidad * producto.getPrecio();
+		item.setCantidad(cantidad);
+		item.setTotal(total);
+		item.setProducto(producto);
+		return item;
 	}
 	
 

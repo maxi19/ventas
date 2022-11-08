@@ -1,10 +1,9 @@
-package com.ventas.dao;
+package com.ventas.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.omg.CORBA.TIMEOUT;
 
 
 public class Conexion {

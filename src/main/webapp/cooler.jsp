@@ -45,7 +45,7 @@
  	    
  	    <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodcoo2.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodcoo2.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p> <a href="/preparacion-venta?idproducto='<%ic.get(i).getId();%>'" >COMPRAR</a>
 		   <a href="#miModal"><button>INFO</button></a>  
       </div>
        <%}else if(i == 1){%>
