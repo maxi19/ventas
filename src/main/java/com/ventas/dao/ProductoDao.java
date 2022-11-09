@@ -9,20 +9,20 @@ import com.ventas.excepciones.MercaditoException;
 
 public interface ProductoDao {
 
-	public void quitarStock(int cantidad, int id) throws MercaditoException;
-	public Producto obtenerProducto( int id) throws MercaditoException;
-	public List<Producto> listarProductosAlmacenamiento() throws SQLException;
-	public List<Producto> listarProductosAlmacenamientoTeam() throws SQLException;
-	public List<Producto> listarProductosAlmacenamientoHyP() throws SQLException;
-	public List<Producto> listarProductosprocesadorAMD() throws SQLException;
-	public List<Producto> listarProductosprocesadorINTEL() throws SQLException;
-	public List<Producto> listarProductoscoolerIDCooling() throws SQLException;
-	public List<Producto> listarProductoscoolerMH() throws SQLException;
-    public List<Producto> listarProductoscoolerDeepcool() throws SQLException;
-    public List<Producto> listarProductosMemoriaGeil() throws SQLException;
-	public List<Producto> listarProductosMemoriaPatriot() throws SQLException;
-	public List<Producto> listarProductosMemoriaAdata() throws SQLException;
-	public Producto obtenerProcucto(int idProducto) throws  MercaditoException;
-	public void	modificarStock (Producto producto, int cantidad) throws MercaditoException;
+	 void quitarStock(int cantidad, int id) throws MercaditoException;
+	 Producto obtenerProducto( int id) throws MercaditoException;
+	 List<Producto> listarProductosAlmacenamiento() throws SQLException;
+	 List<Producto> listarProductosAlmacenamientoTeam() throws SQLException;
+	 List<Producto> listarProductosAlmacenamientoHyP() throws SQLException;
+	 List<Producto> listarProductosprocesadorAMD() throws SQLException;
+	 List<Producto> listarProductosprocesadorINTEL() throws SQLException;
+	 List<Producto> listarProductoscoolerIDCooling() throws SQLException;
+	 List<Producto> listarProductoscoolerMH() throws SQLException;
+     List<Producto> listarProductoscoolerDeepcool() throws SQLException;
+     List<Producto> listarProductosMemoriaGeil() throws SQLException;
+	 List<Producto> listarProductosMemoriaPatriot() throws SQLException;
+	 List<Producto> listarProductosMemoriaAdata() throws SQLException;
+	 Producto obtenerProcucto(int idProducto) throws  MercaditoException;
+	 void	modificarStock (Producto producto, int cantidad) throws MercaditoException;
 
 }
