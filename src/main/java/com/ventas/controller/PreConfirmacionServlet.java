@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ventas.dao.ProductoDao;
 import com.ventas.dao.ProductoDaoImpl;
 import com.ventas.entity.Producto;
+import com.ventas.excepciones.MercaditoException;
 
 @WebServlet(urlPatterns = { "/preparacion-venta"})
 public class PreConfirmacionServlet extends HttpServlet {
@@ -23,7 +24,7 @@ public class PreConfirmacionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/pre.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/confirmar.jsp");
 		Producto prod = null;
 		
 		String id =(String) req.getParameter("idproducto");	
@@ -34,8 +35,10 @@ public class PreConfirmacionServlet extends HttpServlet {
 		 
 		 
 		 
+
+		 
 		req.setAttribute("producto", prod);
-		} catch (SQLException e) {
+		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

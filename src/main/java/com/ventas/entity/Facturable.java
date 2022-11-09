@@ -2,6 +2,6 @@ package com.ventas.entity;
 
 public interface Facturable {
 	
-	 Item toItem(int cantidad, Producto producto );
+	 Item toItem(int cantidad);
 
 }

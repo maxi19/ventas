@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.ventas.config.Conexion;
@@ -19,19 +18,13 @@ import com.ventas.excepciones.MercaditoException;
 public class ProductoDaoImpl implements ProductoDao {
 
 	
-private Conexion conexion = Conexion.getInstance();
+	private Conexion conexion = Conexion.getInstance();
 	
-	private Statement stmt = null;
-	
-	private ResultSet rs = null;
-	
-	
-	private Connection con;
 
-
-	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException {
+	public void quitarStock(int cantidad, int id) throws  MercaditoException {
 
 		 Producto productoAmodificar = obtenerProducto(id);
+		 
 		 Statement st = null;
 		 if (cantidad > productoAmodificar.getStock() ) {
 			throw new MercaditoException("la cantidad supera a la que tenemos en stock");
@@ -40,33 +33,46 @@ private Conexion conexion = Conexion.getInstance();
 		 try {
 			 st =conexion.dameConnection().createStatement();
 			 int cantidadActual = productoAmodificar.getStock() - cantidad;
-			 int rows = st.executeUpdate ("update producto set stock "+ cantidadActual +" where id =" + id);	      
-		} catch (Exception e) {
+			 int rows = st.executeUpdate ("update productos set stock="+ cantidadActual +" where id =" + id);	      
+		} catch (SQLException e) {
 			throw new MercaditoException("Hubo un error al realizar la consulta");
 		}finally{
-			 rs.close();
-			 st.close ();    
-		     con.close ();
+			 cerrarStatement(st);    
 		}
 			
 	}
 
 
-	public Producto obtenerProducto(int id) throws SQLException {
-		 Statement st =conexion.dameConnection().createStatement();
+	private void cerrarStatement(Statement st) {
+		try {
+			st.close ();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	public Producto obtenerProducto(int id) throws MercaditoException {
+		 Statement st = null;
+		 ResultSet rs = null;
 		 Producto productoResponse = null;
 		 try{
-			 ResultSet rs = st.executeQuery ("select * from procuctos where id =" + id);	 
+			 st=conexion.dameConnection().createStatement();
+			  rs = st.executeQuery ("select * from productos where Id =" + id);	 
 			 if (rs.next()) {
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));
-				 productoResponse.setDescripcion(rs.getString(2));
-				 productoResponse.setPrecio(rs.getInt(5));
-			}
+				 productoResponse.setDescripcion(rs.getString(3));
+				 productoResponse.setPrecio(rs.getInt(6));
+				 productoResponse.setStock(rs.getInt(5));
+				 productoResponse.setMarca(rs.getString(2));
+				 productoResponse.setNombre(rs.getString(7));
+			} 
+		 } catch (SQLException e) {
+				throw new MercaditoException("Hubo un error al realizar la consulta");
 		 }finally {
-			 rs.close();
-			 st.close ();    
-		     con.close ();	
+			finalizarConexion(st, rs); 
 		}
 		return productoResponse;
 	}
@@ -406,8 +412,7 @@ private Conexion conexion = Conexion.getInstance();
 		
 	}
 
-
-	public Producto obtenerProcucto(int idProducto) throws SQLException {
+	public Producto obtenerProcucto(int idProducto) throws MercaditoException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 Producto producto;
@@ -418,8 +423,9 @@ private Conexion conexion = Conexion.getInstance();
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(6));
 				 producto.setMarca(rs.getString(2));
+				 producto.setStock(rs.getInt(5));
 				 return producto;
 			}
 			
@@ -427,8 +433,7 @@ private Conexion conexion = Conexion.getInstance();
 			 System.out.println("Error en consulta tabla productos : producto id -> "+ idProducto);
 
 		 }finally {
-				st.close();
-				rs.close();
+			finalizarConexion(st, rs);
 		}
 		return null;
 	}
@@ -450,6 +455,17 @@ private Conexion conexion = Conexion.getInstance();
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+		}
+	}
+
+
+	private void finalizarConexion(Statement st, ResultSet rs) {
+		try {
+			st.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
