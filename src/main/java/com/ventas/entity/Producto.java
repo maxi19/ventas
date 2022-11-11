@@ -78,7 +78,7 @@ public class Producto implements Facturable {
 
 	@Override
 	public Item toItem(int cantidad) {
-		Item item = new Item();
+		Item item = new Item(this);
 		int total = cantidad * getPrecio();
 		item.setCantidad(cantidad);
 		item.setTotal(total);

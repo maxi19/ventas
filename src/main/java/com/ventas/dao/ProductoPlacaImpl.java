@@ -14,10 +14,8 @@ import com.ventas.excepciones.MercaditoException;
 public class ProductoPlacaImpl implements ProductoPlaca {
 
 private Conexion conexion = Conexion.getInstance();
+		
 	
-	private Statement stmt = null;
-	
-	private ResultSet rs = null;
 	
 	
 	private Connection con;
@@ -25,6 +23,7 @@ private Conexion conexion = Conexion.getInstance();
 
 	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException {
 
+		 ResultSet rs = null;
 		 Producto productoAmodificar = obtenerProducto(id);
 		 Statement st = null;
 		 if (cantidad > productoAmodificar.getStock() ) {
@@ -47,10 +46,11 @@ private Conexion conexion = Conexion.getInstance();
 
 
 	public Producto obtenerProducto(int id) throws SQLException {
+		 ResultSet rs = null;
 		 Statement st =conexion.dameConnection().createStatement();
 		 Producto productoResponse = null;
 		 try{
-			 ResultSet rs = st.executeQuery ("select * from procuctos where id =" + id);	 
+			 	rs = st.executeQuery ("select * from procuctos where id =" + id);	 
 			 if (rs.next()) {
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));

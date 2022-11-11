@@ -14,7 +14,6 @@ import com.ventas.excepciones.MercaditoException;
 public class ProductoMemoriaImpl implements ProductoMemoria{
 private Conexion conexion = Conexion.getInstance();
 	
-	private Statement stmt = null;
 	
 	private ResultSet rs = null;
 	

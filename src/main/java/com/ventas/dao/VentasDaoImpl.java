@@ -47,4 +47,11 @@ public class VentasDaoImpl implements VentasDao{
 		
 	}
 
+
+	@Override
+	public String obtenerFactura() throws MercaditoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -49,8 +49,9 @@
  	    <%if (i == 0){%>
  	    
  	     		 <div id="fuego">
-		       		<img src="media/proddisco.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p> <a href="/preparacion-venta?idproducto=<%=productos.get(i).getId()%>" >COMPRAR</a>
-		      		 <a href="#miModal"><button>INFO</button></a> 
+ 	     		  <a href="#miModal"><button>INFO</button></a> 
+		       		<img src="media/proddisco.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p> <a href="/preparacion-venta?idproducto=<%=productos.get(i).getId()%>" >COMPRAR UNIDAD</a>
+		      		 <a href="/carrito?idprod=<%=productos.get(i).getId()%>">AGREGAR A CARRITO</a> 
 		      	</div>	
 				
  	    <%}else if(i == 1){%>

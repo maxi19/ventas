@@ -14,9 +14,7 @@ import com.ventas.excepciones.MercaditoException;
 public class ProductoFuenteImpl implements ProductoFuente{
 private Conexion conexion = Conexion.getInstance();
 	
-	private Statement stmt = null;
 	
-	private ResultSet rs = null;
 	
 	
 	private Connection con;
@@ -25,6 +23,7 @@ private Conexion conexion = Conexion.getInstance();
 	public void quitarStock(int cantidad, int id) throws SQLException, MercaditoException {
 		Producto productoAmodificar = obtenerProducto(id);
 		 Statement st = null;
+		 int rows = 0;
 		 if (cantidad > productoAmodificar.getStock() ) {
 			throw new MercaditoException("la cantidad supera a la que tenemos en stock");
 		 }
@@ -32,11 +31,11 @@ private Conexion conexion = Conexion.getInstance();
 		 try {
 			 st =conexion.dameConnection().createStatement();
 			 int cantidadActual = productoAmodificar.getStock() - cantidad;
-			 int rows = st.executeUpdate ("update producto set stock "+ cantidadActual +" where id =" + id);	      
+			  rows = st.executeUpdate ("update producto set stock "+ cantidadActual +" where id =" + id);	      
 		} catch (Exception e) {
 			throw new MercaditoException("Hubo un error al realizar la consulta");
 		}finally{
-			 rs.close();
+			 System.out.println("filas afectadas "+rows);
 			 st.close ();    
 		     con.close ();
 		}
@@ -46,9 +45,10 @@ private Conexion conexion = Conexion.getInstance();
 
 	public Producto obtenerProducto(int id) throws SQLException {
 		Statement st =conexion.dameConnection().createStatement();
+		 ResultSet rs = null;
 		 Producto productoResponse = null;
 		 try{
-			 ResultSet rs = st.executeQuery ("select * from procuctos where id =" + id);	 
+			  rs = st.executeQuery ("select * from procuctos where id =" + id);	 
 			 if (rs.next()) {
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));

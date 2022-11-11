@@ -27,7 +27,7 @@ public class PreConfirmacionServlet extends HttpServlet {
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/confirmar.jsp");
 		Producto prod = null;
 		
-		String id =(String) req.getParameter("idproducto");	
+		String id =(String) req.getParameter("idproducto");		
 		int idProd = Integer.parseInt(id);	
 		try {
 		 prod =	dao.obtenerProducto(idProd);

@@ -8,6 +8,16 @@ public class Item {
 	
 	int total;
 
+	public Item(Producto producto){
+		cantidad = 1;
+		total = producto.getPrecio();
+		this.producto = producto;
+	}
+	
+	public void autoIncrementar(){
+		cantidad ++;
+	}
+	
 	public Producto getProducto() {
 		return producto;
 	}
@@ -25,6 +35,7 @@ public class Item {
 	}
 
 	public int getTotal() {
+		total = this.cantidad * producto.getPrecio();
 		return total;
 	}
 

@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.List"%>
+     <%@page import="com.ventas.entity.Item"%>
 
 <!DOCTYPE html>
   <html>
@@ -9,6 +10,8 @@
 	  <title>Discos:
       </title>
       <link rel="stylesheet" href="style/estilo9.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -41,28 +44,36 @@
   <div id="Compras">
   <center><h1>carrito de compras</h1>
    <hr>
-  <table border ="1" width="650px" align="center">
-<tr bgcolor="blue">
-<th><b>id-producto</b></th>
-<th><b>nombre</b></th>
-<th><b>tipo</b></th>
-<th><b>Cantidad</b></th>
-<th><b>Precio</b></th>
-<th><b></b></th>
-</tr>
-
-	<tr bgcolor="white">
-	<td></td>
-	<td></td>
-	<td></td>
-	 <td></td>
-	 <td></td>
-	 <td>
-	 <a href=""><button>eliminar</button></a>
-	 </td>
-	</tr>
+		   <table class="table table-dark">
+		  <thead class="thead-light">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Tipo</th>
+		      <th scope="col">Cantidad</th>
+		       <th scope="col">Precio</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  <% HttpSession misession = request.getSession(true);%>	
+		 <% List<Item> items = (List<Item>) misession.getAttribute("items");%>
+		 <% for (int i = 0; i < items.size(); i++) { %>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td> <%= items.get(i).getProducto().getDescripcion()%></td>
+		      <td>sin tipo</td>
+		      <td><%= items.get(i).getCantidad() %> </td>
+		      <td> <%= items.get(i).getProducto().getPrecio() %> </td>
+		    </tr>
+		    <%}%>
+		   </tbody>
+		   </table>	
 	</center>
-</table>  
+	
+	<button type="button" class="btn btn-danger">Confirmar compra</button>
+	<button type="button" class="btn btn-primary">Continuar agregando</button>
+	
+
   </div>
   </section>
   

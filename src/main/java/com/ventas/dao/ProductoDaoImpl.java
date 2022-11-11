@@ -1,6 +1,5 @@
 package com.ventas.dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +23,7 @@ public class ProductoDaoImpl implements ProductoDao {
 	public void quitarStock(int cantidad, int id) throws  MercaditoException {
 
 		 Producto productoAmodificar = obtenerProducto(id);
-		 
+		 int rows = 0;
 		 Statement st = null;
 		 if (cantidad > productoAmodificar.getStock() ) {
 			throw new MercaditoException("la cantidad supera a la que tenemos en stock");
@@ -33,7 +32,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 try {
 			 st =conexion.dameConnection().createStatement();
 			 int cantidadActual = productoAmodificar.getStock() - cantidad;
-			 int rows = st.executeUpdate ("update productos set stock="+ cantidadActual +" where id =" + id);	      
+			 rows = st.executeUpdate ("update productos set stock="+ cantidadActual +" where id =" + id);	      
 		} catch (SQLException e) {
 			throw new MercaditoException("Hubo un error al realizar la consulta");
 		}finally{
@@ -99,8 +98,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -128,8 +126,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -157,8 +154,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -186,8 +182,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -215,8 +210,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -244,8 +238,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -273,8 +266,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		 }catch (Exception e) {
 			// TODO: handle exception
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
@@ -456,6 +448,34 @@ public class ProductoDaoImpl implements ProductoDao {
 					e.printStackTrace();
 				}
 		}
+	}
+	
+	
+	public List<Producto> listarProductosPorCriterio( String marca, String tipo ) throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where marca = 'Western Digital'and tipo = 'almacenamiento'");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(5));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			finalizarConexion(st, rs);
+		}
+		 
+		return productos;
 	}
 
 

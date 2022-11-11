@@ -8,6 +8,9 @@ import com.ventas.excepciones.MercaditoException;
 
 public interface VentasDao {
 
-	public void registrarVentaItem(Item item , String nombreyApellido, String direccion, String factura) throws MercaditoException;
-		
+	 String obtenerFactura() throws MercaditoException;
+	 
+	 void registrarVentaItem(Item item , String nombreyApellido, String direccion, String factura) throws MercaditoException;
+	
+	
 }

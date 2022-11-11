@@ -11,38 +11,61 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ventas.dao.ProductoDao;
+import com.ventas.dao.ProductoDaoImpl;
 import com.ventas.entity.*;
+import com.ventas.excepciones.MercaditoException;
 
 @WebServlet(urlPatterns = { "/carrito"})
 public class CarritoServlet extends HttpServlet{
 
+	private ProductoDao dao =  new ProductoDaoImpl();
+
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/listado");
-		
-		List<Producto> pedidos  = null; ;
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/carrito.jsp");
+		try {
+		List<Item> items  = null; 
+
 		HttpSession misession= req.getSession(true);	
 		
-		//validar y obtener de la session si es la primera vez o despues de la primera vez
+
 		if (misession.getAttribute("carrito") != null) {
-			pedidos =(List<Producto>)misession.getAttribute("carrito");
+			items =(List<Item>)misession.getAttribute("items");
 		}else{
-			pedidos = new ArrayList<Producto>();
+			items = new ArrayList<Item>();
 		}
 		
-	
-		Producto productoEncontrado = null;
-		String idString = (String)req.getParameter("id");
+		String idProducto = (String) req.getParameter("idprod");
+		int idProd = Integer.parseInt(idProducto);
+		 
+		Producto prod;
 		
-		for (Producto prod : 	DiscosServlet.productos) {
-			if (Integer.parseInt(idString)  == prod.getId()) {
-				productoEncontrado =  prod;
-			}
+			prod = dao.obtenerProcucto(idProd);
+		
+		boolean existeProductoEnCarrito = false;
+		for (Item item : items) {
+				if (item.getProducto().getId() == idProd ) {
+					item.autoIncrementar();
+					existeProductoEnCarrito = true;
+				}
 		}
 		
-		pedidos.add(productoEncontrado);
-		misession.setAttribute("carrito", pedidos);
+		if (existeProductoEnCarrito == false) {
+			Item newItem = new Item(prod);
+			items.add(newItem);
+		}
+		
+		
+		
+		misession.setAttribute("items", items);
 		dispatcher.forward(req, resp);
+		} catch (MercaditoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 
 	}
 	

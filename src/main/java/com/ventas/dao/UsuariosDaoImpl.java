@@ -10,10 +10,6 @@ import com.ventas.excepciones.MercaditoException;
 
 public class UsuariosDaoImpl implements UsuariosDao {
 
-	private Statement stmt = null;
-	
-	private ResultSet rs = null;
-	
 	private Conexion conexion = Conexion.getInstance();
 
 	
@@ -41,8 +37,7 @@ public class UsuariosDaoImpl implements UsuariosDao {
 			st.close();
 			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error al intentar cerrar la conexion");
 		}
 	}
 
