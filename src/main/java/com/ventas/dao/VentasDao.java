@@ -1,9 +1,6 @@
 package com.ventas.dao;
 
-import java.util.List;
-
 import com.ventas.entity.Item;
-import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
 public interface VentasDao {

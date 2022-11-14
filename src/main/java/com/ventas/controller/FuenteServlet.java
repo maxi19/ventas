@@ -13,12 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+
 import com.ventas.dao.ProductoFuente;
 import com.ventas.dao.ProductoFuenteImpl;
-import com.ventas.dao.ProductoMemoria;
-import com.ventas.dao.ProductoMemoriaImpl;
 import com.ventas.entity.Producto;
 
 

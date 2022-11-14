@@ -31,7 +31,7 @@ public class CarritoServlet extends HttpServlet{
 		HttpSession misession= req.getSession(true);	
 		
 
-		if (misession.getAttribute("carrito") != null) {
+		if (misession.getAttribute("items") != null) {
 			items =(List<Item>)misession.getAttribute("items");
 		}else{
 			items = new ArrayList<Item>();
@@ -56,8 +56,6 @@ public class CarritoServlet extends HttpServlet{
 			Item newItem = new Item(prod);
 			items.add(newItem);
 		}
-		
-		
 		
 		misession.setAttribute("items", items);
 		dispatcher.forward(req, resp);

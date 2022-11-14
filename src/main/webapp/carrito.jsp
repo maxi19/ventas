@@ -70,8 +70,8 @@
 		   </table>	
 	</center>
 	
-	<button type="button" class="btn btn-danger">Confirmar compra</button>
-	<button type="button" class="btn btn-primary">Continuar agregando</button>
+	<button type="button" class="btn btn-danger"> <a  href="/preparacion-venta?method=listado">   Confirmar compra  </a></button>
+	<button type="button" class="btn btn-primary"><a  href="/discos"> Continuar agregando </a></button>
 	
 
   </div>

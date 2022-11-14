@@ -64,7 +64,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 productoResponse.setId(rs.getInt(1));
 				 productoResponse.setDescripcion(rs.getString(3));
 				 productoResponse.setPrecio(rs.getInt(6));
-				 productoResponse.setStock(rs.getInt(5));
+				 productoResponse.setStock(rs.getInt(6));
 				 productoResponse.setMarca(rs.getString(2));
 				 productoResponse.setNombre(rs.getString(7));
 			} 
@@ -90,7 +90,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -118,7 +118,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -146,7 +146,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -174,7 +174,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -202,7 +202,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -230,7 +230,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -258,7 +258,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -286,7 +286,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -313,7 +313,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -340,7 +340,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));;
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -367,7 +367,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -415,9 +415,9 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(6));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
-				 producto.setStock(rs.getInt(5));
+				 producto.setStock(rs.getInt(6));
 				 return producto;
 			}
 			
@@ -464,7 +464,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}

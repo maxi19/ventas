@@ -76,7 +76,7 @@ private Conexion conexion = Conexion.getInstance();
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(5));
+				 producto.setPrecio(rs.getInt(7));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
