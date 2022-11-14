@@ -51,19 +51,19 @@ public class VentaServlet extends HttpServlet {
 		}
 		
 		items.forEach((Item item)->{
-			procesarVenta(item.getProducto().getId(), nombreYapellido, direccion, item.getCantidad());
+			procesarVenta(item.getProducto().getId(), nombreYapellido, direccion, item.getCantidad(), modoPago);
 		});
 		
 		//eliminamos todos los items en session
 		misession.removeAttribute("items");
 		misession.removeAttribute("soloProducto");
 	}
-	private void procesarVenta(int idProducto, String nombreYapellido, String direccion, int cantidad) {
+	private void procesarVenta(int idProducto, String nombreYapellido, String direccion, int cantidad, int modoPago) {
 		try {	
 			Producto producto = dao.obtenerProcucto(idProducto);
 			if (cantidad <= producto.getStock()){
 				dao.quitarStock(cantidad, producto.getId());
-				ventasDao.registrarVentaItem(producto.toItem(cantidad), nombreYapellido, direccion, "00000001-00000001");			
+				ventasDao.registrarVentaItem(producto.toItem(cantidad), nombreYapellido, direccion, "00000001-00000001",modoPago);			
 			}
 	
 		} catch (MercaditoException e) {
