@@ -44,17 +44,20 @@
        <%if (i == 0){%>
       <div id="fuego">
        <img src="media/prodfue1.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal"><button>INFO</button></a> 
+       <a href="#miModal"><button>INFO</button></a>
+       	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
         <img src="media/prodfue2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal2"><button>INFO</button></a> 
+        <a href="#miModal2"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a> 
       </div>
       <%} else { %>
       <div id="f">
         <img src="media/prodfue3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal3"><button>INFO</button></a> 
+        <a href="#miModal3"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a> 
       </div>
       <%}
        } %>
@@ -66,17 +69,20 @@
        <%if (i == 0){%>
       <div id="fuego">
        <img src="media/prodfue4.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal4"><button>INFO</button></a> 
+       <a href="#miModal4"><button>INFO</button></a>
+       	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
         <img src="media/prodfue5.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal5"><button>INFO</button></a> 
+        <a href="#miModal5"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
       <%} else { %>
       <div id="f">
         <img src="media/prodfue6.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal6"><button>INFO</button></a> 
+        <a href="#miModal6"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
        <%}
        }%>
@@ -88,17 +94,20 @@
        <%if (i == 0){%>
       <div id="fuego">
         <img src="media/prodfue7.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal7"><button>INFO</button></a> 
+        <a href="#miModal7"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
         <img src="media/prodfue8.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal8"><button>INFO</button></a> 
+        <a href="#miModal8"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
        <%} else { %>
       <div id="f">
         <img src="media/prodfue9.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal9"><button>INFO</button></a> 
+        <a href="#miModal9"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
       </div>
        <%}
        }%>

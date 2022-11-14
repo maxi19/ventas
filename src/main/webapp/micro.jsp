@@ -47,16 +47,20 @@
       <div id="fuego">
        <img src="media/prodram3.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=amd.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal"><button>INFO</button></a> 
+       	<a href="/carrito?idprod=<%=amd.get(i).getId()%>">AGREGAR A CARRITO</a>   
       </div>
       <%}else if(i == 1){%>
       <div id="p">
         <img src="media/prodram3.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=amd.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal2"><button>INFO</button></a> 
+        	       	<a href="/carrito?idprod=<%=amd.get(i).getId()%>">AGREGAR A CARRITO</a>   
       </div>
       <%} else { %>
       <div id="f">
         <img src="media/prodpro.jpg" align="left"><p><%=amd.get(i).getDescripcion()%></p><p><font color="blue"><%=amd.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=amd.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal3"><button>INFO</button></a> 
+        	       	<a href="/carrito?idprod=<%=amd.get(i).getId()%>">AGREGAR A CARRITO</a>   
+        	
       </div>
       <%}
  	    } %>
@@ -69,17 +73,20 @@
  	    <%if (i == 0){%>
       <div id="fuego">
        <img src="media/prodpro2.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=intel.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal4"><button>INFO</button></a>   
+       <a href="#miModal4"><button>INFO</button></a> 
+       	       	<a href="/carrito?idprod=<%=intel.get(i).getId()%>">AGREGAR A CARRITO</a>     
       </div>
        <%}else if(i == 1){%>
       <div id="p">
         <img src="media/prodpro3.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=intel.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal5"><button>INFO</button></a> 
+        <a href="#miModal5"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=intel.get(i).getId()%>">AGREGAR A CARRITO</a> 
       </div>
       <%} else { %>
       <div id="f">
         <img src="media/prodpro4.jpg" align="left"><p><%=intel.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=intel.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=intel.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal6"><button>INFO</button></a> 
+        <a href="#miModal6"><button>INFO</button></a>
+        	<a href="/carrito?idprod=<%=intel.get(i).getId()%>">AGREGAR A CARRITO</a> 
       </div>
       <%}
  	    } %>
