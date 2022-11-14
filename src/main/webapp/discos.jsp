@@ -56,13 +56,13 @@
 				
  	    <%}else if(i == 1){%>
  	          <div id="p">
-        		<img src="media/proddisco2.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        		<img src="media/proddisco2.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=productos.get(i).getId()%>" >COMPRAR</a>
        			 <a href="#miModal2"><button>INFO</button></a> 
      		</div>
 
 		<%} else { %>
 		      <div id="f">
-        		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        		<img src="media/proddisco3.jpg" align="left"><p><%=productos.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=productos.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=productos.get(i).getId()%>" >COMPRAR</a>
        			 <a href="#miModal3"><button>INFO</button></a> 
      			 </div>
 		<%}
@@ -75,17 +75,17 @@
       		 <% for (int i = 0; i < team.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodssd.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <img src="media/prodssd.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=team.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal4"><button>INFO</button></a>  
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodsdd2.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodsdd2.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=team.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodssd3.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodssd3.jpg" align="left"><p><%=team.get(i).getDescripcion()%></p><p><font color="blue"><%=team.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=team.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
       <%}
@@ -98,17 +98,17 @@
       		 <% for (int i = 0; i < hp.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=hp.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal7"><button>INFO</button></a>   
       </div>
        <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodssd4.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=hp.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
        <%} else { %>
       <div id="f">
-        <img src="media/prodssd5.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodssd5.jpg" align="left"><p><%=hp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=hp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=hp.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal9"><button>INFO</button></a> 
       </div>
       <%}

@@ -45,17 +45,17 @@
       		 
       		 <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodpla.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <img src="media/prodpla.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal"><button>INFO</button></a>   
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodpla2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodpla3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
      <%}
@@ -69,17 +69,17 @@
       		 
       		 <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodpla4.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+       <img src="media/prodpla4.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asrock.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal4"><button>INFO</button></a>   
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodpla5.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla5.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asrock.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodpla6.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla6.jpg" align="left"><p><%=asrock.get(i).getDescripcion()%></p><p><font color="blue"><%=asrock.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asrock.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
     <%}
@@ -93,12 +93,12 @@
       		 
       		 <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodpla7.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla7.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=gigabyte.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal7"><button>INFO</button></a>   
       </div>
       <%} else { %>
       <div id="p">
-        <img src="media/prodpla8.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+        <img src="media/prodpla8.jpg" align="left"><p><%=gigabyte.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=gigabyte.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=gigabyte.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
           <%}

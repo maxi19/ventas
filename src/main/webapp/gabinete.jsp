@@ -1,5 +1,7 @@
+<%@page import="com.ventas.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
   <html>
@@ -38,48 +40,72 @@
     <section id="inicio">
       <h1>Gabinete Aerocool:</h1>
       <div id="prod1">
+      <% List<Producto> ac = (List<Producto>) request.getAttribute("ac"); %>
+      		 <% for (int i = 0; i < ac.size(); i++) { %>
+ 	    
+ 	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodga.jpg" align="left"><p>Gabinete Aerocool Bolt Black RGB Ventana Acrilica ATX</p><br></br><p><font color="blue">$ 8.650</font></p><button>COMPRAR</button>
+       <img src="media/prodga.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 8.650</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal"><button>INFO</button></a>   
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga2.jpg" align="left"><p>Gabinete Aerocool Nighthawk Duo Black E-ATX Vidrio Templado</p><p><font color="blue">$ 19.800</font></p><button>COMPRAR</button>
+        <img src="media/prodga2.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><p><font color="blue">$ 19.800</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal2"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodga3.jpg" align="left"><p>Gabinete Aerocool Playa RGB Mid Tower</p><br></br><p><font color="blue">$ 14.890</font></p><button>COMPRAR</button>
+        <img src="media/prodga3.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 14.890</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal3"><button>INFO</button></a> 
       </div>
+      <%}
+ 	    } %>
     </div>
+    
     <h1>Gabinete Cooler Master:</h1>
       <div id="prod1">
+      <% List<Producto> Com = (List<Producto>) request.getAttribute("Com"); %>
+      		 <% for (int i = 0; i < Com.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodga4.jpg" align="left"><p>Gabinete Cooler Master MasterBox Q300L Rainbow</p><br></br><p><font color="blue">$ 11.060</font></p><button>COMPRAR</button>
+       <img src="media/prodga4.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 11.060</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
        <a href="#miModal4"><button>INFO</button></a>   
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga5.jpg" align="left"><p>Gabinete Cooler Master HAF 500 ARGB Vidrio Templado ATX White</p><p><font color="blue">$ 30.600</font></p><button>COMPRAR</button>
+        <img src="media/prodga5.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><p><font color="blue">$ 30.600</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal5"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodga6.jpg" align="left"><p>Gabinete Cooler Master H500P Mesh ARGB</p><br></br><p><font color="blue">$ 39.100</font></p><button>COMPRAR</button>
+        <img src="media/prodga6.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 39.100</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal6"><button>INFO</button></a> 
       </div>
+       <%}
+ 	    } %>
     </div>
+    
     <h1>Gabinete Kolink:</h1>
       <div id="prod1">
+      <% List<Producto> Knl = (List<Producto>) request.getAttribute("Knl"); %>
+      		 <% for (int i = 0; i < Knl.size(); i++) { %>
+       <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodga7.jpg" align="left"><p>Gabinete Kolink Observatory Lite Black 4x120mm ARGB Vidrio Templado</p><p><font color="blue">$ 12.250</font></p><button>COMPRAR</button>
+        <img src="media/prodga7.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><p><font color="blue">$ 12.250</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal7"><button>INFO</button></a>  
       </div>
+      <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga8.jpg" align="left"><p>Gabinete Kolink Inspire K6 ARGB Micro ATX</p><br></br><p><font color="blue">$ 8.150</font></p><button>COMPRAR</button>
+        <img src="media/prodga8.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 8.150</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal8"><button>INFO</button></a> 
       </div>
+      <%} else { %>
       <div id="f">
-        <img src="media/prodga9.jpg" align="left"><p>Gabinete Kolink Refine RGB Vidrio Templado</p><br></br><p><font color="blue">$ 11.100</font></p><button>COMPRAR</button>
+        <img src="media/prodga9.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 11.100</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
         <a href="#miModal9"><button>INFO</button></a> 
       </div>
+      <%}
+ 	    } %>
     </div>
     </section>
     <footer>

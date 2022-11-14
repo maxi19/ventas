@@ -45,17 +45,17 @@
  	    
  	    <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram1.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		       <img src="media/prodram1.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=geil.get(i).getId()%>" >COMPRAR</a>
 		       <a href="#miModal"><button>INFO</button></a>   
 		      </div>
 	      <%}else if(i == 1){%>
 		      <div id="p">
-		        <img src="media/prodram2.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		        <img src="media/prodram2.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=geil.get(i).getId()%>" >COMPRAR</a>
 		        <a href="#miModal2"><button>INFO</button></a> 
 		      </div>
 	      <%} else { %>
 		      <div id="f">
-		        <img src="media/prodram4.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		        <img src="media/prodram4.jpg" align="left"><p><%=geil.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=geil.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=geil.get(i).getId()%>" >COMPRAR</a>
 		        <a href="#miModal3"><button>INFO</button></a> 
 		      </div>
 	      <%}
@@ -69,17 +69,17 @@
       		 <% for (int i = 0; i < patriot.size(); i++) { %>
        <%if (i == 0){%>
 		      <div id="fuego">
-		       <img src="media/prodram4.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		       <img src="media/prodram4.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=patriot.get(i).getId()%>" >COMPRAR</a>
 		       <a href="#miModal4"><button>INFO</button></a>   
 		      </div>
 		<%}else if(i == 1){%>
 		      <div id="p">
-		        <img src="media/prodram5.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		        <img src="media/prodram5.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=patriot.get(i).getId()%>" >COMPRAR</a>
 		        <a href="#miModal5"><button>INFO</button></a> 
 		      </div>
 		<%} else { %>
 		      <div id="f">
-		        <img src="media/prodram6.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+		        <img src="media/prodram6.jpg" align="left"><p><%=patriot.get(i).getDescripcion()%></p><p><font color="blue"><%=patriot.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=patriot.get(i).getId()%>" >COMPRAR</a>
 		        <a href="#miModal6"><button>INFO</button></a> 
 		      </div>
 		 <%}
@@ -91,17 +91,17 @@
       		 <% for (int i = 0; i < adata.size(); i++) { %>
        <%if (i == 0){%>
 	      <div id="fuego">
-	        <img src="media/prodram7.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+	        <img src="media/prodram7.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=adata.get(i).getId()%>" >COMPRAR</a>
 	        <a href="#miModal7"><button>INFO</button></a>   
 	      </div>
       <%}else if(i == 1){%>
 	      <div id="p">
-	        <img src="media/prodram8.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+	        <img src="media/prodram8.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=adata.get(i).getId()%>" >COMPRAR</a>
 	        <a href="#miModal8"><button>INFO</button></a> 
 	      </div>
       <%} else { %>
 	      <div id="f">
-	        <img src="media/prodram9.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><button>COMPRAR</button>
+	        <img src="media/prodram9.jpg" align="left"><p><%=adata.get(i).getDescripcion()%></p><p><font color="blue"><%=adata.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=adata.get(i).getId()%>" >COMPRAR</a>
 	        <a href="#miModal9"><button>INFO</button></a> 
 	      </div>
       <%}
