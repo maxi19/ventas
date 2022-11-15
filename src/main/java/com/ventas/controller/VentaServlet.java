@@ -3,6 +3,7 @@ package com.ventas.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,7 @@ public class VentaServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/comprobante");
 		HttpSession misession= req.getSession(true);	
 		List<Item> items =(List<Item>)misession.getAttribute("items");
 		 
@@ -53,10 +55,9 @@ public class VentaServlet extends HttpServlet {
 		items.forEach((Item item)->{
 			procesarVenta(item.getProducto().getId(), nombreYapellido, direccion, item.getCantidad(), modoPago);
 		});
+		resp.sendRedirect("/comprobante");
 		
-		//eliminamos todos los items en session
-		misession.removeAttribute("items");
-		misession.removeAttribute("soloProducto");
+		
 	}
 	private void procesarVenta(int idProducto, String nombreYapellido, String direccion, int cantidad, int modoPago) {
 		try {	

@@ -66,7 +66,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 productoResponse.setPrecio(rs.getInt(6));
 				 productoResponse.setStock(rs.getInt(6));
 				 productoResponse.setMarca(rs.getString(2));
-				 productoResponse.setNombre(rs.getString(7));
+				 productoResponse.setNombre(rs.getString(3));
 			} 
 		 } catch (SQLException e) {
 				throw new MercaditoException("Hubo un error al realizar la consulta");
