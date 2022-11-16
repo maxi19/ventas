@@ -25,60 +25,46 @@
   			</ul>
   			</div>
 			</nav>
-		 
- 
 	    </header>
 	    
-	    
-	    
 	     <section id="inicio">
-		<a class="btn btn-primary" href="/proxy?method=agregarInput" role="button">Agregar producto</a>
-
-	    	<%
-			List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-			%>
-				<table class="table">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th scope="col">Id</th>
-				      <th scope="col">Descripcion</th>
-				      <th scope="col">Marca</th>
-				      <th scope="col">Sprecio unitario</th>
-				      <th scope="col">Stock</th>
-				      <th scope="col">Acciones</th>
-				    </tr>
-				  </thead>
-			  <tbody>
-			 	 <% for (int i = 0; i < productos.size(); i++) { %>
-			    	<%if(productos.get(i).getStock() > 10) {%>
-					    <tr>
-					      <th scope="row"><%=productos.get(i).getId() %></th>
-					      <td><%=productos.get(i).getDescripcion() %></td>
-					      <td><%=productos.get(i).getMarca() %></td>
-					      <td><%=productos.get(i).getPrecio() %></td>
-					      <td><%=productos.get(i).getStock() %></td>
-					       <td>
-					        <a class="btn btn-primary" href="#" role="button">Stock</a>
-					        <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a> 
-					       </td>
-					    </tr>
-				    <%}else{%>
-				      <tr class="table-danger">
-					      <th scope="row"><%=productos.get(i).getId() %></th>
-					      <td><%=productos.get(i).getDescripcion() %></td>
-					      <td><%=productos.get(i).getMarca() %></td>
-					      <td><%=productos.get(i).getPrecio() %></td>
-					      <td><%=productos.get(i).getStock() %></td>
-					       <td>
-					        <a class="btn btn-primary" href="#" role="button">Stock</a>
-					        <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a> 
-					       </td>
-					    </tr>
-				    <%}%>
-			    <%} %>
-			    </tbody>
-		    </table>
-	    
+			<form action="/agregar" method="Post" class="mt-4 mb-3">
+			  <div class="form-group">
+			    <label for="formGroupExampleInput">Nombre</label>
+			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de producto">
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="formGroupExampleInput">Marca</label>
+			    <input type="text" class="form-control" id="marca" name = "marca" placeholder="Marca del producto">
+			  </div>
+			  
+			   <div class="form-group">
+			    <label for="exampleFormControlSelect1">Tipo</label>
+			    <select class="form-control" id="tipo" name="tipo">
+			      <option>1</option>
+			      <option>2</option>
+			      <option>3</option>
+			      <option>4</option>
+			      <option>5</option>
+			    </select>
+			  </div>
+			  
+			   <div class="form-group">
+			    <label for="formGroupExampleInput">Stock</label>
+			    <input type="text" class="form-control" id="stock" name = "stock" placeholder="Stock inicial">
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="formGroupExampleInput">Precio</label>
+			    <input type="text" class="form-control" id="precio" name = "precio" placeholder="Precio del producto">
+			  </div>
+			  
+			  <div class="form-group">
+			 	 <button type="submit" class="btn btn-primary">Ingresar producto</button>
+			 </div>
+			 
+			</form>
 	    </section> 
 	    <footer>
 	    <div id="ayuda">

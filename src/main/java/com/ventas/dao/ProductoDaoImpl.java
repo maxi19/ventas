@@ -300,6 +300,8 @@ public class ProductoDaoImpl implements ProductoDao {
 		 
 		return productos;
 	}
+	
+	
 	public List<Producto> listarProductosMemoriaGeil() throws SQLException {
 		 Statement st =null;
 		 ResultSet rs = null;
@@ -479,6 +481,35 @@ public class ProductoDaoImpl implements ProductoDao {
 	}
 
 
+	
+	public List<Producto> listarProductosPorTipo() throws SQLException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos order by tipo");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(7));
+				 producto.setMarca(rs.getString(2));
+				 producto.setStock(rs.getInt(6));
+				 productos.add(producto);
+			}
+				
+		 }catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		 
+		return productos;
+	}
 	private void finalizarConexion(Statement st, ResultSet rs) {
 		try {
 			st.close();
@@ -487,6 +518,32 @@ public class ProductoDaoImpl implements ProductoDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public void agregarProducto(Producto producto) throws MercaditoException {
+
+		 Statement st =null;
+		 ResultSet rs = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+		    st.getConnection().setAutoCommit(false);
+			st.executeUpdate("INSERT INTO productos(marca,nombre,tipo,cantidad,stock,precio) "
+					+ "VALUES('"+producto.getMarca()+"','"+producto.getDescripcion()+"',"+producto.getTipo()+",0,"+producto.getStock()+","+producto.getPrecio()+")");
+		    st.getConnection().commit();
+		 }catch (Exception e) {
+			try {
+				st.getConnection().rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}finally {
+			cerrarStatement(st);
+		}
+		
+		
 	}
 
 

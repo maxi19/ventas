@@ -13,6 +13,16 @@ public class Producto implements Facturable {
 	private String descripcion;
 	
 	private int stock;
+	
+	private int tipo;
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 
 	public int getStock() {
 		return stock;
