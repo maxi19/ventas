@@ -25,13 +25,13 @@
       <ul id="menu">
         <li><a href="">COMPONENTES:</a>
         <ul>
-          <li><a href="discos.php">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.php">MEMORIAS RAM</a></li>
-          <li><a href="micro.php">PROCESADORES</a></li>
-          <li><a href="cooler.php">COOLERS</a></li>
-          <li><a href="placa.php">PLACAS MADRES</a></li>
-          <li><a href="gabinete.php">GABINETES</a></li>
-          <li><a href="fuente.php">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
       </li>
       </ul>
