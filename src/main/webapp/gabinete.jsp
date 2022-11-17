@@ -8,110 +8,103 @@
   <head>
 	  <title>Gabinetes:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo11.css">
+      <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="body">
   <header>
       <div id="log">
-      <a href="inicio.php"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      <a href="cerrar_sension.php"> <button>cerrar sesion</button></a>
+      <a href="inicio"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
       </div>
-      <nav> 
-      <p>Buscador: <input type="search" name="busqueda" placeholder="gabinetes,fuentes,etc">
-      <button>Buscar</button>
-      </p>
-    </nav>
-    <nav>
-      <ul id="menu">
-        <li><a href="">COMPONENTES:</a>
+      
         <ul>
-          <li><a href="discos.php">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.php">MEMORIAS RAM</a></li>
-          <li><a href="micro.php">PROCESADORES</a></li>
-          <li><a href="cooler.php">COOLERS</a></li>
-          <li><a href="placa.php">PLACAS MADRES</a></li>
-          <li><a href="gabinete.php">GABINETES</a></li>
-          <li><a href="fuente.php">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
-      </li>
-      </ul>
-    </nav>
     </header>
     <section id="inicio">
-      <h1>Gabinete Aerocool:</h1>
+      <h2>Gabinete Aerocool:</h2>
       <div id="prod1">
       <% List<Producto> ac = (List<Producto>) request.getAttribute("ac"); %>
       		 <% for (int i = 0; i < ac.size(); i++) { %>
  	    
  	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodga.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 8.650</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal"><button>INFO</button></a> 
-       		<a href="/carrito?idprod=<%=ac.get(i).getId()%>">AGREGAR A CARRITO</a>
+       <img src="media/prodga.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><p><font color="blue">$ 8.650</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=ac.get(i).getId()%>" class="boton">COMPRAR</a>
+   
+       		<a href="/carrito?idprod=<%=ac.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga2.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><p><font color="blue">$ 19.800</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal2"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=ac.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga2.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><p><font color="blue">$ 19.800</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=ac.get(i).getId()%>" class="boton">COMPRAR</a>
+    
+        	<a href="/carrito?idprod=<%=ac.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodga3.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 14.890</font></p><a href="/preparacion-venta?idproducto=<%=ac.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal3"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=ac.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga3.jpg" align="left"><p><%=ac.get(i).getDescripcion()%></p><p><font color="blue">$ 14.890</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=ac.get(i).getId()%>" class="boton">COMPRAR</a>
+      
+        	<a href="/carrito?idprod=<%=ac.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}
  	    } %>
     </div>
-    
-    <h1>Gabinete Cooler Master:</h1>
+    <br>
+    <h2>Gabinete Cooler Master:</h2>
       <div id="prod1">
       <% List<Producto> Com = (List<Producto>) request.getAttribute("Com"); %>
       		 <% for (int i = 0; i < Com.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodga4.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 11.060</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal4"><button>INFO</button></a>  
-       		<a href="/carrito?idprod=<%=Com.get(i).getId()%>">AGREGAR A CARRITO</a> 
+       <img src="media/prodga4.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><p><font color="blue">$ 11.060</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Com.get(i).getId()%>" class="boton">COMPRAR</a>
+     
+       		<a href="/carrito?idprod=<%=Com.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga5.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><p><font color="blue">$ 30.600</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal5"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=Com.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga5.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><p><font color="blue">$ 30.600</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Com.get(i).getId()%>" class="boton">COMPRAR</a>
+       
+        	<a href="/carrito?idprod=<%=Com.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodga6.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 39.100</font></p><a href="/preparacion-venta?idproducto=<%=Com.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal6"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=Com.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga6.jpg" align="left"><p><%=Com.get(i).getDescripcion()%></p><p><font color="blue">$ 39.100</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Com.get(i).getId()%>" class="boton">COMPRAR</a>
+      
+        	<a href="/carrito?idprod=<%=Com.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%}
  	    } %>
     </div>
-    
-    <h1>Gabinete Kolink:</h1>
+    <br>
+    <h2>Gabinete Kolink:</h2>
       <div id="prod1">
       <% List<Producto> Knl = (List<Producto>) request.getAttribute("Knl"); %>
       		 <% for (int i = 0; i < Knl.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodga7.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><p><font color="blue">$ 12.250</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal7"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodga7.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><p><font color="blue">$ 12.250</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Knl.get(i).getId()%>" class="boton">COMPRAR</a>
+       
+        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodga8.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 8.150</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal8"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga8.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><p><font color="blue">$ 8.150</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Knl.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodga9.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><br></br><p><font color="blue">$ 11.100</font></p><a href="/preparacion-venta?idproducto=<%=Knl.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal9"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodga9.jpg" align="left"><p><%=Knl.get(i).getDescripcion()%></p><p><font color="blue">$ 11.100</font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=Knl.get(i).getId()%>" class="boton">COMPRAR</a>
+ 
+        	<a href="/carrito?idprod=<%=Knl.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}
  	    } %>
@@ -136,146 +129,4 @@
               <a href="acerca.php"><button>acerca de:</button></a>
               </div>
     </footer>
-    <div id="miModal" class="modal">
-		<div class="modal-contenido">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>Espesor de acero 0.5mm.</ul>
-<ul>Placas base ATX / micro-ATX / mini-ITX.</ul>
-<ul>Dimensiones de la caja (general) 194 x 444 x 410 mm (ancho x alto x ancho) ...</ul>
-<ul>3.5 "Drive Bay 2.</ul>
-<ul>2.5 "Drive Bay 2.</ul></hr>
-		</div>
-</div>
-<div id="miModal2" class="modal">
-		<div class="modal-contenido2">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>NightHawk Duo.</ul>
-<ul>ARGB MID TOWER.</ul>
-<ul>DIRECCIONABLE RGB COMPATIBLE.</ul>
-<ul>TRES VENTILADORES RGB DIRECCIONABLES INCLUIDOS.</ul>
-<ul>Viene equipado con ventiladores DUO.</ul>
-<ul>BUJE DE CONTROL DE 6 PUERTOS RGB.</ul>
-<ul>CABLE DE RECEPTOR RGB DIRECCIONABLE INCLUIDO.</ul>
-<ul>CABLE DE ALIMENTACIÓN INCLUIDO.</ul></hr>
-		</div>
-</div>
-<div id="miModal3" class="modal">
-		<div class="modal-contenido3">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>Elegante diseño LED RGB con vidrio templado en el panel frontal</ul>
-<ul>Acceda a 13 modos de iluminación preestablecidos a través del botón de control LED convenientemente ubicado</ul>
-<ul>Panel lateral de vidrio templado completo para mostrar el interior de su equipo</ul>
-<ul>Diseño de doble cámara para mejorar la ventilación.</ul>
-<ul>Admite refrigeración líquida en la parte superior, delantera y trasera de la carcasa</ul>
-<ul>Admite enfriadores de CPU de hasta 159 mm</ul>
-<ul>Admite tarjetas gráficas de gama alta de hasta 376 mm</ul></hr>
-		</div>
-		</div>
-</div>
-<div id="miModal4" class="modal">
-		<div class="modal-contenido4">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>Anti-dust filter</ul>
-<ul>Indicadores LED</ul>
-<ul>Liquid cooling capability</ul>
-<ul>Refrigeración</ul>
-<ul>Side window</ul>
-<ul>ventana lateral</ul>
-<ul>Especificaciones Cooler Master MasterBox Q300L</ul>
-<ul>Puertos e Interfaces</ul>
-<ul>Cantidad de puertos tipo A USB 3.0 (3.1 Gen 1): 2</ul>
-<ul>Entrada de audio: Si</ul>
-<ul>Salida de audio: Si</ul>
-<ul>Peso y dimensiones</ul>
-<ul>Ancho: 230 mm</ul></hr>
-		</div>
-</div>
-<div id="miModal5" class="modal">
-		<div class="modal-contenido5">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-  <ul>Exterior Color: Negro</ul>
-  <ul>Materiales – Outlook: Acero, Malla, Plástico</ul>
-  <ul>Materiales – Panel lateral: Vidrio Templado, Acero</ul>
-  <ul>Dimensiones (L x An x Al): 516 x 224 x 510 mm (incluidos salientes)</ul>
-  <ul>Soporte de placa base: ITX, Micro ATX, ATX, SSI CEB, E-ATX*, (*hasta 12″ x 14,1″, puede afectar la gestión de cables y las características de la carcasa, retire la cubierta de cables y las características del soporte del ventilador de la GPU)</ul>
-  <ul>Ranuras de expansión: 7</ul>
-  <ul>Bahías para unidades de 5,25″: N / A</ul>
-  <ul>Bahías para unidades de 2,5″/3,5″ (combinadas): 2</ul>
-  <ul>Bahías para unidades de 2,5″: 2</ul>
-  <ul>Panel de E/S: 2x USB 3.2 Gen 1 (anteriormente USB 3.0), 1x USB 3.2 Gen 2 Tipo-C, 1x conector de audio único, 1x botón Restablecer/ARGB</ul>
-  <ul>Controlador ARGB: Centro ARGB</ul>
-  <ul>Ventiladores preinstalados: frontal: 2 ventiladores ARGB de 200 mm</ul>
-</div>
-</div>
-<div id="miModal6" class="modal">
-		<div class="modal-contenido6">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>Ventiladores ARGB duales de 200 mm. </ul>
-<ul>Panel frontal de malla. </ul>
-<ul>Construido por diseño. </ul>
-<ul>Sistema de iluminación ARGB. </ul>
-<ul>Panel lateral de vidrio templado. </ul>
-<ul>Controlador ARGB.</ul></hr>
-		</div>
-</div>
-<div id="miModal7" class="modal">
-		<div class="modal-contenido7">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-<hr><ul>Panel frontal de vidrio templado con ventiladores ARGB de 3 x 12 cm preinstalados</ul>
-<ul>Panel lateral de vidrio templado para una vista sin obstáculos del interior.</ul>
-<ul>Diseñado para placas base ATX / Micro-ATX / Mini-ITX</ul>
-<ul>Concentrador de controlador RGB con control remoto, que permite varios modos de iluminación y efectos, así como control de velocidad del ventilador.</ul>
-<ul>Opción para sincronizar con el software de la placa base provisto como estándar</ul>
-<ul>Ventilador trasero de 120 mm preinstalado con iluminación ARGB-D</ul>
-<ul>Soporte para radiadores de hasta 280 mm en la parte delantera.</ul>
-<ul>Panel de E / S con 1x USB 3.0 y 2x USB 2.0, audio HD, controlador RGB-LED</ul></hr>
-		</div>
-</div>
-<div id="miModal8" class="modal">
-		<div class="modal-contenido8">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul>Caja Gamer de torre mediana.</ul>
-<ul>Ventana lateral de vidrio templado.</ul>
-<ul>Soporte de placas base Micro-ATX y Mini ITX.</ul>
-<ul>Altura máxima del ventilador: 162 mm.</ul>
-<ul>Longitud máxima de la tarjeta gráfica: 350 mm.</ul>
-<ul>Longitud máxima de alimentación: 170 mm.</ul>
-<ul>Tira LED ARGB en el panel frontal.</ul></hr>
-		</div>
-</div>
-<div id="miModal9" class="modal">
-		<div class="modal-contenido9">
-        <a href="#"><button>X</button></a>
-        <h1>CARACTERISTICAS GENERALES</h1>
-  <hr>      
-<ul> Panel lateral de vidrio templado con bisagras</ul>
-
-<ul>Frente de aluminio cepillado</ul>
-
-<ul> Iluminación RGB inteligente direccionable digitalmente en la parte frontal</ul>
-
-<ul> Un ventilador de 120 mm preinstalado en la parte trasera</ul>
-
-<ul> Posibilidad de hasta cinco ventiladores de 120 mm y cuatro de 140 mm</ul>
-
-<ul> Espacio para tarjetas gráficas de hasta 380 mm, enfriadores de CPU de hasta 160 mm de altura</ul>
-
-<ul>Panel de E / S con controlador para LED RGB, 1x USB 3.1 Tipo C, 1x USB 3.0 y 2x USB 2.0</ul></hr>
-		</div>
-</div>
   </body>

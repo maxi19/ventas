@@ -7,22 +7,18 @@
   <head>
 	  <title>Fuentes:
       </title>
-      <link rel="stylesheet" href="style/estilo2.css">
+      <link rel="stylesheet" href="style/estilo11.css">
+      <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="body">
     <header>
       <div id="log">
       <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      <a href=""> <button>cerrar sesion</button></a>
       </div>
-      <nav> 
-      <p>Buscador: <input type="search" name="busqueda" placeholder="gabinetes,fuentes,etc">
-      <button>Buscar</button>
-      </p>
-    </nav>
-    <nav>
-      <ul id="menu">
-        <li><a href="">COMPONENTES:</a>
+
         <ul>
           <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
           <li><a href="memorias">MEMORIAS RAM</a></li>
@@ -32,82 +28,82 @@
           <li><a href="gabinete">GABINETES</a></li>
           <li><a href="fuente">FUENTES</a></li>
         </ul>  
-      </li>
-      </ul>
-    </nav>
+
     </header>
     <section id="inicio">
-      <h1>Fuente De Alimentacion ASUS:</h1>
+      <h2>Fuente De Alimentacion ASUS:</h2>
       <div id="prod1">
       <% List<Producto> asus = (List<Producto>) request.getAttribute("asus"); %>
       		 <% for (int i = 0; i < asus.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodfue1.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal"><button>INFO</button></a>
-       	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a>
+       <img src="media/prodfue1.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=asus.get(i).getId()%>" class="boton">COMPRAR</a>
+       
+       	<a href="/carrito?idprod=<%=asus.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal2"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodfue2.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=asus.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodfue3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=asus.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal3"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodfue3.jpg" align="left"><p><%=asus.get(i).getDescripcion()%></p><p><font color="blue"><%=asus.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=asus.get(i).getId()%>" class="boton">COMPRAR</a>
+  
+        	<a href="/carrito?idprod=<%=asus.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%}
        } %>
     </div>
-    <h1>Fuente De Alimentacion Cooler Master:</h1>
+    <br>
+    <h2>Fuente De Alimentacion Cooler Master:</h2>
       <div id="prod1">
       <% List<Producto> cooler = (List<Producto>) request.getAttribute("cooler"); %>
       		 <% for (int i = 0; i < cooler.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodfue4.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal4"><button>INFO</button></a>
-       	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
+       <img src="media/prodfue4.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=cooler.get(i).getId()%>" class="boton">COMPRAR</a>
+       
+       	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue5.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal5"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodfue5.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=cooler.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodfue6.jpg" align="left"><p><%=cooler.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=cooler.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal6"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodfue6.jpg" align="left" ><p><%=cooler.get(i).getDescripcion()%></p><p><font color="blue"><%=cooler.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=cooler.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=cooler.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%}
        }%>
     </div>
-    <h1>Fuente Kolink:</h1>
+    <br>
+    <h2>Fuente Kolink:</h2>
       <div id="prod1">
       <% List<Producto> kolink = (List<Producto>) request.getAttribute("kolink"); %>
       		 <% for (int i = 0; i < kolink.size(); i++) { %>
        <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodfue7.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal7"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodfue7.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=kolink.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodfue8.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal8"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodfue8.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=kolink.get(i).getId()%>" class="boton">COMPRAR</a>
+   
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%} else { %>
       <div id="f">
-        <img src="media/prodfue9.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=kolink.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal9"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodfue9.jpg" align="left"><p><%=kolink.get(i).getDescripcion()%></p><p><font color="blue"><%=kolink.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=kolink.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=kolink.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%}
        }%>
@@ -116,7 +112,7 @@
     <footer>
     <div id="ayuda">
             <h2>AYUDA</h2>
-            <p>Si tenés sugerencias o comentarios</p>
+            <p>Si tenes sugerencias o comentarios</p>
             <a href="conta.php"><button>contactos</button></a>
             </div>
             <div id="conct">

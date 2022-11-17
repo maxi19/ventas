@@ -63,7 +63,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));
 				 productoResponse.setDescripcion(rs.getString(3));
-				 productoResponse.setPrecio(rs.getInt(6));
+				 productoResponse.setPrecio(rs.getInt(7));
 				 productoResponse.setStock(rs.getInt(6));
 				 productoResponse.setMarca(rs.getString(2));
 				 productoResponse.setNombre(rs.getString(3));

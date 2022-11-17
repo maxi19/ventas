@@ -1,25 +1,20 @@
 @charset "ISO-8859-1";
-
+@charset "ISO-8859-1";
 #body{
 	width: 1200px;
 	height: 100%;
 	background-color: rgb(0,0,0);
-	margin:auto;
+	margin: auto;
 }
 header{
 	width: 1200px;
-	height: cover;
-	overflow: auto;
-	justify-content: space-between;
-	align-items: center;
-	background: grey;
+	 background-color: #333;
 	border: 1px solid yellow;
 	}
 header #log{
-		width: 100px;
-		float: left;
+		width: 120px;
+		padding-top:10px;
 	}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -44,69 +39,82 @@ li a {
 li a:hover {
   background-color: #111;
 }
-  #productos{
+#inicio{
 	width: 100%;
-	height: 700px;
+	height: 100%;
 	background: black;
-	color: aliceblue;
 	border: 1px solid yellow;
 	padding-top: 15px;
+	color: white;
 }
-#Compras{
-	width: 80%;
-	height: 92%;
-	background: blackgrey;
-	color: aliceblue;
-	margin:auto;
-	border: 1px solid blue;
-	border-radius: 15px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
+#prod1{
+	width: 100%;
+	height: 410px;
+	border-top: 1px solid #1cd3e0;
 }
-footer{
-	width: 1200px;
-	height: cover;
-	overflow: auto;
-	justify-content: space-between;
-	align-items: center;
-	background: grey;
-	border: 1px solid yellow;
-	text-align: center;
-	color: aliceblue;
-	line-height: 170%;
-
-}
-footer button{
-	width: 100px;
-	height: 30px;
-	font-size: 15px;
-	background: #e01c1c;
-	color: aliceblue;
-}
-footer button:hover{
-	background: rgb(0, 20, 133);
-	color: rgb(200, 205, 50);
-	transition: all 0.2s linear;
-	-webkit-text-stroke: 0.1px white;
-  }
-footer #ayuda{
-	width: 230px;
-	border-right: 2px solid #949e94;   
-	border-left: 2px solid #949e94;
+#fuego{
+	border-radius: 8px;
+	width: 150px;
+	height: relative;
+	background: white;
+	color:black;
 	float: left;
-	margin-left: 250px;
+	margin: 1rem;
+	margin-left: 14rem;
+	background: #c0c0c0;
 }
-footer #conct{
-	width: 230px;  
-	float: left;
+#fuego img{
+	border-radius: 20px;
+	width: 150px;
+	height: 150px;
 }
-footer #ayuda2{
-	width: 230px;
-	border-right: 2px solid #949e94;   
-	border-left: 2px solid #949e94;
+.boton {
+  
+    background: rgb(19, 143, 247);
+    border: 1px solid #1161B0;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration:none;
+    float: left;
+}
+.boton2 {
+  
+    background: red;
+    border: 1px solid #1161B0;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration:none;
+    float: right;
+}
+#p{
+	background: #c0c0c0;
+	border-radius: 8px;
+	width: 150px;
+	height: relative;
+	color:black;
 	float: left;
+	margin: 1rem;
+	margin-left: 90px;
+}
+#p img{
+	border-radius: 20px;
+	width: 150px;
+	height: 150px;
+}
+#f{
+    background: #c0c0c0;
+	border-radius: 8px;
+	width: 150px;
+	height: relative;
+	color:black;
+	float: left;
+	margin: 1rem;
+	margin-left: 90px;
+}
+#f img{
+	border-radius: 20px;
+	width: 150px;
+	height: 150px;
 }
 footer{
 	width: 1200px;

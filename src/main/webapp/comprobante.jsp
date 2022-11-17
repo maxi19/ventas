@@ -14,7 +14,6 @@
 <body>
 
 <%
-//Producto producto =(Producto)request.getAttribute("producto");
 List<Item> items = (List<Item>) request.getAttribute("items");
 int totalFactura = (int) request.getAttribute("totalfactura");
 
@@ -39,7 +38,7 @@ int totalFactura = (int) request.getAttribute("totalfactura");
 		  <% for (int i = 0; i < items.size(); i++) { %>
 		    <tr>
 		      <th scope="row"><%=items.get(i).getProducto().getId() %></th>
-		      <td><%=items.get(i).getProducto().getNombre() %></td>
+		      <td><%=items.get(i).getProducto().getDescripcion() %></td>
 		      <td><%=items.get(i).getProducto().getPrecio() %></td>
 		      <td><%=items.get(i).getCantidad() %></td>
 		      <td><%=items.get(i).getTotal() %></td>

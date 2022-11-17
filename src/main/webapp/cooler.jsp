@@ -6,112 +6,108 @@
 <!DOCTYPE html>
   <html>
   <head>
-	  <title>Micropocesadores:
+	  <title>Coolers:
       </title>
-      <link rel="stylesheet" href="estilo2.css">
+      <link rel="stylesheet" href="style/estilo11.css">
+      <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="body">
     <header>
       <div id="log">
       <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      <a href=""><button>cerrar sesion</button></a>
       </div>
-      <nav> 
-      <p>Buscador: <input type="search" name="busqueda" placeholder="gabinetes,fuentes,etc">
-      <button>Buscar</button>
-      </p>
-    </nav>
-    <nav>
-      <ul id="menu">
-        <li><a href="">COMPONENTES:</a>
+      
         <ul>
-          <li><a href="discos.html">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
-          <li><a href="micro.html">PROCESADORES</a></li>
-          <li><a href="cooler.html">COOLERS</a></li>
-          <li><a href="placa.html">PLACAS MADRES</a></li>
-          <li><a href="gabinete.html">GABINETES</a></li>
-          <li><a href="fuente.html">FUENTES</a></li>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
         </ul>  
-      </li>
-      </ul>
-    </nav>
+     
     </header>
     <section id="inicio">
-      <h1>Coolers De ID-Cooling:</h1>
+      <h2>Coolers De ID-Cooling:</h2>
       <div id="prod1">
       <% List<Producto> ic = (List<Producto>) request.getAttribute("ic"); %>
       		 <% for (int i = 0; i < ic.size(); i++) { %>
  	    
  	    <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodcoo2.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p> <a href="/preparacion-venta?idproducto='<%ic.get(i).getId();%>'" >COMPRAR</a>
-		   <a href="#miModal"><button>INFO</button></a>
-		   		<a href="/carrito?idprod=<%=ic.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodcoo2.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p> <a href="/preparacion-venta?method=unidad&idproducto='<%ic.get(i).getId();%>" class="boton" >COMPRAR</a>
+		
+		   		<a href="/carrito?idprod=<%=ic.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
        <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo5.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=ic.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal2"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=ic.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodcoo5.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=ic.get(i).getId()%>" class="boton">COMPRAR</a>
+     
+        	<a href="/carrito?idprod=<%=ic.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
        <%} else { %>
       <div id="f">
-        <img src="media/prodcoo6.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=ic.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal3"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=ic.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodcoo6.jpg" align="left"><p><%=ic.get(i).getDescripcion()%></p><p><font color="blue"><%=ic.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=ic.get(i).getId()%>" class="boton">COMPRAR</a>
+        
+        	<a href="/carrito?idprod=<%=ic.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
         <%}
  	    } %>
     </div>
-    <h1>Coolers Master Hype:</h1>
+    <br>
+    <h2>Coolers Master Hype:</h2>
       <div id="prod1">
       <% List<Producto> mh = (List<Producto>) request.getAttribute("mh"); %>
       		 <% for (int i = 0; i < mh.size(); i++) { %>
  	    
  	    <%if (i == 0){%>
       <div id="fuego">
-       <img src="media/prodcoo7.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=mh.get(i).getId()%>" >COMPRAR</a>
-       <a href="#miModal4"><button>INFO</button></a> 
-       		<a href="/carrito?idprod=<%=mh.get(i).getId()%>">AGREGAR A CARRITO</a> 
+       <img src="media/prodcoo7.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=mh.get(i).getId()%>" class="boton">COMPRAR</a>
+      
+       		<a href="/carrito?idprod=<%=mh.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo8.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=mh.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal5"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=mh.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodcoo8.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=mh.get(i).getId()%>" class="boton">COMPRAR</a>
+   
+        	<a href="/carrito?idprod=<%=mh.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%} else { %>
       <div id="f">
-        <img src="media/prodcoo9.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=mh.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal6"><button>INFO</button></a> 
-        	<a href="/carrito?idprod=<%=mh.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodcoo9.jpg" align="left"><p><%=mh.get(i).getDescripcion()%></p><p><font color="blue"><%=mh.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=mh.get(i).getId()%>" class="boton">COMPRAR</a>
+     
+        	<a href="/carrito?idprod=<%=mh.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
        <%}
  	    } %>
     </div>
-    <h1>Coolers De Deepcool:</h1>
+    <br>
+    <h2>Coolers De Deepcool:</h2>
       <div id="prod1">
       <% List<Producto> dp = (List<Producto>) request.getAttribute("dp"); %>
       		 <% for (int i = 0; i < mh.size(); i++) { %>
  	    
  	    <%if (i == 0){%>
       <div id="fuego">
-        <img src="media/prodcoo.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=dp.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal7"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>">AGREGAR A CARRITO</a>
+        <img src="media/prodcoo.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=dp.get(i).getId()%>" class="boton">COMPRAR</a>
+ 
+        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>" class="boton2">CARRITO</a>
       </div>
       <%}else if(i == 1){%>
       <div id="p">
-        <img src="media/prodcoo4.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><br></br><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?idproducto=<%=dp.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal8"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodcoo4.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><a href="/preparacion-venta?method=unidad&idproducto=<%=dp.get(i).getId()%>" class="boton">COMPRAR</a>
+       
+        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
       <%} else { %>
       <div id="f">
-        <img src="media/prodcoo3.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><br></br><a href="/preparacion-venta?idproducto=<%=dp.get(i).getId()%>" >COMPRAR</a>
-        <a href="#miModal9"><button>INFO</button></a>
-        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>">AGREGAR A CARRITO</a> 
+        <img src="media/prodcoo3.jpg" align="left"><p><%=dp.get(i).getDescripcion()%></p><p><font color="blue"><%=dp.get(i).getPrecio()%></font></p><br></br><a href="/preparacion-venta?method=unidad&idproducto=<%=dp.get(i).getId()%>" class="boton">COMPRAR</a>
+     
+        	<a href="/carrito?idprod=<%=dp.get(i).getId()%>" class="boton2">CARRITO</a> 
       </div>
        <%}
  	    } %>

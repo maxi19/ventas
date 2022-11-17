@@ -4,22 +4,17 @@
 	width: 1200px;
 	height: 100%;
 	background-color: rgb(0,0,0);
-	margin:auto;
+	margin: auto;
 }
 header{
 	width: 1200px;
-	height: cover;
-	overflow: auto;
-	justify-content: space-between;
-	align-items: center;
-	background: grey;
+	 background-color: #333;
 	border: 1px solid yellow;
 	}
 header #log{
-		width: 100px;
-		float: left;
+		width: 120px;
+		padding-top:10px;
 	}
-
 ul {
   list-style-type: none;
   margin: 0;

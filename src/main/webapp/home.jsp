@@ -2,328 +2,105 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.List"%>
-	<%@page import="com.ventas.entity.Producto"%>
+
 <!DOCTYPE html>
   <html>
   <head>
 	  <title>Discos:
       </title>
-       <link rel="stylesheet" href="style/estilo2.css">
-      	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="style/estilo11.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body>
-  <div class="container mt-2" >
-	    <header>
-			<nav class="navbar navbar-dar bg-darkk">
-			 <div class="container">
-    			<a class="navbar-brand" href="#">Gestor de Stock</a>
-  			 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-  			     <li class="nav-item active">
-       				 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    			  </li>
-  			</ul>
-  			</div>
-			</nav>
-		 
- 
-	    </header>
-	    
-	    
-	    
-	     <section id="inicio">
-		<a class="btn btn-primary" href="/proxy?method=agregarInput" role="button">Agregar producto</a>
+  </head>
+  <body id="body">
+    <header>
+      <div id="log">
+      <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
+      </div>
+        <ul>
+          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
+        </ul>  
 
-	    	<%
-			List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-			%>
-				<table class="table">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th scope="col">Id</th>
-				      <th scope="col">Descripcion</th>
-				      <th scope="col">Marca</th>
-				      <th scope="col">Sprecio unitario</th>
-				      <th scope="col">Stock</th>
-				      <th scope="col">Acciones</th>
-				    </tr>
-				  </thead>
-			  <tbody>
-			 	 <% for (int i = 0; i < productos.size(); i++) { %>
-			    	<%if(productos.get(i).getStock() > 10) {%>
-					    <tr>
-					      <th scope="row"><%=productos.get(i).getId() %></th>
-					      <td><%=productos.get(i).getDescripcion() %></td>
-					      <td><%=productos.get(i).getMarca() %></td>
-					      <td><%=productos.get(i).getPrecio() %></td>
-					      <td><%=productos.get(i).getStock() %></td>
-					       <td>
-					        <a class="btn btn-primary" href="#" role="button">Stock</a>
-					        <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a> 
-					       </td>
-					    </tr>
-				    <%}else{%>
-				      <tr class="table-danger">
-					      <th scope="row"><%=productos.get(i).getId() %></th>
-					      <td><%=productos.get(i).getDescripcion() %></td>
-					      <td><%=productos.get(i).getMarca() %></td>
-					      <td><%=productos.get(i).getPrecio() %></td>
-					      <td><%=productos.get(i).getStock() %></td>
-					       <td>
-					        <a class="btn btn-primary" href="#" role="button">Stock</a>
-					        <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a> 
-					       </td>
-					    </tr>
-				    <%}%>
-			    <%} %>
-			    </tbody>
-		    </table>
-	    
-	    </section> 
-	    <footer>
-	    <div id="ayuda">
-	            <h2>AYUDA</h2>
-	            <p>Si tenes sugerencias o comentarios</p>
-	            <a href="#"><button>contactos</button></a>
-	            </div>
-	            <div id="conct">
-	              <center>
-	              <h2>REDES</h2>
-	              <a href="https://www.instagram.com/compragamer_oficial/"><img src="media/instagram.png" height="50" width="50" hspace="8"></a>
-	              <a href="https://twitter.com/CompraGamerOK"><img src="media/twitter.png" height="50" width="50" hspace="6"></a>
-	                  </center>
-	              </div>
-	            <div id="ayuda2">
-	              <h2>INFORMACION</h2>
-	              <p>acerca de nosotros:</p>
-	              <a href="#"><button>acerca de:</button></a>
-	              </div>
-	    </footer>
-	    <div id="miModal" class="modal">
-			<div class="modal-contenido">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 30 w</ul>
-	<ul>Tipo De Disco
-	Mecánico</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	64 mb</ul>
-	<ul>Velocidad De Rotación
-	7200 rpm</ul>
-	<ul>Velocidad De Interface
-	6.0</ul>
-	<ul>Capacidad
-	1000 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal2" class="modal">
-			<div class="modal-contenido2">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 8 w</ul>
-	<ul>Tipo De Disco
-	Mecánico</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	256 mb</ul>
-	<ul>Velocidad De Rotación
-	7200 rpm</ul>
-	<ul>Velocidad De Interface
-	6.0</ul>
-	<ul>Capacidad
-	8000 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal3" class="modal">
-			<div class="modal-contenido3">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 7 w</ul>
-	<ul>Tipo De Disco
-	Mecánico</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	64 mb</ul>
-	<ul>Velocidad De Rotación
-	5400 rpm</ul>
-	<ul>Velocidad De Interface
-	6.0</ul>
-	<ul>Capacidad
-	3000 gb</ul></hr>
-			</div>
-			</div>
-	</div>
-	<div id="miModal4" class="modal">
-			<div class="modal-contenido4">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 3 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	128 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Capacidad
-	200 tb</ul>
-	<ul>Vel Lectura Secuencial
-	520 mb/s</ul>
-	<ul>el Escritura Secuencial
-	470 mb/s</ul>
-	<ul>Terabytes Written
-	200 tb</ul>
-	<ul>Capacidad
-	240 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal5" class="modal">
-			<div class="modal-contenido5">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	  <ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 3 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	128 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Vel Lectura Secuencial
-	550 mb/s</ul>
-	<ul>el Escritura Secuencial
-	500 mb/s</ul>
-	<ul>Terabytes Written
-	800 tb</ul>
-	<ul>Capacidad
-	1000 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal6" class="modal">
-			<div class="modal-contenido6">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 4 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	128 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Vel Lectura Secuencial
-	550 mb/s</ul>
-	<ul>el Escritura Secuencial
-	500 mb/s</ul>
-	<ul>Vel Lectura Random
-	220000 iops</ul>
-	<ul>Vel Escritura Random
-	200000 iops</ul>
-	<ul>Terabytes Written
-	1000 tb</ul>
-	<ul>Capacidad
-	1000 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal7" class="modal">
-			<div class="modal-contenido7">
-	        <a href="#"><button>X</button></a>
-	        <hr>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	        <ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 2 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	0 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Vel Lectura Secuencial
-	460 mb/s</ul>
-	<ul>el Escritura Secuencial
-	360 mb/s</ul>
-	<ul>Terabytes Written
-	40 tb</ul>
-	<ul>Capacidad
-	120 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal8" class="modal">
-			<div class="modal-contenido8">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 2 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	0 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Vel Lectura Secuencial
-	530 mb/s</ul>
-	<ul>el Escritura Secuencial
-	400 mb/s</ul>
-	<ul>Vel Lectura Random
-	28000 iops</ul>
-	<ul>Vel Escritura Random
-	51000 iops</ul>
-	<ul>Terabytes Written
-	80 tb</ul>
-	<ul>Capacidad
-	240 gb</ul></hr>
-			</div>
-	</div>
-	<div id="miModal9" class="modal">
-			<div class="modal-contenido9">
-	        <a href="#"><button>X</button></a>
-	        <h1>CARACTERISTICAS GENERALES</h1>
-	  <hr>      
-	<ul>Tipo De Conexión SATA</ul>
-	<ul>Consumo 6 w</ul>
-	<ul>Tipo De Disco
-	Solido</ul></hr>
-	<h1>RENDIMIENTO</h1>
-	<hr><ul>Memoria Cache
-	128 mb</ul>
-	<ul>Velocidad De Rotación
-	00 rpm</ul>
-	<ul>Velocidad De Interface
-	0.0</ul>
-	<ul>Vel Lectura Secuencial
-	5600 mb/s</ul>
-	<ul>Vel Escritura Secuencial
-	4300 mb/s</ul>
-	<ul>Capacidad
-	1000 gb</ul></hr>
-			</div>
-	</div>
-</div>
+    </header>
+    
+     <section id="inicio">
+			      <a href=""> <button>cerrar sesion</button></a>
+			      <a class="btn btn-primary" href="/proxy?method=agregarInput" role="button">Agregar producto</a>
+			      
+			           <%
+                       List<Producto> productos = (List<Producto>) request.getAttribute("productos");
+                      %>
+                       <table class="table">
+							<thead class="thead-primary">
+							<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Descripcion</th>
+							<th scope="col">Marca</th>
+							<th scope="col">Sprecio unitario</th>
+							<th scope="col">Stock</th>
+							<th scope="col">Acciones</th>
+							</tr>
+							</thead>
+								<tbody>
+								<% for (int i = 0; i < productos.size(); i++) { %>
+								<%if(productos.get(i).getStock() > 10) {%>
+								<tr class ="table-light">
+								<th scope="row"><%=productos.get(i).getId() %></th>
+								<td><%=productos.get(i).getDescripcion() %></td>
+								<td><%=productos.get(i).getMarca() %></td>
+								<td><%=productos.get(i).getPrecio() %></td>
+								<td><%=productos.get(i).getStock() %></td>
+								<td>
+								     <a class="btn btn-primary" href="#" role="button">Stock</a>
+                                     <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a>
+                               </td>
+							</tr>
+							<%}else{%>
+							<tr class="table-danger">
+								<th scope="row"><%=productos.get(i).getId() %></th>
+								<td><%=productos.get(i).getDescripcion() %></td>
+								<td><%=productos.get(i).getMarca() %></td>
+								<td><%=productos.get(i).getPrecio() %></td>
+								<td><%=productos.get(i).getStock() %></td>
+								<td>
+                                 <a class="btn btn-primary" href="#" role="button">Stock</a>
+                                 <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a>
+                                </td>
+							</tr>
+							<%}%>
+							<%} %>
+							</tbody>
+					</table>
+			      		      
+    </section>
+    <footer>
+    <div id="ayuda">
+            <h2>AYUDA</h2>
+            <p>Si tenes sugerencias o comentarios</p>
+            <a href="conta.php"><button>contactos</button></a>
+            </div>
+            <div id="conct">
+              <center>
+              <h2>REDES</h2>
+              <a href="https://www.instagram.com/compragamer_oficial/"><img src="media/instagram.png" height="50" width="50" hspace="8"></a>
+              <a href="https://twitter.com/CompraGamerOK"><img src="media/twitter.png" height="50" width="50" hspace="6"></a>
+                  </center>
+              </div>
+            <div id="ayuda2">
+              <h2>INFORMACION</h2>
+              <p>acerca de nosotros:</p>
+              <a href="acerca.php"><button>acerca de:</button></a>
+              </div>
+    </footer>
+
+
   </body>
   </html>

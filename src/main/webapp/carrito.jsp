@@ -9,36 +9,24 @@
   <head>
 	  <title>Discos:
       </title>
-      <link rel="stylesheet" href="style/estilo9.css">
+      <link rel="stylesheet" href="style/estilo12.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="body">
     <header>
       <div id="log">
       <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      <a href=""> <button>cerrar sesion</button></a>
       </div>
-      <nav> 
-      <p>Buscador: <input type="search" name="busqueda" placeholder="gabinetes,fuentes,etc">
-      <button>Buscar</button>
-      </p>
-    </nav>
-    <nav>
-      <ul id="menu">
-        <li><a href="">COMPONENTES:</a>
-        <ul>
+       <ul>
           <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="ram.html">MEMORIAS RAM</a></li>
-          <li><a href="micro.html">PROCESADORES</a></li>
-          <li><a href="cooler.html">COOLERS</a></li>
-          <li><a href="placa.html">PLACAS MADRES</a></li>
-          <li><a href="gabinete.html">GABINETES</a></li>
-          <li><a href="fuente.html">FUENTES</a></li>
-        </ul>  
-      </li>
-      </ul>
-    </nav>
+          <li><a href="memorias">MEMORIAS RAM</a></li>
+          <li><a href="micro">PROCESADORES</a></li>
+          <li><a href="cooler">COOLERS</a></li>
+          <li><a href="placa">PLACAS MADRES</a></li>
+          <li><a href="gabinete">GABINETES</a></li>
+          <li><a href="fuente">FUENTES</a></li>
+     </ul>
     </header>
   <section id="productos">
   <div id="Compras">
@@ -70,10 +58,8 @@
 		   </table>	
 	</center>
 	
-	<button type="button" class="btn btn-danger"> <a  href="/preparacion-venta?method=listado">   Confirmar compra  </a></button>
-	<button type="button" class="btn btn-primary"><a  href="/discos"> Continuar agregando </a></button>
-	
-
+	<a class="btn btn-danger" href="/preparacion-venta?method=listado" role="button">Confirmar compra</a>
+	<a class="btn btn-primary" href="/discos" role="button">Continuar agregando</a>		
   </div>
   </section>
   
@@ -82,7 +68,7 @@
     <footer>
     <div id="ayuda">
             <h2>AYUDA</h2>
-            <p>Si tenés sugerencias o comentarios</p>
+            <p>Si tenes sugerencias o comentarios</p>
             <a href="conta.php"><button>contactos</button></a>
             </div>
             <div id="conct">

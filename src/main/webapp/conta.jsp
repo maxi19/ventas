@@ -60,7 +60,7 @@
     <footer>
     <div id="ayuda">
             <h2>AYUDA</h2>
-            <p>Si tenés sugerencias o comentarios</p>
+            <p>Si tenes sugerencias o comentarios</p>
             <a href="conta.php"><button>contactos</button></a>
             </div>
             <div id="conct">

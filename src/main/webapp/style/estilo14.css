@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+#body{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: black;
+}
+#SI{
+    width: 40%;
+    margin: auto;
+    background-color: #333;
+    margin-top: 100px;
+    border-radius: 2%;
+    color: white;
+    border: 2px solid yellow;
+}
+
+button{
+	color: black;
+	font: oblique bold 110% cursive;
+    border-radius: 5px;
+}
+button{
+	font-weight: 600;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+button:hover {
+  background: yellow;
+  color: royalblue;
+  transition: all 0.2s linear;
+  border-radius: 5px;
+  -webkit-text-stroke: 0.4px white;
+}
+@media(max-width: 700px){
+	form{
+		flex-direction: column;
+	}
+	button{
+		padding: 0px 0px;
+	}
+}
+form{
+  width: 95%;
+  margin: auto;
+  background-color: #333;
+  color: rgb(255, 255, 255);
+  border-radius: 2%;
+  margin: auto;
+}
