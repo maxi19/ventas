@@ -26,7 +26,7 @@ import com.ventas.entity.Tipo;
 import com.ventas.excepciones.MercaditoException;
 
 @WebServlet(urlPatterns = { "/productos"})
-public class ListadoServlet extends HttpServlet {
+public class ProductosServlet extends HttpServlet {
 
 	/**
 	 * 

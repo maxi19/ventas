@@ -8,14 +8,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Productos</title>
-	  <title>producto:</title>
+	<meta charset="ISO-8859-1">
+	<title>Productos</title>
       <link rel="stylesheet" href="style/estilo11.css">
       <!-- CSS only -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		<!-- JavaScript Bundle with Popper -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/522c77665c.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
       	<%
@@ -37,23 +38,25 @@
 	    <% } %>
 	    </ul>
   </nav>
-  <section id="inicio">
-    <div class="container">
+  <div class="inicio">
+    <div class="container bg-black mt-2">
     	<% for (Map.Entry<String, List<Producto>> entry : mapa.entrySet()) { %>
     		     <h2><%=entry.getKey()%></h2>
     		    <div class ="col-sm col-xs-12">
     		  
     		   <div class="row">
     		<%for(Producto producto : entry.getValue()  ){ %>
-    		 	  <div class="card" style="width: 18rem;">
-    		 	  <div class="card-header">
+    		 	  <div class="card m-2" style="width: 18rem;">
+    		 	  <div class="card-header bg-gradient-light">
     		 	  	<img class="card-img-top" src="media/proddisco.jpg" alt="Card image cap">
     		 	  </div>
 				  <div class="card-body">
 				    <h5 class="card-title">$ <%=producto.getPrecio()%></h5>
 				    <p class="card-text"><%=producto.getDescripcion()%></p>
-				    <a href="/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary">Comprar unidad</a>
-				    <a href="/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning">Agregar a carrito</a>
+							  </div>
+				  <div class="card-footer">
+				  	 	<a href="/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary d-inline"><i class="far fa-credit-card"></i></a>
+				    	<a href="/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning d-inline"><i class="fas fa-cart-plus"></i></a>
 				  </div>
 				</div>
     	    <% } %>
@@ -62,7 +65,7 @@
     	    <br>
     	<% } %>
     </div>
-   </section>
+   </div>
     <div class="footer">
     <div class = "container">
     <div class ="row">
