@@ -1,2 +1,18 @@
 @charset "ISO-8859-1";
 @charset "ISO-8859-1";
+
+.footer{
+	margin-top:4px;
+	margin-left:2px;
+	margin-bottom:10px;
+	display: flex;
+	background-color: #212529;
+	color: white;
+}
+
+.footer .box{
+	width: 33%;
+    float: left;
+    padding-left: 15px;
+    padding-bottom: 4px;
+}
