@@ -1,6 +1,8 @@
-<%@page import="com.ventas.entity.Producto"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="com.ventas.entity.Producto"%>
+     <%@page import="com.ventas.entity.Tipo"%>
     <%@page import="java.util.List"%>
 
 
@@ -11,23 +13,23 @@
 	  <title>Discos:</title>
       <link rel="stylesheet" href="style/estilo11.css">
       <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
   <body id="body">
     <header>
       <div id="log">
       <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
       </div>
+      	<% List<Tipo> tipos = (List<Tipo>) request.getAttribute("tipos"); %>
       <ul>
-          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="memorias">MEMORIAS RAM</a></li>
-          <li><a href="micro">PROCESADORES</a></li>
-          <li><a href="cooler">COOLERS</a></li>
-          <li><a href="placa">PLACAS MADRES</a></li>
-          <li><a href="gabinete">GABINETES</a></li>
-          <li><a href="fuente">FUENTES</a></li>
+         
+      		 <% for (int i = 0; i < tipos.size(); i++) { %>
+      		 
+          <li><a href="/<%=tipos.get(i).getNombre()%>"><%=tipos.get(i).getValue()%></a></li>
+           
+           <% } %>
      </ul>
     </header>
      <section id="inicio">

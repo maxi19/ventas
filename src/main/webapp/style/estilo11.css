@@ -15,13 +15,7 @@ header #log{
 		width: 120px;
 		padding-top:10px;
 	}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+
 
 li {
   float: left;
@@ -45,7 +39,6 @@ li a:hover {
 	background: black;
 	border: 1px solid yellow;
 	padding-top: 15px;
-	color: white;
 }
 #prod1{
 	width: 100%;

@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <filter>
+    <filter-name>filter</filter-name>
+    <filter-class>com.ventas.controller.ServletFilter</filter-class>
+  </filter>
+  
+   <filter-mapping>
+	    <filter-name>filter</filter-name>
+	    <url-pattern>/*</url-pattern>
+   	    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+	  <init-param>
+	  <param-name>compilerSourceVM</param-name>
+	  <param-value>1.8</param-value>
+	</init-param>
+	<init-param>
+	  <param-name>compilerTargetVM</param-name>
+	  <param-value>1.8</param-value>
+	</init-param>
+  
 </web-app>

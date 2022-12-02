@@ -15,7 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import com.ventas.dao.ProductoDao;
 import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.TipoDao;
+import com.ventas.dao.TipoDaoImpl;
 import com.ventas.entity.Producto;
+import com.ventas.excepciones.MercaditoException;
 
 
 

@@ -482,7 +482,7 @@ public class ProductoDaoImpl implements ProductoDao {
 
 
 	
-	public List<Producto> listarProductosPorTipo() throws SQLException {
+	public List<Producto> listarProductosPorTipo() throws MercaditoException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
@@ -501,15 +501,17 @@ public class ProductoDaoImpl implements ProductoDao {
 				 productos.add(producto);
 			}
 				
-		 }catch (Exception e) {
-			// TODO: handle exception
+		 }catch (SQLException e) {
+			 throw new MercaditoException("");
 		}finally {
-			st.close();
-			rs.close();
+			finalizarConexion(st, rs);
 		}
 		 
 		return productos;
 	}
+	
+	
+	
 	private void finalizarConexion(Statement st, ResultSet rs) {
 		try {
 			st.close();
@@ -526,6 +528,7 @@ public class ProductoDaoImpl implements ProductoDao {
 
 		 Statement st =null;
 		 ResultSet rs = null;
+
 		 try{
 			st = conexion.dameConnection().createStatement();
 		    st.getConnection().setAutoCommit(false);
@@ -544,6 +547,58 @@ public class ProductoDaoImpl implements ProductoDao {
 		}
 		
 		
+	}
+
+
+	@Override
+	public List<String> listarMarcas() throws MercaditoException {
+	
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<String> marcas = null;
+
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery("INSERT DISTINCT marca from productos");
+			marcas= new ArrayList<String>();
+			while (rs.next()) {
+				marcas.add(rs.getString(1));
+			}
+		 }catch (SQLException e) {
+			throw new MercaditoException("Error al obtener las marcas");
+		}finally {
+			finalizarConexion(st, rs);
+		}
+		return marcas;
+	}
+
+
+	@Override
+	public List<Producto> listarProductosPorTipo(String tipo) throws MercaditoException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where tipo = '"+tipo+"' order by marca");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setDescripcion(rs.getString(3));
+				 producto.setPrecio(rs.getInt(7));
+				 producto.setMarca(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (SQLException e) {
+		 System.out.println(e.getMessage());
+		 }finally {
+			finalizarConexion(st, rs);
+		}
+		 
+		return productos;
 	}
 
 

@@ -24,7 +24,10 @@ public interface ProductoDao {
 	 List<Producto> listarProductosMemoriaAdata() throws SQLException;
 	 Producto obtenerProcucto(int idProducto) throws  MercaditoException;
 	 void modificarStock (Producto producto, int cantidad) throws MercaditoException;
-	 List<Producto> listarProductosPorTipo() throws SQLException;
+	 List<Producto> listarProductosPorTipo() throws MercaditoException;
+	 List<String> listarMarcas() throws MercaditoException;
+	 List<Producto> listarProductosPorTipo(String tipo) throws MercaditoException;
+
 	 
 	 void agregarProducto(Producto producto) throws MercaditoException;
 

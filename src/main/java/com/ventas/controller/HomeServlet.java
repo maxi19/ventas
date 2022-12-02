@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.ventas.dao.ProductoDao;
 import com.ventas.dao.ProductoDaoImpl;
 import com.ventas.entity.Producto;
+import com.ventas.excepciones.MercaditoException;
 
 @WebServlet(urlPatterns = { "/home"})
 public class HomeServlet extends HttpServlet{
@@ -38,7 +39,7 @@ public class HomeServlet extends HttpServlet{
 		List<Producto> productos = null;
 		try {
 			productos = servicio.listarProductosPorTipo();
-		} catch (SQLException e) {
+		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
