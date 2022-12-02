@@ -59,7 +59,7 @@
 	</center>
 	
 	<a class="btn btn-danger" href="/preparacion-venta?method=listado" role="button">Confirmar compra</a>
-	<a class="btn btn-primary" href="/discos" role="button">Continuar agregando</a>		
+	<a class="btn btn-primary" href="/productos" role="button">Continuar agregando</a>		
   </div>
   </section>
   

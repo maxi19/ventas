@@ -52,8 +52,8 @@
 				  <div class="card-body">
 				    <h5 class="card-title">$ <%=producto.getPrecio()%></h5>
 				    <p class="card-text"><%=producto.getDescripcion()%></p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				    <a href="#" class="btn btn-warning">Go somewhere</a>
+				    <a href="/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary">Comprar unidad</a>
+				    <a href="/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning">Agregar a carrito</a>
 				  </div>
 				</div>
     	    <% } %>

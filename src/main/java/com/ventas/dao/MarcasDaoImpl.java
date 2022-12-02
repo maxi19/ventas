@@ -61,7 +61,7 @@ public class MarcasDaoImpl implements MarcasDao {
 		 Marca marca = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery("select * from tipo_marca where tipo=1");
+			rs = st.executeQuery("select * from tipo_marca where tipo=".concat(String.valueOf(categoria)));
 			marcas = new ArrayList<Marca>();
 			 while (rs.next()) {
 				 marcas.add(obtenerMarca(rs.getInt(3)));

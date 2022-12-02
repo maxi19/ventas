@@ -574,14 +574,14 @@ public class ProductoDaoImpl implements ProductoDao {
 
 
 	@Override
-	public List<Producto> listarProductosPorTipo(String tipo) throws MercaditoException {
+	public List<Producto> listarProductosPorTipo(int categoria) throws MercaditoException {
 		 Statement st =null;
 		 ResultSet rs = null;
 		 List<Producto> productos = null;
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos where tipo = '"+tipo+"' order by marca");
+			rs = st.executeQuery ("select * from productos where categoria = '"+categoria+"' order by marca");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();
