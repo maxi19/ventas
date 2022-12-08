@@ -10,19 +10,19 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Productos</title>
-      <link rel="stylesheet" href="style/estilo11.css">
       	<!-- CSS only -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+      	<link rel="stylesheet" href="style/estilo11.css">
+      	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-		<script src="https://kit.fontawesome.com/522c77665c.js" crossorigin="anonymous"></script>
+        <!-- js only -->
+	 	<script src="scripts/jquery-3.6.0.js"></script>
+ 		<script src="scripts/jquery1.13.2-ui.js"></script>
+ 		<script src="scripts/customs.js"></script>
 </head>
 <body>
-      	<%
-      	List<Tipo> tipos = (List<Tipo>) request.getAttribute("tipos");
-      	List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-      	Map<String,List<Producto>> mapa = (HashMap<String,  List<Producto> >) request.getAttribute("mapa");
-      	int contador = 0; 
-      	%>
+  	<%
+  	List<Tipo> tipos = (List<Tipo>) request.getAttribute("tipos");
+  	%>
 <div class="container">   
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
  	<a class="navbar-brand" href="inicio.html">
@@ -36,32 +36,39 @@
 	    <% } %>
 	    </ul>
   </nav>
-    <div class="container bg-black mt-2">
-    	<% for (Map.Entry<String, List<Producto>> entry : mapa.entrySet()) { %>
-    		     <h2><%=entry.getKey()%></h2>
-    		    <div class ="col-sm col-xs-12">
-    		  
-    		   <div class="row">
-    		<%for(Producto producto : entry.getValue()  ){ %>
-    		 	  <div class="card m-2" style="width: 18rem;">
-    		 	  <div class="card-header bg-gradient-light">
-    		 	  	<img class="card-img-top" src="media/proddisco.jpg" alt="Card image cap">
-    		 	  </div>
-				  <div class="card-body">
-				    <h5 class="card-title">$ <%=producto.getPrecio()%></h5>
-				    <p class="card-text"><%=producto.getDescripcion()%></p>
-							  </div>
-				  <div class="card-footer">
-				  	 	<a href="/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary d-inline"><i class="far fa-credit-card"></i></a>
-				    	<a href="/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning d-inline"><i class="fas fa-cart-plus"></i></a>
-				  </div>
-				</div>
-    	    <% } %>
-    	      </div>
-    	     </div>
-    	    <br>
-    	<% } %>
-    </div>
+	
+	
+    <div class="container bg-black mt-2 mh-100" id="cuerpo" >
+		 <div class="row" >
+		 <div class="col-sm-5">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Categoria</label>
+		    <input type="text" class="form-control" id="caegoria-na,e" aria-describedby="nombre de categoria" placeholder="nombre de categoria">
+		    <small id="emailHelp" class="form-text text-muted">nombre de categoria.</small>
+		  </div>
+		  <div class="ui-widget">
+		  <div class="form-group mb-3">
+		    <label for="productos">productos</label>
+		    <input type="text" class="form-control" id="tags" aria-describedby="nombre de producto" placeholder="nombre de producto" value="D">
+		  	<small id="emailHelp" class="form-text text-muted">nombre del producto.</small>
+		 	<input id="prodId" name="prodId" type="hidden" value="">
+		 
+		  </div>
+		</div>
+		<div class="form-group">
+		  <button  style="float: right;" class="btn btn-primary" id="btnAgregar" >Agregar categoria</button>		  
+		</div>
+		</div>
+		<div class="col-sm-7">
+				<ol id="selectable">
+
+				</ol>
+		</div>
+		</div>
+		
+	
+
+	</div>
     <div class="footer">   
       <div class="box">
 	    <h2>AYUDA</h2>

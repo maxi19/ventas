@@ -27,6 +27,7 @@ public interface ProductoDao {
 	 List<Producto> listarProductosPorTipo() throws MercaditoException;
 	 List<String> listarMarcas() throws MercaditoException;
 	 List<Producto> listarProductosPorTipo(int categoria) throws MercaditoException;
+	 List<Producto> buscarProductoPorLetra(String buscar) throws MercaditoException;
 
 	 
 	 void agregarProducto(Producto producto) throws MercaditoException;

@@ -16,3 +16,12 @@
     padding-left: 15px;
     padding-bottom: 4px;
 }
+
+#cuerpo{
+	height:400px;
+}
+
+#selectable{
+	text-align: right;
+	color: white;
+}

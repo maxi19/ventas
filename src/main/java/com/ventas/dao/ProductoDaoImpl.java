@@ -602,6 +602,33 @@ public class ProductoDaoImpl implements ProductoDao {
 	}
 
 
+	@Override
+	public List<Producto> buscarProductoPorLetra(String buscar) throws MercaditoException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select Id, nombre from productos where nombre like '"+buscar+"%' limit 10");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto();
+				 producto.setId(rs.getInt(1));
+				 producto.setNombre(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (SQLException e) {
+		 System.out.println(e.getMessage());
+		 }finally {
+			finalizarConexion(st, rs);
+		}
+		 
+		return productos;
+	}
+
+
 	
 	
 }
