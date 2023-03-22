@@ -58,8 +58,8 @@
 		   </table>	
 	</center>
 	
-	<a class="btn btn-danger" href="/preparacion-venta?method=listado" role="button">Confirmar compra</a>
-	<a class="btn btn-primary" href="/productos" role="button">Continuar agregando</a>		
+	<a class="btn btn-danger" href="<%= request.getContextPath() %>/preparacion-venta?method=listado" role="button">Confirmar compra</a>
+	<a class="btn btn-primary" href="<%= request.getContextPath() %>/productos" role="button">Continuar agregando</a>		
   </div>
   </section>
   

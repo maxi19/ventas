@@ -53,7 +53,7 @@ int totalFactura = (int) request.getAttribute("totalfactura");
 	
  </div>
  
- <a class="btn btn-danger" href="/productos" role="button">Ir a inicio</a>
+ <a class="btn btn-danger" href="<%= request.getContextPath() %>/productos" role="button">Ir a inicio</a>
  
 
 </body>

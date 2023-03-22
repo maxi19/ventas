@@ -23,7 +23,7 @@ boolean soloProducto = (boolean) request.getAttribute("soloProducto");
 <div id="SI">
 <center><h2>Confirmar Compra</h2></center>
 <hr></hr>
-	<form  action="/finalizarVenta" method="post">
+	<form  action="<%= request.getContextPath() %>/finalizarVenta?" method="post">
 		  <table class="table">
 		   <thead>
 				<tr>

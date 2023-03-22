@@ -40,13 +40,13 @@ public class LoginServlet extends HttpServlet{
 				//verificamos si la pass es la misma que en base si no lanzamos una excepcion y redirec.
 				if (usuario.getPassword().equals(passwordIngresado)){
 					misession.setAttribute("usuario", usuario);
-					resp.sendRedirect("/home");
+					resp.sendRedirect("/Ventas/home");
 				}else {
 					throw new MercaditoException("Datos ingresados incorrectos");
 				}
 					     
 				} catch (MercaditoException e) {
-					resp.sendRedirect("/error.jsp");
+					resp.sendRedirect("/Ventas/error.jsp");
 				}
 	
 	}		

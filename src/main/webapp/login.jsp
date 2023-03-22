@@ -16,7 +16,7 @@
     <div id="SI">
     <a href=""><img src="media/logo.png"  align="right" width="120" hight="60" alt="logo"></a>
     <h1>Iniciar:</h1>
-	    <form  action="/login?" method="POST">
+	    <form  action="<%= request.getContextPath() %>/login?" method="POST">
 	    	<h3>Email:</h3>
 			<input type="text"placeholder="Usuario" name="user" id="email" >
 			<h3>Password:</h3>

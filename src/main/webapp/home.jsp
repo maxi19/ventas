@@ -17,7 +17,7 @@
     
      <section id="inicio">
 			      <a href=""> <button>cerrar sesion</button></a>
-			      <a class="btn btn-primary" href="/proxy?method=agregarInput" role="button">Agregar producto</a>
+			      <a class="btn btn-primary" href="<%= request.getContextPath() %>/proxy?method=agregarInput" role="button">Agregar producto</a>
 			      
 			           <%
                        List<Producto> productos = (List<Producto>) request.getAttribute("productos");

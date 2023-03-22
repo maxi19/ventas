@@ -2,11 +2,11 @@ package com.ventas.entity;
 
 public class Item {
 	
-	Producto producto;
+	private Producto producto;
 	
-	int cantidad;
+	private int cantidad;
 	
-	int total;
+	private int total;
 
 	public Item(Producto producto){
 		cantidad = 1;

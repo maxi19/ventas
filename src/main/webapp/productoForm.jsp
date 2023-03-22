@@ -28,7 +28,7 @@
 	    </header>
 	    
 	     <section id="inicio">
-			<form action="/agregar" method="Post" class="mt-4 mb-3">
+			<form action="<%= request.getContextPath() %>/agregar" method="Post" class="mt-4 mb-3">
 			  <div class="form-group">
 			    <label for="formGroupExampleInput">Nombre</label>
 			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de producto">

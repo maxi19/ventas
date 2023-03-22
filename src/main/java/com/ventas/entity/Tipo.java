@@ -2,7 +2,6 @@ package com.ventas.entity;
 
 public class Tipo {
 
-	
 	public int id;
 	private String nombre;
 	private String value;
@@ -26,7 +25,4 @@ public class Tipo {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	
-	
 }

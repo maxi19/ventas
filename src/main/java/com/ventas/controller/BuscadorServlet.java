@@ -26,8 +26,8 @@ public class BuscadorServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	ProductoDao dao = new ProductoDaoImpl();
-    Logger logger = LoggerFactory.getLogger(BuscadorServlet.class);
+	private ProductoDao dao = new ProductoDaoImpl();
+    private Logger logger = LoggerFactory.getLogger(BuscadorServlet.class);
     
 	
 	@Override

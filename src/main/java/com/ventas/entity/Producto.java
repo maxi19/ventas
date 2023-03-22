@@ -95,6 +95,4 @@ public class Producto implements Facturable {
 		item.setProducto(this);
 		return item;
 	}
-	
-
 }

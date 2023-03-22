@@ -1,14 +1,15 @@
 <%@page import="java.util.Map"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="com.ventas.entity.Producto"%>
 <%@page import="com.ventas.entity.Tipo"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" /> 
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
 	<title>Productos</title>
       <link rel="stylesheet" href="style/estilo11.css">
       	<!-- CSS only -->
@@ -31,7 +32,7 @@
  	    <ul class="navbar-nav mr-auto mt-2 mt-lg-1">
 	   	<% for (int i = 0; i < tipos.size(); i++) { %> 
 	       <li class="nav-item">
-	       		<a href="/<%=tipos.get(i).getNombre()%>" class="nav-link"><%=tipos.get(i).getValue()%></a>
+	       		<a href="<%= request.getContextPath() %>/<%=tipos.get(i).getNombre()%>" class="nav-link"><%=tipos.get(i).getValue()%></a>
 	       </li>
 	    <% } %>
 	    </ul>
@@ -52,8 +53,8 @@
 				    <p class="card-text"><%=producto.getDescripcion()%></p>
 							  </div>
 				  <div class="card-footer">
-				  	 	<a href="/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary d-inline"><i class="far fa-credit-card"></i></a>
-				    	<a href="/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning d-inline"><i class="fas fa-cart-plus"></i></a>
+				  	 	<a href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-primary d-inline"><i class="far fa-credit-card"></i></a>
+				    	<a href="<%= request.getContextPath() %>/carrito?idprod=<%=producto.getId()%>" class="btn btn-warning d-inline"><i class="fas fa-cart-plus"></i></a>
 				  </div>
 				</div>
     	    <% } %>
@@ -62,6 +63,7 @@
     	    <br>
     	<% } %>
     </div>
+    
     <div class="footer">   
       <div class="box">
 	    <h2>AYUDA</h2>

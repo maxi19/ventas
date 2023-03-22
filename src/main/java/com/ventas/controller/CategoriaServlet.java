@@ -13,7 +13,7 @@ import com.ventas.entity.Producto;
 
 public class CategoriaServlet extends HttpServlet{
 	
-	ProductoDao productoDao = new ProductoDaoImpl();
+	private ProductoDao productoDao = new ProductoDaoImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
