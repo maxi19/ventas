@@ -66,7 +66,7 @@ public class VentaServlet extends HttpServlet {
 				dao.quitarStock(cantidad, producto.getId());
 				ventasDao.registrarVentaItem(producto.toItem(cantidad), nombreYapellido, direccion, "00000001-00000001",modoPago);			
 			}
-	
+			
 		} catch (MercaditoException e) {
 			e.printStackTrace();
 		}

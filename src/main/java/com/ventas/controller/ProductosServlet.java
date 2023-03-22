@@ -32,13 +32,11 @@ public class ProductosServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	TipoDao tipoDao = new TipoDaoImpl();
-	ProductoDao productosDao = new ProductoDaoImpl();
-	MarcasDao marcasDao = new MarcasDaoImpl();
-	
-	List<Producto> productos  = null;
-
-	Map<String, List<Producto>> mapa = null;
+	private TipoDao tipoDao = new TipoDaoImpl();
+	private ProductoDao productosDao = new ProductoDaoImpl();
+	private MarcasDao marcasDao = new MarcasDaoImpl();
+	private List<Producto> productos  = null;
+	private Map<String, List<Producto>> mapa = null;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -76,10 +74,6 @@ public class ProductosServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 		}
-			
-			
-		
-		
 		dispatcher.forward(req, resp);
 	}
 

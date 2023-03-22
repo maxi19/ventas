@@ -63,8 +63,8 @@ public class ProductoDaoImpl implements ProductoDao {
 				 productoResponse = new Producto();
 				 productoResponse.setId(rs.getInt(1));
 				 productoResponse.setDescripcion(rs.getString(3));
-				 productoResponse.setPrecio(rs.getInt(7));
-				 productoResponse.setStock(rs.getInt(6));
+				 productoResponse.setPrecio(rs.getInt(8));
+				 productoResponse.setStock(rs.getInt(7));
 				 productoResponse.setMarca(rs.getString(2));
 				 productoResponse.setNombre(rs.getString(3));
 			} 
@@ -90,7 +90,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -118,7 +118,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -146,7 +146,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -174,7 +174,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -202,7 +202,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -230,7 +230,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -258,7 +258,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -286,7 +286,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -315,7 +315,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -342,7 +342,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));;
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -369,7 +369,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -417,9 +417,9 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
-				 producto.setStock(rs.getInt(6));
+				 producto.setStock(rs.getInt(7));
 				 return producto;
 			}
 			
@@ -466,7 +466,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
@@ -495,9 +495,9 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
-				 producto.setStock(rs.getInt(6));
+				 producto.setStock(rs.getInt(7));
 				 productos.add(producto);
 			}
 				
@@ -581,13 +581,14 @@ public class ProductoDaoImpl implements ProductoDao {
 		 Producto producto = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from productos where categoria = '"+categoria+"' order by marca");
+			rs = st.executeQuery ("select id, marca, nombre, descripcion, tipo, cantidad, stock, "
+					+ "precio,categoria from productos where categoria = '"+categoria+"' order by marca");
 			productos = new ArrayList<Producto>();
 			 while (rs.next()) {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setDescripcion(rs.getString(3));
-				 producto.setPrecio(rs.getInt(7));
+				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 productos.add(producto);
 			}
