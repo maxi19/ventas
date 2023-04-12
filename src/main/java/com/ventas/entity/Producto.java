@@ -15,7 +15,41 @@ public class Producto implements Facturable {
 	private int stock;
 	
 	private int tipo;
+	
+	private boolean visiblePortada;
+	
+	public Producto(int id, String marca, String nombre, int precio, String descripcion, int stock, int tipo) {
+		super();
+		this.id = id;
+		this.marca = marca;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.stock = stock;
+		this.tipo = tipo;
+	}
+	
+	
+	public Producto(int id, String nombre, String descripcion, int stock,int precio, int tipo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.stock = stock;
+		this.tipo = tipo;
+	}
 
+
+	public Producto(int id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
+	
+	public Producto() {
+		
+	}
 	public int getTipo() {
 		return tipo;
 	}
@@ -82,9 +116,17 @@ public class Producto implements Facturable {
 	}
 	
 	
-	public Producto() {
-		
+	
+
+	public boolean isVisiblePortada() {
+		return visiblePortada;
 	}
+
+
+	public void setVisiblePortada(boolean visiblePortada) {
+		this.visiblePortada = visiblePortada;
+	}
+
 
 	@Override
 	public Item toItem(int cantidad) {

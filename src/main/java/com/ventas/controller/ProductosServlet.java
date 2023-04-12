@@ -1,9 +1,12 @@
 package com.ventas.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
@@ -42,20 +45,27 @@ public class ProductosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/producto.jsp");
 
-		String categoria =(String)req.getParameter("cateogoria");
-		if (categoria == null) {
-			categoria = "1";
-		}
+	
 		
 		try {
 			
-			//obtenemos el tipo
-			Tipo tipo =tipoDao.obtenerTipo(Integer.parseInt(categoria));
+			List<Producto> productosPortada = new ArrayList<Producto>();  
+			productosPortada = productosDao.listarProductosPortada();
 			
-			//obtenemos las marcas asociadas
-			List<Marca> marcasAsociadas = solicitarProductosPorCategoria(tipo);	
 			
-			filtrarListadoSolicitado(marcasAsociadas);
+			
+			//obtenemos el tipo-producto
+			//Tipo tipo =tipoDao.obtenerTipo(Integer.parseInt(categoria));
+			
+			//Set<Tipo> categorias = new HashSet<Tipo>(tipoDao.obtenerTipos());
+			//if (categorias == null)
+			//	throw new MercaditoException("no hay tipos disponibles");
+			
+			
+			//obtenemos las marcas asociadas a las categorias
+			//List<Marca> marcasAsociadas = solicitarProductosPorCategoria(tipo);	
+			
+			//filtrarListadoSolicitado(marcasAsociadas);
 			
 			
 			HttpSession misession= req.getSession(true);	
@@ -66,8 +76,8 @@ public class ProductosServlet extends HttpServlet {
 			}
 			
 			
-			req.setAttribute("mapa", mapa);
-			req.setAttribute("productos", productos);
+			//req.setAttribute("mapa", mapa);
+			req.setAttribute("productos", productosPortada);
 			
 			
 		} catch (MercaditoException e) {

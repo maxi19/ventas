@@ -498,7 +498,8 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto.setPrecio(rs.getInt(8));
 				 producto.setMarca(rs.getString(2));
 				 producto.setStock(rs.getInt(7));
-				 productos.add(producto);
+				 producto.setVisiblePortada(rs.getBoolean(10));
+				 productos.add(producto); 	
 			}
 				
 		 }catch (SQLException e) {
@@ -516,6 +517,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		try {
 			st.close();
 			rs.close();
+			System.out.println("Se cierra la conexion");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -617,6 +619,31 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto = new Producto();
 				 producto.setId(rs.getInt(1));
 				 producto.setNombre(rs.getString(2));
+				 productos.add(producto);
+			}
+				
+		 }catch (SQLException e) {
+		 System.out.println(e.getMessage());
+		 }finally {
+			finalizarConexion(st, rs);
+		}
+		 
+		return productos;
+	}
+
+
+	@Override
+	public List<Producto> listarProductosPortada() throws MercaditoException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 List<Producto> productos = null;
+		 Producto producto = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery ("select * from productos where portada = 1");
+			productos = new ArrayList<Producto>();
+			 while (rs.next()) {
+				 producto = new Producto(rs.getInt(1), rs.getString(3),rs.getString(4),rs.getInt(7), rs.getInt(8),rs.getInt(9));
 				 productos.add(producto);
 			}
 				

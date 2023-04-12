@@ -45,6 +45,11 @@
 								<td>
 								     <a class="btn btn-primary" href="#" role="button">Stock</a>
                                      <a class="btn btn-outline-danger" href="#" role="button">Eliminar</a>
+                                   <%if(productos.get(i).isVisiblePortada()){%>
+                                	  <a class="btn btn-outline-danger" href="#" role="button">Desactivar Portada</a>
+                                	  <%}else{%>
+    								 <a class="btn btn-outline-warning" href="#" role="button">Activar Portada</a>
+                                   		<%}%>
                                </td>
 							</tr>
 							<%}else{%>

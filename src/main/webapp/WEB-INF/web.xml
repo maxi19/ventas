@@ -3,25 +3,46 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Gestor de ventas productos</display-name>
+  
+  <servlet>
+        <servlet-name>home-productos</servlet-name>
+        <servlet-class>com.ventas.controller.ProductosServlet</servlet-class>
+    </servlet>
+  <servlet-mapping>
+        <servlet-name>home-productos</servlet-name>
+        <url-pattern>/Ventas/catalogo</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+        <servlet-name>comprobante-compra</servlet-name>
+        <servlet-class>com.ventas.controller.ComprobanteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>comprobante-compra</servlet-name>
+        <url-pattern>/mi-comprobante</url-pattern>
+  </servlet-mapping>
+    
   
   <filter>
-    <filter-name>filter</filter-name>
+    <filter-name>filtro</filter-name>
     <filter-class>com.ventas.controller.ServletFilter</filter-class>
   </filter>
   
    <filter-mapping>
-	    <filter-name>filter</filter-name>
+	    <filter-name>filtro</filter-name>
 	    <url-pattern>/*</url-pattern>
    	    <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
-	  <init-param>
+  
+  
+  <init-param>
 	  <param-name>compilerSourceVM</param-name>
 	  <param-value>1.8</param-value>
-	</init-param>
+	  </init-param>
 	<init-param>
 	  <param-name>compilerTargetVM</param-name>
-	  <param-value>1.8</param-value>
+	  <param-value>11</param-value>
 	</init-param>
   
 </web-app>

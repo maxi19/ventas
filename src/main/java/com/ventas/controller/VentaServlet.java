@@ -59,8 +59,10 @@ public class VentaServlet extends HttpServlet {
 		});
 		//rd.forward(req, resp);
 		
-		resp.sendRedirect("/Ventas/comprobante?");
+		resp.sendRedirect("/mi-comprobante?");
 	}
+	
+	
 	private void procesarVenta(int idProducto, String nombreYapellido, String direccion, int cantidad, int modoPago) {
 		try {	
 			Producto producto = dao.obtenerProcucto(idProducto);
