@@ -1,0 +1,47 @@
+   .listado{
+   	display: flex;
+   	flex-direction: column;
+   	flex-wrap: wrap;
+   }
+   
+   .articulo{
+    display: flex;
+    flex-basis: 33.333333%
+   }
+   .card-body{
+     text-align: center;
+   }
+
+  .card-boton{
+     text-decoration: none;
+   }
+
+   .card-pie{
+     overflow: hidden;
+    }
+
+  .card{
+   	display: flex;
+   	flex-direction: column;
+   }
+
+  .card button{
+   width: 100%;
+  }
+
+   .card-header{
+     text-align: center;
+   }
+
+   .card-header p{
+    font-size: 3rem;
+   }
+
+     @media screen and (  min-width: 1024px) and (max-width:2000px) {
+     .listado{
+      flex-wrap: wrap;
+      display: flex;
+      flex-direction: row;
+     }
+     
+    }
