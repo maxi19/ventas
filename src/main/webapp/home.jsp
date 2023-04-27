@@ -15,7 +15,7 @@
   </head>
   <body id="body">
     
-     <section id="inicio">
+     <section class="tabla-productos-home">
 			      <a href=""> <button>cerrar sesion</button></a>
 			      <a class="btn btn-primary" href="<%= request.getContextPath() %>/proxy?method=agregarInput" role="button">Agregar producto</a>
 			      
@@ -70,24 +70,6 @@
 					</table>
 			      		      
     </section>
-     <div class="footer">   
-      <div class="box">
-	    <h2>AYUDA</h2>
-	    <p>Si tenes sugerencias o comentarios</p>
-	    <a href="conta.php"><button>contactos</button></a>
-	   </div>
-	   <div class="box" >
-         <h2>REDES</h2>
-         <a href="https://www.instagram.com/compragamer_oficial/"><img src="media/instagram.png" height="50" width="50" hspace="8"></a>
-         <a href="https://twitter.com/CompraGamerOK"><img src="media/twitter.png" height="50" width="50" hspace="6"></a>
-	   </div>
-	   <div class="box" >
-          <h2>INFORMACION</h2>
-          <p>acerca de nosotros:</p>
-          <a href="acerca.php"><button>acerca de:</button></a>
-	   </div>
-    </div>  
-
 
   </body>
   </html>

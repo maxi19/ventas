@@ -1,26 +1,49 @@
 package com.ventas.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
-import com.ventas.entity.Producto;
+import com.google.gson.Gson;
+import com.ventas.dao.CategoriaDao;
+import com.ventas.dao.CategoriaDaoImpl;
+import com.ventas.entity.Categoria;
 
+@WebServlet(urlPatterns = { "/categorias"})
 public class CategoriaServlet extends HttpServlet{
 	
-	private ProductoDao productoDao = new ProductoDaoImpl();
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private CategoriaDao categoriaDao = new CategoriaDaoImpl();
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		try {
+			resp.setContentType("application/json");
+	        resp.addHeader("pragma", "no-cache");
+	        resp.addDateHeader("Expires", -1);
+	        resp.setCharacterEncoding("UTF-8");
+	        PrintWriter out = resp.getWriter();
+			
+			List<Categoria> categorias =  categoriaDao.obtenerCategoria();
 		
+			String json = new Gson().toJson(categorias);
+			out.println(json);
+	        out.close();
 		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		

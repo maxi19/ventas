@@ -20,10 +20,13 @@ List<Item> items = (List<Item>) request.getAttribute("items");
 boolean soloProducto = (boolean) request.getAttribute("soloProducto");
 
 %>
-<div id="SI">
-<center><h2>Confirmar Compra</h2></center>
-<hr></hr>
-	<form  action="<%= request.getContextPath() %>/finalizarVenta?" method="post">
+
+<div class="container vh-100">
+	<%@ include file="common/header.jsp" %> 
+
+	<p>Confirmar Compra<p>
+
+	<form action="<%= request.getContextPath() %>/finalizarVenta?" method="post">
 		  <table class="table">
 		   <thead>
 				<tr>
@@ -71,6 +74,8 @@ boolean soloProducto = (boolean) request.getAttribute("soloProducto");
 	      <%} %>
 	    <button>Confirmar compra</button>
 	 </form>
- </div>
+ 
+ 	<%@ include file="common/footer.jsp" %> 
+</div>
 </body>
 </html>

@@ -19,9 +19,9 @@ int totalFactura = (int) request.getAttribute("totalfactura");
 
 %>
 
-<div class="container mt-4">
-
-<center><h2>Comprobante de compra</h2></center>
+ <div class="container vh-100">
+	<%@ include file="common/header.jsp" %> 
+	<p>Comprobante de compra</p>
 
 	<div>
 		<table class="table">
@@ -55,6 +55,8 @@ int totalFactura = (int) request.getAttribute("totalfactura");
  
  <a class="btn btn-danger" href="<%= request.getContextPath() %>/productos" role="button">Ir a inicio</a>
  
-
+ <%@ include file="common/footer.jsp" %> 
+ 
+</div>
 </body>
 </html>

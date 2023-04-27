@@ -14,20 +14,12 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
   <body id="body">
-    <header>
-      <div id="log">
-      <a href="inicio.html"><img src="media/logo.png"  align="left" width="120" hight="60" alt="logo"></a>
-      </div>
-       <ul>
-          <li><a href="discos">DISCOS DE ALMACENAMIENTO</a></li>
-          <li><a href="memorias">MEMORIAS RAM</a></li>
-          <li><a href="micro">PROCESADORES</a></li>
-          <li><a href="cooler">COOLERS</a></li>
-          <li><a href="placa">PLACAS MADRES</a></li>
-          <li><a href="gabinete">GABINETES</a></li>
-          <li><a href="fuente">FUENTES</a></li>
-     </ul>
-    </header>
+	<div class="container vh-100">
+	<%@ include file="common/header.jsp" %> 
+	
+    
+    
+    
   <section id="productos">
   <div id="Compras">
   <center><h1>carrito de compras</h1>
@@ -64,25 +56,7 @@
   </section>
   
   
-  
-    <footer>
-    <div id="ayuda">
-            <h2>AYUDA</h2>
-            <p>Si tenes sugerencias o comentarios</p>
-            <a href="conta.php"><button>contactos</button></a>
-            </div>
-            <div id="conct">
-              <center>
-              <h2>REDES</h2>
-              <a href="https://www.instagram.com/compragamer_oficial/"><img src="media/instagram.png" height="50" width="50" hspace="8"></a>
-              <a href="https://twitter.com/CompraGamerOK"><img src="media/twitter.png" height="50" width="50" hspace="6"></a>
-                  </center>
-              </div>
-            <div id="ayuda2">
-              <h2>INFORMACION</h2>
-              <p>acerca de nosotros:</p>
-              <a href="acerca.php"><button>acerca de:</button></a>
-              </div>
-    </footer>
+  <%@ include file="common/footer.jsp" %> 
+  </div>
   </body>
   </html>

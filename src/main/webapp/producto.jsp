@@ -5,9 +5,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
-<%
-      	List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-%>
+<%List<Producto> productos = (List<Producto>) request.getAttribute("productos");%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" /> 
 <!DOCTYPE html>
 <html lang="en">

@@ -37,6 +37,14 @@
     font-size: 3rem;
    }
 
+	.tabla-productos-home{
+		margin-top: 30px;
+	}
+	
+	.form-crear-producto{
+		display: flex;
+		flex-direction: column;
+	}
      @media screen and (  min-width: 1024px) and (max-width:2000px) {
      .listado{
       flex-wrap: wrap;
@@ -45,3 +53,22 @@
      }
      
     }
+    
+    
+    .form-login{
+    	display : flex;
+    	border: 1px;
+    	padding: 2px 4px;
+    	flex-direction: column;
+	}
+    
+	.form-back{
+		width: 30rem;
+		border-radius: 10px;	
+	}
+	
+	.div-form-login{
+	    display: flex;
+	    justify-content: center;
+	}
+

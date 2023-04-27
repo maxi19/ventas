@@ -534,15 +534,16 @@ public class ProductoDaoImpl implements ProductoDao {
 		 try{
 			st = conexion.dameConnection().createStatement();
 		    st.getConnection().setAutoCommit(false);
-			st.executeUpdate("INSERT INTO productos(marca,nombre,tipo,cantidad,stock,precio) "
-					+ "VALUES('"+producto.getMarca()+"','"+producto.getDescripcion()+"',"+producto.getTipo()+",0,"+producto.getStock()+","+producto.getPrecio()+")");
+		
+			st.executeUpdate("INSERT INTO productos("
+					+ "marca,nombre,descripcion,stock,precio,categoria,portada) "
+					+ "VALUES('"+producto.getMarca()+"','"+producto.getDescripcion()+"','"+producto.getDescripcion()+"', "+producto.getStock()+","+producto.getPrecio()+","+producto.getTipo()+","+1+")");
 		    st.getConnection().commit();
 		 }catch (Exception e) {
 			try {
 				st.getConnection().rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
 			}
 		}finally {
 			cerrarStatement(st);
