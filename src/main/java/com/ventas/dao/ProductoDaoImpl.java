@@ -658,6 +658,30 @@ public class ProductoDaoImpl implements ProductoDao {
 	}
 
 
+	@Override
+	public void eliminarProducto(String idProducto) throws MercaditoException {
+		
+		Statement st =null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			st.executeUpdate("DELETE from productos WHERE id=" + Integer.parseInt(idProducto) );			
+			
+		 }catch (SQLException ex) {
+			 System.out.println("Error en el borrado : producto id -> "+ idProducto);
+			 throw new  MercaditoException("Error en consulta tabla productos : producto id -> " + idProducto) ;
+		 } finally {
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		
+		
+	}
+
+
 	
 	
 }

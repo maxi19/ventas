@@ -8,8 +8,9 @@ public interface CategoriaDao {
 
 	public List<Categoria> obtenerCategoria() throws Exception;
 	
-	public Boolean existeCategoriaAsociadoAMarca(Integer idCategoria, Integer idMarca) throws Exception;
+	public void existeCategoriaAsociadoAMarca(Integer idCategoria, Integer idMarca) throws Exception;
 	
-	public Boolean asociarCategoriaAMarca(Integer idCategoria, Integer idMarca) throws Exception;
+	public void asociarCategoriaAMarca(Integer idCategoria, Integer idMarca) throws Exception;
 
+	
 }

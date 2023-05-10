@@ -1,19 +1,20 @@
-<%@page import="com.ventas.entity.Marca"%>
-<%@page import="com.ventas.entity.Producto"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
   <html>
   <head>
 	  <title>Ingreso de nuevo producto</title>
         <link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	     <link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+
  		<script src="scripts/jquery/jquery-3.6.4.min.js" ></script>
 		<script src="scripts/bootstrap/js/bootstrap.bundle.min.js" ></script>
 		<script src="scripts/bootstrap/js/bootstrap.bundle.min.js.map" ></script>
 		<script src="scripts/bootstrap/js/browser-polyfill.min.js.map" ></script>
+		<script src="scripts/jquery/jquery1.13.2-ui.js" ></script>
+
 		<script src="scripts/scripts.js"></script>
 	</head>
 
@@ -32,50 +33,23 @@
   			</div>
 			</nav>
 	    </header>
+
 	    
 	     <section class="form-crear-producto">
-			<form action="<%= request.getContextPath() %>/agregarProducto" method="Post" class="mt-4 mb-3">
+			<form action="<%= request.getContextPath() %>/agregarCategoria" method="Post" class="mt-4 mb-3">
 			  <div class="form-group mb-3">
-			    <label for="formGroupExampleInput">Nombre</label>
-			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de producto">
+			    <label for="formGroupExampleInput">Nombre de categoria</label>
+			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de categoria">
 			  </div>
 			  
-			  <div class="form-group mb-3">
-			    <label for="formGroupExampleInput">Marca</label>
-			    <div id ="marcas"></div>
-			    <input type="hidden" name="marca-hidden" value="">
-			  </div>
 			  
-			   <div class="form-group mb-3">
-			    <label for="exampleFormControlSelect1">Tipo</label>
-			    <div id ="categorias"></div>
-			    <input type="hidden" name="categoria-hidden" value="">
-			  </div>
-			  
-			   <div class="form-group mb-3">
-			    <label for="formGroupExampleInput">Stock</label>
-			    <input type="text" class="form-control" id="stock" name = "stock" placeholder="Stock inicial">
-			  </div>
-			  
-			  <div class="form-group mb-2">
-			    <label for="formGroupExampleInput">Precio</label>
-			    <input type="text" class="form-control" id="precio" name = "precio" placeholder="Precio del producto">
-			  </div>
-			  	  
-			  <div class="form-group mb-3">
-  				<label for="formFile" class="form-label">imagen</label>
-  				<input class="form-control" type="file" id="fichero">
-			  </div>
 
 			<div class="alert alert-danger alert-dismissible fade hide" role="alert">
-				<p>hola mundo</p>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>  
 			</div>
 			  
-			  <div class="form-group mb-3">
-  				<img id="img" src="" />
-			  </div>	  	
+
 				
 			  <div class="form-group mb-3">
 			  	 <label class="form-label" id ="texto"></label>
@@ -87,6 +61,20 @@
 			 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   				Launch demo modal
 			</button>
+
+
+<div class="row">
+		<div class="col-md-3">
+			<div id="email-html"></div>
+			<input type="hidden" name="emails" id="emails"/>
+		</div>
+		<div class="col-md-3">
+			<div class="ui-widget">
+			  <input id="tags">  
+			</div>
+		</div>
+	</div>
+
 
 				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.css.map">
 				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">

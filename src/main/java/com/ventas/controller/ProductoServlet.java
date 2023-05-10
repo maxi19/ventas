@@ -17,6 +17,7 @@ import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
 
+
 @WebServlet(urlPatterns = { "/agregarProducto"})
 public class ProductoServlet extends GenericServlet{
 
@@ -38,35 +39,29 @@ public class ProductoServlet extends GenericServlet{
 		String marca = (String)req.getParameter("marca");
 		String precio = (String)req.getParameter("precio");
 		
+		
+		Producto p = new Producto();
+		
+		p.setDescripcion(nombre);
+		p.setStock(Integer.parseInt(stock));
+		p.setTipo(Integer.parseInt(tipo));
+		p.setPrecio(Integer.parseInt(precio));
+		Integer marcaId = Integer.decode(marca);
+		p.setMarca(marca);
 		//verificamos si existe la categoria
 		
 		try {
-			Boolean existe = categoriaDao.existeCategoriaAsociadoAMarca(Integer.decode(tipo), Integer.decode(marca));
-			if (existe) {
-				Producto p = new Producto();
-				p.setDescripcion(nombre);
-				p.setStock(Integer.parseInt(stock));
-				p.setTipo(Integer.parseInt(tipo));
-				p.setPrecio(Integer.parseInt(precio));
-				p.setMarca(marca);
-				productoDao.agregarProducto(p);
-			}
+			 categoriaDao.existeCategoriaAsociadoAMarca(Integer.decode(tipo), Integer.decode(marca));
+		
 		
 		} catch (Exception e1) {
-
+			//categoriaDao.asociarCategoriaAMarca(p.getTipo(), marcaId);
+		} 
+		finally {
+			 productoDao.agregarProducto(p);	
 		}
-		
 		
 	
-		
-		
-		try {
-			resp.sendRedirect("/home");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		
 		
 	}

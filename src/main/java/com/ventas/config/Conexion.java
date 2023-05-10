@@ -43,11 +43,8 @@ public class Conexion {
 			System.out.println("Error al intentar conectar a la base");
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 	

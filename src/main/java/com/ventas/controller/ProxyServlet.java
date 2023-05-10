@@ -29,17 +29,17 @@ public  class ProxyServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		RequestDispatcher dispatcher;
 		misession = req.getSession(true);
 		if (misession.getAttribute("usuario") == null) {
-			resp.sendRedirect("/discos");	
+			resp.sendRedirect("/login.jsp");	
 		}
 		
 		if (misession.getAttribute("usuario") != null && req.getParameter("method") != null) {
 			String metodo = (String)req.getParameter("method");	
 			//si aprentamos el boton agregar producto
 			if (metodo.equals("agregarInput")) {
-				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/productoForm.jsp");
+				dispatcher = this.getServletContext().getRequestDispatcher("/productoForm.jsp");
 				try {
 				
 				List<Marca> marcas = marcasDao.listarMarcas();
@@ -49,6 +49,10 @@ public  class ProxyServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
+				dispatcher.forward(req, resp);
+			}else if (metodo.equals("agregarCategoria")) {
+				dispatcher = this.getServletContext().getRequestDispatcher("/categoriaForm.jsp");
 				
 				dispatcher.forward(req, resp);
 			}

@@ -54,24 +54,19 @@ public class CategoriaDaoImpl implements CategoriaDao {
 
 
 
-	public Boolean existeCategoriaAsociadoAMarca(Integer idCategoria, Integer idMarca) throws Exception {
+	public void existeCategoriaAsociadoAMarca(Integer idCategoria, Integer idMarca) throws Exception {
 		 Statement st =null;
 		 ResultSet rs = null;
-		 
 		 try{
 			st = conexion.dameConnection().createStatement();
 			rs = st.executeQuery ("select tipo, marca "
 					+ "from tipo_marca where tipo =" + idCategoria +" and marca="+idMarca );
 			if (rs.first()) {
-				return true;
+				throw new Exception("no existe marca asociada a esa categoria");
 			}
-			throw new Exception("no existe marca asociada a esa categoria");
-		 }catch (Exception e) {
-
 		 }finally {
 			finalizarConexion(st, rs);
 		}
-		return null;	 
 	}
 
 
@@ -79,22 +74,18 @@ public class CategoriaDaoImpl implements CategoriaDao {
 
 
 	@Override
-	public Boolean asociarCategoriaAMarca(Integer idCategoria, Integer idMarca) throws Exception {
+	public void asociarCategoriaAMarca(Integer idCategoria, Integer idMarca) throws Exception {
 		 Statement st =null;
 		 ResultSet rs = null;
-		 
 		 try{
 			st = conexion.dameConnection().createStatement();
 			rs = st.executeQuery ("inset into (tipo, marca) "
 					+ "values("+idCategoria+" , "+idMarca+")");
-			
-			throw new Exception("no existe marca asociada a esa categoria");
 		 }catch (Exception e) {
-
+			 System.out.println("No fue posible asociar la categoria con la marca");
 		 }finally {
 			finalizarConexion(st, rs);
-		}
-		return null;	 
+		}	 
 	}
 	
 }
