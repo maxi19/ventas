@@ -3,14 +3,14 @@ CREATE DATABASE mercado;
 USE mercado;
 CREATE TABLE productos (
 	`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    `marca` VARCHAR(45) NOT NULL,
+    `id_marca` INT NOT NULL,
+    `titulo` VARCHAR (30) NOT NULL,
     `nombre` VARCHAR (100) NOT NULL,
-    `descripcion` VARCHAR(800) NOT NULL,
-    `tipo` VARCHAR(45) NOT NULL,
-    `cantidad` INT,
+    `id_categoria` INT,
     `stock` INT NOT NULL,
     `precio` double NOT NULL,
-    `categoria` INT NOT NULL
+    `descripcion` VARCHAR(800) ,
+    `origen` VARCHAR(15) 
 );
 
 CREATE TABLE usuarios (

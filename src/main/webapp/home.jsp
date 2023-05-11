@@ -16,7 +16,7 @@
   </head>
   </head>
   <body id="body">
-    
+
      <section class="tabla-productos-home">
 			      <a href=""> <button>cerrar sesion</button></a>
 			      <a class="btn btn-primary" href="<%= request.getContextPath() %>/proxy?method=agregarInput" role="button">Agregar producto</a>
@@ -74,6 +74,7 @@
 					</table>
 			      		      
     </section>
+
 
   </body>
   </html>
