@@ -35,38 +35,17 @@ public class ProductosServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private TipoDao tipoDao = new TipoDaoImpl();
 	private ProductoDao productosDao = new ProductoDaoImpl();
-	private MarcasDao marcasDao = new MarcasDaoImpl();
-	private List<Producto> productos  = null;
-	private Map<String, List<Producto>> mapa = null;
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/producto.jsp");
-
 	
-		
 		try {
 			
 			List<Producto> productosPortada = new ArrayList<Producto>();  
 			productosPortada = productosDao.listarProductosPortada();
-			
-			
-			
-			//obtenemos el tipo-producto
-			//Tipo tipo =tipoDao.obtenerTipo(Integer.parseInt(categoria));
-			
-			//Set<Tipo> categorias = new HashSet<Tipo>(tipoDao.obtenerTipos());
-			//if (categorias == null)
-			//	throw new MercaditoException("no hay tipos disponibles");
-			
-			
-			//obtenemos las marcas asociadas a las categorias
-			//List<Marca> marcasAsociadas = solicitarProductosPorCategoria(tipo);	
-			
-			//filtrarListadoSolicitado(marcasAsociadas);
-			
 			
 			HttpSession misession= req.getSession(true);	
 
@@ -75,8 +54,6 @@ public class ProductosServlet extends HttpServlet {
 				req.setAttribute("carrito", pedidos);
 			}
 			
-			
-			//req.setAttribute("mapa", mapa);
 			req.setAttribute("productos", productosPortada);
 			
 			
@@ -87,18 +64,6 @@ public class ProductosServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 
-	private List<Marca> solicitarProductosPorCategoria(Tipo tipo) throws MercaditoException {
-		List<Marca> marcasAsociadas = marcasDao.listarMarcasPorTipo(tipo.getId());
-		productos = productosDao.listarProductosPorTipo(tipo.getId());
-		return marcasAsociadas;
-	}
 
-	private void filtrarListadoSolicitado(List<Marca> marcasAsociadas) {
-		mapa = new HashMap<String,List<Producto>>();
-		marcasAsociadas.forEach(x->{
-		mapa.put(x.getMarca(),productos.stream().filter(
-				data -> data.getMarca().equals(x.getMarca())).collect(Collectors.toList()) );
-		});
-	}
 
 }

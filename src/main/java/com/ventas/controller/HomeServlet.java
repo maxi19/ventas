@@ -33,12 +33,12 @@ public class HomeServlet extends HttpServlet{
 
 		//valida si no existe una session, entonces redirecionamos
 		if (misession.getAttribute("usuario") == null) {
-			resp.sendRedirect("/discos");	
+			resp.sendRedirect("/productos");	
 		}
 		
 		List<Producto> productos = null;
 		try {
-			productos = servicio.listarProductosPorTipo();
+			productos = servicio.listarProductosPorCategoria();
 		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

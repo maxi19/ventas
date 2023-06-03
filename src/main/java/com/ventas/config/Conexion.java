@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
+import org.apache.log4j.*;
 
 public class Conexion {
 
@@ -20,15 +20,13 @@ public class Conexion {
 	private static final String USUARIO = "root";
 	private static final String PASSWORD = "admin";
 	
-	
-	
+	final static Logger logger = Logger.getLogger(Conexion.class);
+
 	private static Conexion instance = Conexion.getInstance();
 	 
 	private Connection conn;
 	
-	private Conexion() {
-		
-	}
+	private Conexion() {}
 	
 	public Connection dameConnection() {
 		
@@ -36,11 +34,11 @@ public class Conexion {
 			Class.forName(DRIVER);
 			conn = DriverManager.getConnection(URL+"/"+ DBNAME+TIMEZONE, USUARIO, PASSWORD);
 			if (!conn.isClosed()) {
-				System.out.println("conectado a la base de datos");
+				logger.info("conectado a la base de datos");
 			}	
 			return conn;
 		} catch (ClassNotFoundException e) {
-			System.out.println("Error al intentar conectar a la base");
+			logger.error("Error al intentar conectar a la base");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();

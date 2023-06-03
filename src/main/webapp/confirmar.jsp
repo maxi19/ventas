@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Confirmar venta</title>
-<link rel="stylesheet" href="style/estilo10.css">
+<link rel="stylesheet" href="style/style.css">
       <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
@@ -21,9 +21,12 @@ boolean soloProducto = (boolean) request.getAttribute("soloProducto");
 
 %>
 
-<div class="container vh-100">
-	<%@ include file="common/header.jsp" %> 
-
+	<section class="container-fluid mt-1">
+		<%@ include file="common/header.jsp" %> 
+	</section>
+	
+	<main class="container">
+	
 	<p>Confirmar Compra<p>
 
 	<form action="<%= request.getContextPath() %>/finalizarVenta?" method="post">
@@ -74,8 +77,9 @@ boolean soloProducto = (boolean) request.getAttribute("soloProducto");
 	      <%} %>
 	    <button>Confirmar compra</button>
 	 </form>
- 
- 	<%@ include file="common/footer.jsp" %> 
-</div>
+	</main>
+ 	<section>
+		<%@ include file="common/footer.jsp" %> 
+	</section>
 </body>
 </html>

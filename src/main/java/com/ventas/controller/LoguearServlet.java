@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -19,8 +21,8 @@ import com.ventas.dao.UsuariosDaoImpl;
 import com.ventas.entity.Usuario;
 import com.ventas.excepciones.MercaditoException;
 
-@WebServlet(urlPatterns = { "/loginV2"})
-public class LoginServletV2 extends HttpServlet{
+@WebServlet(urlPatterns = { "/login"})
+public class LoguearServlet extends HttpServlet{
 
 
 	
@@ -29,7 +31,8 @@ public class LoginServletV2 extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 	private UsuariosDao usuariosService = new UsuariosDaoImpl();
-	
+	static Logger log = Logger.getLogger(LoguearServlet.class);
+
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,12 +57,15 @@ public class LoginServletV2 extends HttpServlet{
 					throw new MercaditoException("El password es incorrecto");	
 				}	
 				misession.setAttribute("usuario", usuario);
+				log.info("Se inicia con usuario ->" + usuario.getUsuario());
+
 				obj.addProperty("estatus","ok");
+				
+				
 				obj.addProperty("msg","xewwxwew");
 				list.add(obj.getAsJsonObject());
 				out.print(list.toString());
 				out.flush();
-				
 				
 				} catch (MercaditoException e) {
 					obj.addProperty("msg",e.getMessage());

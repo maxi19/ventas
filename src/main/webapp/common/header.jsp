@@ -1,21 +1,27 @@
-  <div class="cabecera">
-       <nav class="navbar bg-dark mt-3">
-  		<div class="container-fluid">
-  			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-  			   <li class="nav-item">
-          			<a class="nav-link active" aria-current="page" href="#">Home</a>
-        		</li>
-  				<li class="nav-item">
-  						<a class="nav-link dropdown-toggle" id="navBarDropdown" data-bs-toggle="dropdown">Secciones</a> 
-			  			  <ul class="dropdown-menu" aria-labelledby="navBarDropdown">
-			  			  		<li><a class="dropdown-item" href="#">Discos rigidos</a></li>
-			  			  		<li><a class="dropdown-item" href="#">Microprocesadores</a></li>
-			  			  		<li><a class="dropdown-item" href="#">Memorias</a></li>
-			  			  		<li><a class="dropdown-item" href="#">Monitores</a></li>
-			  			  </ul>
-  				</li>
-  			</ul>
- 
-  		</div>
-       </nav>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Fixed navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav col-4 sm-12">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%=request.getContextPath()%>/iniciar">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%=request.getContextPath()%>/productos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+         <li class="nav-item">
+               <a class="nav-link" href="#"><span class="material-symbols-outlined">logout</span></a>
+         </li>
+      </ul>  
     </div>
+  </div>
+</nav>

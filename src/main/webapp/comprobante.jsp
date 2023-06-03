@@ -8,6 +8,8 @@
 <head>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style/style.css">
+	
 <meta charset="ISO-8859-1">
 <title>Comprobante de compra</title>
 </head>
@@ -19,8 +21,13 @@ int totalFactura = (int) request.getAttribute("totalfactura");
 
 %>
 
- <div class="container vh-100">
-	<%@ include file="common/header.jsp" %> 
+
+<section class="container-fluid mt-1">
+		<%@ include file="common/header.jsp" %> 
+</section>
+	
+	<main class="container">
+ 
 	<p>Comprobante de compra</p>
 
 	<div>
@@ -50,13 +57,13 @@ int totalFactura = (int) request.getAttribute("totalfactura");
 		<h3>Total de venta:</h3>
 	
 		<label>importe </label> <input type="text" name="importe" value="<%=totalFactura%>" disabled>
-	
- </div>
+	</div>
  
- <a class="btn btn-danger" href="<%= request.getContextPath() %>/productos" role="button">Ir a inicio</a>
+ 	<a class="btn btn-danger" href="<%= request.getContextPath() %>/productos" role="button">Ir a inicio</a>
  
- <%@ include file="common/footer.jsp" %> 
- 
-</div>
+	</main>
+	<section>
+		<%@ include file="common/footer.jsp" %> 
+	</section>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.ventas.controller;
+package com.ventas.controller.ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,9 +40,10 @@ public class MarcasServlet extends HttpServlet{
 			marcas = marcasDao.listarMarcas();
 			req.setAttribute("marcas", marcas);	
 			String json = new Gson().toJson(marcas);
-
+			System.out.println(json);
 			out.println(json);
 	        out.close();
+	        out.flush();
 
 		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block

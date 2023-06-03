@@ -17,9 +17,12 @@ import com.ventas.dao.ProductoDao;
 import com.ventas.dao.ProductoDaoImpl;
 import com.ventas.dao.VentasDao;
 import com.ventas.dao.VentasDaoImpl;
+import com.ventas.entity.Contacto;
 import com.ventas.entity.Item;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
+import com.ventas.service.VentaService;
+import com.ventas.service.VentaServiceImp;
 
 @WebServlet(urlPatterns = { "/finalizarVenta"})
 public class VentaServlet extends HttpServlet {
@@ -31,11 +34,13 @@ public class VentaServlet extends HttpServlet {
 
 	private ProductoDao dao =  new ProductoDaoImpl();
 
-	private VentasDao ventasDao = new VentasDaoImpl();	
+	private VentasDao ventasDao = new VentasDaoImpl();
+	
+	private VentaService ventaService = new VentaServiceImp();
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/comprobante");
 		HttpSession misession= req.getSession(true);	
 		List<Item> items =(List<Item>)misession.getAttribute("items");
 		 
@@ -52,28 +57,17 @@ public class VentaServlet extends HttpServlet {
 			String cantidadStr= (String) req.getParameter("cantidad");
 			cantidadProductos = Integer.parseInt(cantidadStr);
 			items.get(0).setCantidad(cantidadProductos);
-		}
-		
-		items.forEach((Item item)->{
-			procesarVenta(item.getProducto().getId(), nombreYapellido, direccion, item.getCantidad(), modoPago);
-		});
-		//rd.forward(req, resp);
+		}	
+			
+			try {
+				ventaService.procesarVenta(items, new Contacto(nombreYapellido, nombreYapellido, direccion) );
+			} catch (MercaditoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		resp.sendRedirect("/mi-comprobante?");
 	}
 	
-	
-	private void procesarVenta(int idProducto, String nombreYapellido, String direccion, int cantidad, int modoPago) {
-		try {	
-			Producto producto = dao.obtenerProcucto(idProducto);
-			if (cantidad <= producto.getStock()){
-				dao.quitarStock(cantidad, producto.getId());
-				ventasDao.registrarVentaItem(producto.toItem(cantidad), nombreYapellido, direccion, "00000001-00000001",modoPago);			
-			}
-			
-		} catch (MercaditoException e) {
-			e.printStackTrace();
-		}
-		
-	}
+
 }

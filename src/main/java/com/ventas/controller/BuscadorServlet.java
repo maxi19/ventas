@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.ventas.dao.ProductoDao;
@@ -27,7 +25,6 @@ public class BuscadorServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ProductoDao dao = new ProductoDaoImpl();
-    private Logger logger = LoggerFactory.getLogger(BuscadorServlet.class);
     
 	
 	@Override
@@ -38,7 +35,7 @@ public class BuscadorServlet extends HttpServlet {
 		String caracter = (String)req.getParameter("q");
 		
 		if (caracter != null) {
-		    logger.info("BUSQUEDA POR CARACTER -->  ".concat(caracter) );
+
 		}
 
 

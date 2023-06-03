@@ -6,9 +6,14 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.io.File;
 
 public class Main {
+
+	   static Logger logger = Logger.getLogger(Main.class.getName());
 
 	 public static void main(String[] args) throws Exception {
 
@@ -30,9 +35,9 @@ public class Main {
 	        File additionWebInfClasses = new File("target/classes");
 
 	        WebResourceRoot resources = new StandardRoot(ctx);
-
+	        
 	        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
-
+	        	
 	        additionWebInfClasses.getAbsolutePath(), "/"));
 
 	        ctx.setResources(resources);
@@ -40,8 +45,9 @@ public class Main {
 	        tomcat.enableNaming();
 
 	        tomcat.getConnector();
-
+	        PropertyConfigurator.configure("src/main/resources/log4j.properties");
 	        try {
+	          logger.info("Entering application.");
 	          tomcat.start();
 	        } catch (LifecycleException e) {
 	          e.printStackTrace();

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.ventas.dao.TipoDao;
 import com.ventas.dao.TipoDaoImpl;
 import com.ventas.excepciones.MercaditoException;
+import com.ventas.excepciones.NoLogerException;
 
 public abstract class GenericServlet extends HttpServlet{
 
@@ -27,22 +28,16 @@ public abstract class GenericServlet extends HttpServlet{
 		try {
 		
 		misession = req.getSession(true);
-		
-		
-		
 		//no logueado
-		if (misession.getAttribute("usuario") == null) {
-			resp.sendRedirect("/discos");	
-		}
-		
-		//logueado
-		if (misession.getAttribute("usuario") != null)
-			getUrl(req, resp);
-		
-		
+		if (misession.getAttribute("usuario") == null) 
+			throw new NoLogerException("usuario no autenticado");
+
+		getUrl(req, resp);
 		
 		} catch (MercaditoException e) {
 			// TODO: handle exception
+		} catch (NoLogerException e) {
+			resp.sendRedirect("/productos");
 		}
 		
 		
@@ -54,13 +49,14 @@ public abstract class GenericServlet extends HttpServlet{
 		try {
 			misession = req.getSession(true);
 			
-			if (misession.getAttribute("usuario") == null) {
-				resp.sendRedirect("/discos");	
-			}
+			if (misession.getAttribute("usuario") == null) 
+				throw new NoLogerException("usuario no autenticado");
 			
 			getUrl(req, resp);
 		} catch (MercaditoException e) {
 			// TODO: handle exception
+		} catch (NoLogerException e) {
+			resp.sendRedirect("/productos");
 		}
 	
 	}

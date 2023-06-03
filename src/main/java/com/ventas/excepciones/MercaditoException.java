@@ -12,4 +12,8 @@ public class MercaditoException extends Exception{
 		super(mensaje);
 	}
 	
+	public MercaditoException (String mensaje,Throwable toThrowable){
+		super(mensaje,toThrowable);
+	}
+	
 }

@@ -16,25 +16,23 @@
 		<script src="scripts/bootstrap/js/browser-polyfill.min.js.map" ></script>
 		<script src="scripts/scripts.js"></script>
 	</head>
-
-  
   <body>
-  <div class="container" >
-	    <header>
-			<nav class="navbar navbar-dar bg-darkk">
-			 <div class="container">
-    			<a class="navbar-brand" href="#">Gestor de Stock</a>
-  			 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-  			     <li class="nav-item active">
-       				 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    			  </li>
-  			</ul>
-  			</div>
-			</nav>
-	    </header>
+
+    
+	<section class="container-fluid mt-1">
+		<%@ include file="common/header.jsp" %> 
+	</section>
+
+  <main class="container" >
 	    
 	     <section class="form-crear-producto">
 			<form action="<%= request.getContextPath() %>/agregarProducto" method="Post" class="mt-4 mb-3">
+			  
+			  <div class="form-group mb-3">
+			    <label for="formGroupExampleInput">Titulo</label>
+			    <input type="text" class="form-control" id="titulo" name = "titulo" placeholder="Titulo en grilla de venta">
+			  </div>
+			  
 			  <div class="form-group mb-3">
 			    <label for="formGroupExampleInput">Nombre</label>
 			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de producto">
@@ -47,7 +45,7 @@
 			  </div>
 			  
 			   <div class="form-group mb-3">
-			    <label for="exampleFormControlSelect1">Tipo</label>
+			    <label for="exampleFormControlSelect1">Categoria</label>
 			    <div id ="categorias"></div>
 			    <input type="hidden" name="categoria-hidden" value="">
 			  </div>
@@ -61,7 +59,12 @@
 			    <label for="formGroupExampleInput">Precio</label>
 			    <input type="text" class="form-control" id="precio" name = "precio" placeholder="Precio del producto">
 			  </div>
-			  	  
+
+			  <div class="form-group mb-2">
+			    <label for="floatingTextarea">Descripcion del producto</label>
+  				<textarea class="form-control" placeholder="brebe descripcion del producto" id="descripcion"></textarea>
+			  </div>
+
 			  <div class="form-group mb-3">
   				<label for="formFile" class="form-label">imagen</label>
   				<input class="form-control" type="file" id="fichero">
@@ -81,9 +84,7 @@
 			  	 <label class="form-label" id ="texto"></label>
 			 	 <button type="submit" class="btn btn-primary">Ingresar producto</button>
 			 </div>
-			 
-
-			 
+		 
 			 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   				Launch demo modal
 			</button>
@@ -91,13 +92,15 @@
 				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.css.map">
 				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
 
-
-
-			 
 			</form>
 	    </section>
-	  </div>
-	  
+	</main>
+
+	 
+	<section>
+		<%@ include file="common/footer.jsp" %> 
+	</section>
+
 	  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-mdb-keyboard="false" data-mdb-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

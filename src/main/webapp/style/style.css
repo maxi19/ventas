@@ -1,3 +1,18 @@
+   
+   html {
+	  min-height: 100%;
+	  position: relative;
+	}
+	
+   body {
+  	  min-height: 100%;
+	  padding-top: 4.5rem;
+	  
+	  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+  	  animation-duration: 3s; /* don't forget to set a duration! */
+	  
+	}
+  
    .listado{
    	display: flex;
    	flex-direction: column;
@@ -70,5 +85,13 @@
 	.div-form-login{
 	    display: flex;
 	    justify-content: center;
+		height: 30rem;
 	}
-
+	
+	footer{
+	 position: absolute;
+	 bottom: 0;
+	 width: 100%;
+	 height: 40px;
+	 color: white;
+	}

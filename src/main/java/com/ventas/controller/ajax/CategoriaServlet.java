@@ -1,4 +1,4 @@
-package com.ventas.controller;
+package com.ventas.controller.ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;

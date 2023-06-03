@@ -17,7 +17,7 @@ setTimeout(function(){
      var password =$("#password").val();
      var mensaje="";
         $.ajax({
-            url: '/loginV2',
+            url: '/login',
             dataType: 'JSON',
             success: function(data){
                 if (data[0].estatus == "error") {

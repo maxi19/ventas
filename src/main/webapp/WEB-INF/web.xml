@@ -8,7 +8,7 @@
   <servlet>
         <servlet-name>home-productos</servlet-name>
         <servlet-class>com.ventas.controller.ProductosServlet</servlet-class>
-    </servlet>
+  </servlet>
   <servlet-mapping>
         <servlet-name>home-productos</servlet-name>
         <url-pattern>/Ventas/catalogo</url-pattern>
@@ -23,26 +23,53 @@
         <url-pattern>/mi-comprobante</url-pattern>
   </servlet-mapping>
     
-  
+  <!-- Declaro el filtro con nombre y su implementacion -->
   <filter>
-    <filter-name>filtro</filter-name>
-    <filter-class>com.ventas.controller.ServletFilter</filter-class>
+    <filter-name>filtro-general</filter-name>
+    <filter-class>com.ventas.filters.ServletFilter</filter-class>
   </filter>
-  
+
+ <!-- le digo cuando voy a llamar a este fitro, es decir en cualquier request -->
    <filter-mapping>
-	    <filter-name>filtro</filter-name>
+	    <filter-name>filtro-general</filter-name>
 	    <url-pattern>/*</url-pattern>
-   	    <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
   
+ <!-- le seteo a ese filtro un nombre de servlet -->
+  <filter-mapping>
+        <filter-name>filtro-general</filter-name>
+        <servlet-name>ninguno</servlet-name>
+  </filter-mapping>
   
-  <init-param>
-	  <param-name>compilerSourceVM</param-name>
-	  <param-value>1.8</param-value>
-	  </init-param>
+  	<init-param>
+  		<param-name>compilerSourceVM</param-name>
+	  	<param-value>1.8</param-value>
+	</init-param>
 	<init-param>
-	  <param-name>compilerTargetVM</param-name>
-	  <param-value>11</param-value>
+	 	<param-name>compilerTargetVM</param-name>
+	  	<param-value>11</param-value>
 	</init-param>
   
+  <!-- Manejador de errores -->
+  <servlet>
+  	<servlet-name>ErrorHandler</servlet-name>
+  	<servlet-class>com.ventas.controller.ErrorHandlerServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ErrorHandler</servlet-name>
+   	<url-pattern>/ErrorHandlerServlet</url-pattern>
+  </servlet-mapping>
+  
+    <error-page>
+	    <error-code>404</error-code>
+        <location>/general-error.html</location>
+    </error-page>
+	<error-page>
+	   <exception-type>
+	      javax.servlet.ServletException
+	   </exception-type >
+	   <location>/ErrorHandlerServlet</location>
+	</error-page>
+
 </web-app>

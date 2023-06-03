@@ -43,7 +43,7 @@ CREATE TABLE tipos (
 
 CREATE TABLE marcas (
 	`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    `marca` VARCHAR(800) NOT NULL
+    `nombre` VARCHAR(800) NOT NULL
 );
 
 CREATE TABLE `tipo_marca`(
@@ -116,17 +116,17 @@ INSERT INTO `productos` (`Id`, `marca`, `nombre`, `descripcion`, `tipo`, `cantid
 
 INSERT INTO usuarios(`id_usuario`, `usuario`, `password`, `habilitado`) VALUES ('1', 'adminadmin', 'j@mon2022', true);
 
-INSERT INTO `tipos` (`nombre`, `valor`) values
-( 'Almacenamiento', 'Almacenamiento'),
-( 'Memoria', 'Memoria'),
-( 'Microprocesador', 'Microprocesador'),
-( 'Cooler', 'Cooler'),
-( 'Placa', 'Placa'),
-( 'Gabinete', 'Gabinete'),
-( 'Fuente', 'Fuente')
+INSERT INTO `categorias` (`nombre`) values
+( 'Almacenamiento'),
+( 'Memoria'),
+( 'Microprocesador'),
+( 'Cooler'),
+( 'Placa'),
+( 'Gabinete'),
+( 'Fuente')
 
 
-INSERT INTO `marcas`(`marca`) values
+INSERT INTO `marcas`(`nombre`) values
 ('Western Digital'),
 ('Team'),
 ('Hikvision y PNY'),

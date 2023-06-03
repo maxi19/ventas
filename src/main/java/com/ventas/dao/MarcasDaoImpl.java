@@ -23,13 +23,11 @@ public class MarcasDaoImpl implements MarcasDao {
 		 Marca marca = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select Id, marca from marcas");
+			rs = st.executeQuery ("select id,nombre from marcas");
 			marcas = new ArrayList<Marca>();
 			 while (rs.next()) {
-				 marca = new Marca();
-				 marca.setId(rs.getInt(1));
-				 marca.setMarca(rs.getString(2));
-				marcas.add(marca);
+				 marca = new Marca(rs.getInt(1),rs.getString(2));
+				 marcas.add(marca);
 			}
 				
 		 }catch (Exception e) {
@@ -84,11 +82,9 @@ public class MarcasDaoImpl implements MarcasDao {
 		 Marca marca = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery("select Id,marca from marcas where Id =".concat(String.valueOf(id)));
+			rs = st.executeQuery("select id,nombre from marcas where id =".concat(String.valueOf(id)));
 			if (rs.first()) {
-				 marca = new Marca();
-				 marca.setId(rs.getInt(1));
-				 marca.setMarca(rs.getString(2));
+				 marca = new Marca(rs.getInt(1),rs.getString(2));
 			}		
 		 }catch (SQLException e) {
 			 throw new MercaditoException("error al conectar con la base");

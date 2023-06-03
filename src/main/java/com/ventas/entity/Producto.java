@@ -1,140 +1,109 @@
 package com.ventas.entity;
 
-public class Producto implements Facturable {
+public class Producto {
 	
-	private int id ;
-	
-	private String marca;
-	
+	private int id;
+	private Marca marca;
+	private String titulo;
 	private String nombre;
-	
-	private int precio;
-	
 	private String descripcion;
-	
+	private Categoria categoria;
 	private int stock;
-	
-	private int tipo;
-	
-	private boolean visiblePortada;
-	
-	public Producto(int id, String marca, String nombre, int precio, String descripcion, int stock, int tipo) {
-		super();
-		this.id = id;
-		this.marca = marca;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.descripcion = descripcion;
-		this.stock = stock;
-		this.tipo = tipo;
-	}
-	
-	
-	public Producto(int id, String nombre, String descripcion, int stock,int precio, int tipo) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.descripcion = descripcion;
-		this.stock = stock;
-		this.tipo = tipo;
-	}
-
-
-	public Producto(int id, String nombre) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-	}
+	private int precio;
+	private String origen;
+	private boolean portada;
 	
 	public Producto() {
 		
 	}
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
+	public Producto(int id, Marca marca, String titulo, String nombre, String descripcion, Categoria categoria,
+			int stock, int precio, String origen) {
+		super();
+		this.id = id;
+		this.marca = marca;
+		this.titulo = titulo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.categoria = categoria;
 		this.stock = stock;
+		this.precio = precio;
+		this.origen = origen;
 	}
-
+	
+	
+	
+	public Producto(Marca marca, String titulo, String nombre, String descripcion, Categoria categoria, int stock,
+			int precio, String origen) {
+		super();
+		this.marca = marca;
+		this.titulo = titulo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.categoria = categoria;
+		this.stock = stock;
+		this.precio = precio;
+		this.origen = origen;
+	}
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	
-	
-	public String getMarca() {
+	public Marca getMarca() {
 		return marca;
 	}
-
-	public void setMarca(String marca) {
+	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
-
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public Producto(int id, int precio, String descripcion) {
-		super();
-		this.id = id;
-		this.precio = precio;
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
-	
-
-	public boolean isVisiblePortada() {
-		return visiblePortada;
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public int getPrecio() {
+		return precio;
+	}
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+	public String getOrigen() {
+		return origen;
+	}
+	public void setOrigen(String origen) {
+		this.origen = origen;
+	}
+	public boolean isPortada() {
+		return portada;
+	}
+	public void setPortada(boolean portada) {
+		this.portada = portada;
 	}
 
-
-	public void setVisiblePortada(boolean visiblePortada) {
-		this.visiblePortada = visiblePortada;
-	}
-
-
-	@Override
-	public Item toItem(int cantidad) {
-		Item item = new Item(this);
-		int total = cantidad * getPrecio();
-		item.setCantidad(cantidad);
-		item.setTotal(total);
-		item.setProducto(this);
-		return item;
-	}
+	
 }

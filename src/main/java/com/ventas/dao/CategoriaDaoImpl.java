@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.ventas.config.Conexion;
 import com.ventas.entity.Categoria;
+import com.ventas.entity.Marca;
+import com.ventas.excepciones.MercaditoException;
 
 public class CategoriaDaoImpl implements CategoriaDao {
 
@@ -22,7 +24,7 @@ public class CategoriaDaoImpl implements CategoriaDao {
 		 List<Categoria> categorias = null;
 		 try{
 			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select * from tipos");
+			rs = st.executeQuery ("select id,nombre from categorias");
 			categorias = new ArrayList<Categoria>();
 			 while (rs.next()) {
 				 categorias.add(new Categoria(rs.getInt(1), rs.getString(2)));
@@ -86,6 +88,30 @@ public class CategoriaDaoImpl implements CategoriaDao {
 		 }finally {
 			finalizarConexion(st, rs);
 		}	 
+	}
+
+
+
+
+
+	@Override
+	public Categoria obtenerCategoria(int idCategoria) throws MercaditoException {
+		 Statement st =null;
+		 ResultSet rs = null;
+		 Categoria categoria = null;
+		 try{
+			st = conexion.dameConnection().createStatement();
+			rs = st.executeQuery("select id,nombre from categorias where id =".concat(String.valueOf(idCategoria)));
+			if (rs.first()) {
+				 categoria = new Categoria(rs.getInt(1),rs.getString(2));
+			}		
+		 }catch (SQLException e) {
+			 throw new MercaditoException("error al conectar con la base");
+		 }finally {
+			finalizarConexion(st, rs);
+		}
+		 
+		return categoria;
 	}
 	
 }

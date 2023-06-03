@@ -8,7 +8,7 @@ $(document).ready(function(){
 			success : function(responseText) {
             var dropdown = '<select class = "form-control" name="marca" >';
             $.each(responseText, function(index,value){
-            dropdown+='<option value="'+value.id+'">'+value.marca+'</option>';
+            dropdown+='<option value="'+value.id+'">'+value.nombre+'</option>';
            });
            dropdown+='</select>';
            var container=$("#marcas");
@@ -197,45 +197,6 @@ $(document).ready(function(){
     /*------------------------seccion categoria---------------------------*/
 
 
-    var selected = [];
-    var availableTags = [
-        "abc@gmail.com",
-        "abc1@gmail.com",
-        "abc2@gmail.com",
-        "abc3@gmail.com",
-        "abc4@gmail.com"
-    ];
-
-    $( function() {
-        $("#tags").autocomplete({
-          source: availableTags,
-          select: function( event, ui){
-            var value = ui.item.value;
-            selected.push(value);
-            refreshDiv();
-            var i = availableTags.indexOf(value);
-            availableTags.splice(i, 1);
-            event.preventDefault();
-            $("#tags").focusout();
-            $("#tags").val('');
-          }
-        });
-      });
-
-      function refreshDiv(){
-        $("#emails").val(selected.join(','));
-          var email_html = selected.map(function(f, i){
-            return "<span class='btn btn-info btn-sm' style='margin: 3px;'>"+f+"&nbsp;&nbsp; <span onclick=\"removeEmail('"+f+"')\" style='color:red'>x</span></span>";
-        });
-          $("#email-html").html(email_html);
-      }
-      
-      function removeEmail(email){
-        availableTags.push(email);
-          var i = selected.indexOf(email);
-          selected.splice(i, 1);
-          refreshDiv();
-      }
 
 
     })

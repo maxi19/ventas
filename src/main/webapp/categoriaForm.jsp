@@ -14,8 +14,8 @@
 		<script src="scripts/bootstrap/js/bootstrap.bundle.min.js.map" ></script>
 		<script src="scripts/bootstrap/js/browser-polyfill.min.js.map" ></script>
 		<script src="scripts/jquery/jquery1.13.2-ui.js" ></script>
+		<script src="scripts/categoria.js"></script>
 
-		<script src="scripts/scripts.js"></script>
 	</head>
 
   
@@ -43,10 +43,22 @@
 			  </div>
 			  
 			  
+  			<div class="form-group mb-3">
+			    <label for="formGroupExampleInput">Marcas</label>
+			    <input type="text" class="form-control" id="marcas" name = "marcas" placeholder=" Marcas habilitadas a esta categoria">
+			</div>
 
-			<div class="alert alert-danger alert-dismissible fade hide" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>  
+
+			<div class="form-group mb-3" >
+				<div class="col-md-3">
+					<div id="email-html"></div>
+					<input type="hidden" name="emails" id="emails"/>
+				</div>
+				<div class="col-md-3">
+					<div class="ui-widget">
+					<input id="tags">  
+					</div>
+				</div>
 			</div>
 			  
 
@@ -63,17 +75,6 @@
 			</button>
 
 
-<div class="row">
-		<div class="col-md-3">
-			<div id="email-html"></div>
-			<input type="hidden" name="emails" id="emails"/>
-		</div>
-		<div class="col-md-3">
-			<div class="ui-widget">
-			  <input id="tags">  
-			</div>
-		</div>
-	</div>
 
 
 				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.css.map">
@@ -109,7 +110,11 @@
     </div>
   </div>
 </div>
-	
-	  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   </body>
   </html>
