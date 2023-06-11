@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.google.gson.Gson;
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
@@ -42,17 +42,17 @@ public class BuscadorServlet extends HttpServlet {
 		
 		List<Producto> productos = new ArrayList<Producto>();
 		
-		try {
-			productos = dao.buscarProductoPorLetra(caracter);
-			String json = new Gson().toJson(productos);
-			resp.setContentType("applycation/json");
-			resp.setCharacterEncoding("UTF-8");
-			resp.getWriter().write(json);
+		//try {
+			//productos = dao.(caracter);
+			//String json = new Gson().toJson(productos);
+			//resp.setContentType("applycation/json");
+			//resp.setCharacterEncoding("UTF-8");
+			//resp.getWriter().write(json);
 
-		} catch (MercaditoException e) {
+		//} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	//		e.printStackTrace();
+	//	}
 				
 	}
 

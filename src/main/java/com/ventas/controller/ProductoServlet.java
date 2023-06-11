@@ -1,20 +1,15 @@
 package com.ventas.controller;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.CategoriaDao;
-import com.ventas.dao.CategoriaDaoImpl;
-import com.ventas.dao.MarcasDao;
-import com.ventas.dao.MarcasDaoImpl;
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.categoria.CategoriaDao;
+import com.ventas.dao.categoria.CategoriaDaoImpl;
+import com.ventas.dao.marca.MarcasDao;
+import com.ventas.dao.marca.MarcasDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.Categoria;
 import com.ventas.entity.Marca;
 import com.ventas.entity.Producto;
@@ -45,12 +40,12 @@ public class ProductoServlet extends GenericServlet{
 		String precio = (String)req.getParameter("precio");
 		String portada = (String)req.getParameter("portada");
 
-		Marca marca = this.marcasDao.obtenerMarca(Integer.parseInt(idmarca));
-		Categoria categoria = this.categoriaDao.obtenerCategoria(Integer.parseInt(idCategoria));
-		Producto producto = new Producto(marca,titulo,nombre, "",categoria,Integer.parseInt(stock) ,Integer.parseInt(precio),"");
+		Marca marca = this.marcasDao.getOne(Integer.parseInt(idmarca));
+		Categoria categoria = this.categoriaDao.getOne(Integer.parseInt(idCategoria));
+		Producto producto = new Producto(marca,titulo,nombre, descripcion,categoria,Integer.parseInt(stock),Integer.parseInt(precio),"");
 		
 		try {
-			 productoDao.agregarProducto(producto);	
+			 productoDao.add(producto);	
 			 resp.sendRedirect("/home");
 		} catch (Exception e1) {
 			
@@ -58,7 +53,4 @@ public class ProductoServlet extends GenericServlet{
 
 	}
 
-
-	
-	
 }

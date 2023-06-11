@@ -17,12 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.MarcasDao;
-import com.ventas.dao.MarcasDaoImpl;
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
-import com.ventas.dao.TipoDao;
-import com.ventas.dao.TipoDaoImpl;
+import com.ventas.dao.marca.MarcasDao;
+import com.ventas.dao.marca.MarcasDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.Marca;
 import com.ventas.entity.Producto;
 import com.ventas.entity.Tipo;
@@ -45,7 +43,7 @@ public class ProductosServlet extends HttpServlet {
 		try {
 			
 			List<Producto> productosPortada = new ArrayList<Producto>();  
-			productosPortada = productosDao.listarProductosPortada();
+			productosPortada = productosDao.list();
 			
 			HttpSession misession= req.getSession(true);	
 

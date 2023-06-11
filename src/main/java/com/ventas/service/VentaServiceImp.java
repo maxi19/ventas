@@ -2,8 +2,8 @@ package com.ventas.service;
 
 import java.util.List;
 
-import com.ventas.dao.VentasDao;
-import com.ventas.dao.VentasDaoImpl;
+import com.ventas.dao.venta.VentasDao;
+import com.ventas.dao.venta.VentasDaoImpl;
 import com.ventas.entity.Contacto;
 import com.ventas.entity.Item;
 import com.ventas.excepciones.MercaditoException;

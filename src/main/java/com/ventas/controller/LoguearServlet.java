@@ -16,8 +16,8 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.ventas.dao.UsuariosDao;
-import com.ventas.dao.UsuariosDaoImpl;
+import com.ventas.dao.usuario.UsuariosDao;
+import com.ventas.dao.usuario.UsuariosDaoImpl;
 import com.ventas.entity.Usuario;
 import com.ventas.excepciones.MercaditoException;
 
@@ -48,7 +48,7 @@ public class LoguearServlet extends HttpServlet{
 
 				try {
 					
-				existeUsuario =	usuariosService.verificarUsuario(usuarioIngresado);	
+				existeUsuario =	usuariosService.existeUsuario(usuarioIngresado);	
 				if (!existeUsuario) 
 					throw new MercaditoException("El usuario no existe en sistema");	
 

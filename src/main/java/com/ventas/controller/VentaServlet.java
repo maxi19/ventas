@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
-import com.ventas.dao.VentasDao;
-import com.ventas.dao.VentasDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
+import com.ventas.dao.venta.VentasDao;
+import com.ventas.dao.venta.VentasDaoImpl;
 import com.ventas.entity.Contacto;
 import com.ventas.entity.Item;
 import com.ventas.entity.Producto;

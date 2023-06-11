@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.ventas.dao.MarcasDao;
-import com.ventas.dao.MarcasDaoImpl;
+import com.ventas.dao.marca.MarcasDao;
+import com.ventas.dao.marca.MarcasDaoImpl;
 import com.ventas.entity.Marca;
 import com.ventas.excepciones.MercaditoException;
 
@@ -37,7 +37,7 @@ public class MarcasServlet extends HttpServlet{
         PrintWriter out = resp.getWriter();
 
 		try {
-			marcas = marcasDao.listarMarcas();
+			marcas = marcasDao.list();
 			req.setAttribute("marcas", marcas);	
 			String json = new Gson().toJson(marcas);
 			System.out.println(json);

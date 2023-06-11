@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.TipoDao;
-import com.ventas.dao.TipoDaoImpl;
 import com.ventas.excepciones.MercaditoException;
 import com.ventas.excepciones.NoLogerException;
 

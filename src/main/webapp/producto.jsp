@@ -28,6 +28,7 @@
   
     <div class="listado">
     <%for(Producto producto : productos  ){ %>
+    <%  if (producto.isPortada()){ %>
     <div class="articulo">
     	        <div class="card border border-dark rounded m-2">
             <div class="card-header">
@@ -43,7 +44,7 @@
             </div>
         </div>
     </div>
-     <% } %>
+     <% }} %>
     </div>
    
    </div>

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.Item;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
@@ -66,7 +66,7 @@ public class PreConfirmacionServlet extends HttpServlet {
 	private Item obtenerItem(Item item, int idProd) {
 		Producto prod;
 		try {
-			 prod =	dao.obtenerProducto(idProd);
+			 prod =	dao.getOne(idProd);
 			 item = new Item(prod);
 		} catch (MercaditoException e) {
 				// TODO Auto-generated catch block

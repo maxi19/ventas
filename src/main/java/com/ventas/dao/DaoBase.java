@@ -14,5 +14,5 @@ public interface DaoBase<I,T> {
 
 	public List<T> list() throws MercaditoException;
 	
-	public void getOne(I i) throws MercaditoException;
+	public T getOne(I i) throws MercaditoException;
 }

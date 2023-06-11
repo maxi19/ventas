@@ -11,14 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.*;
 import com.ventas.excepciones.MercaditoException;
 
 @WebServlet(urlPatterns = { "/carrito"})
 public class CarritoServlet extends HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ProductoDao dao =  new ProductoDaoImpl();
 
 	
@@ -42,7 +46,7 @@ public class CarritoServlet extends HttpServlet{
 		 
 		Producto prod;
 		
-			prod = dao.obtenerProcucto(idProd);
+			prod = dao.getOne(idProd);
 		
 		boolean existeProductoEnCarrito = false;
 		for (Item item : items) {

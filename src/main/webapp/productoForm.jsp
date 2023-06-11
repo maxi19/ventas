@@ -62,7 +62,7 @@
 
 			  <div class="form-group mb-2">
 			    <label for="floatingTextarea">Descripcion del producto</label>
-  				<textarea class="form-control" placeholder="brebe descripcion del producto" id="descripcion"></textarea>
+  				<textarea class="form-control" placeholder="brebe descripcion del producto" id="descripcion" name = "descripcion"></textarea>
 			  </div>
 
 			  <div class="form-group mb-3">

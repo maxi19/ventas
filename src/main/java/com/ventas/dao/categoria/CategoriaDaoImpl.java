@@ -1,5 +1,6 @@
-package com.ventas.dao;
+package com.ventas.dao.categoria;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,7 +9,6 @@ import java.util.List;
 
 import com.ventas.config.Conexion;
 import com.ventas.entity.Categoria;
-import com.ventas.entity.Marca;
 import com.ventas.excepciones.MercaditoException;
 
 public class CategoriaDaoImpl implements CategoriaDao {
@@ -16,27 +16,10 @@ public class CategoriaDaoImpl implements CategoriaDao {
 	
 	private Conexion conexion = Conexion.getInstance();
 
-	
-	@Override
-	public List<Categoria> obtenerCategoria() throws Exception {
-		 Statement st =null;
-		 ResultSet rs = null;
-		 List<Categoria> categorias = null;
-		 try{
-			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery ("select id,nombre from categorias");
-			categorias = new ArrayList<Categoria>();
-			 while (rs.next()) {
-				 categorias.add(new Categoria(rs.getInt(1), rs.getString(2)));
-			}
-		 }catch (Exception e) {
-			// TODO: handle exception
-		}finally {
-			finalizarConexion(st, rs);
-		}	 
-		return categorias;
-	}
+	private static final String queryList ="select id,nombre from categorias";
+	private static final String queryGetOne ="select id,nombre from categorias where id = ?";
 
+	
 	
 	
 	
@@ -94,19 +77,78 @@ public class CategoriaDaoImpl implements CategoriaDao {
 
 
 
+
+
+
+
 	@Override
-	public Categoria obtenerCategoria(int idCategoria) throws MercaditoException {
-		 Statement st =null;
+	public void add(Categoria t) throws MercaditoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void delete(Integer i) throws MercaditoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void edit(Categoria t) throws MercaditoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public List<Categoria> list() throws MercaditoException {
+		 PreparedStatement st =null;
+		 ResultSet rs = null;
+		 List<Categoria> categorias = null;
+		 try{
+			st = conexion.dameConnection().prepareStatement(queryList);
+			rs = st.executeQuery ("select id,nombre from categorias");
+			categorias = new ArrayList<Categoria>();
+			 while (rs.next()) {
+				 categorias.add(new Categoria(rs.getInt(1), rs.getString(2)));
+			}
+		 }catch (SQLException e) {
+			 throw new MercaditoException("Error en listado categorias",e);
+		}finally {
+			finalizarConexion(st, rs);
+		}	 
+		return categorias;
+	}
+
+
+
+
+
+	@Override
+	public Categoria getOne(Integer id) throws MercaditoException {
+		 PreparedStatement st =null;
 		 ResultSet rs = null;
 		 Categoria categoria = null;
 		 try{
-			st = conexion.dameConnection().createStatement();
-			rs = st.executeQuery("select id,nombre from categorias where id =".concat(String.valueOf(idCategoria)));
+			st = conexion.dameConnection().prepareStatement(queryGetOne);
+			st.setInt(1, id);
+			rs = st.executeQuery();
 			if (rs.first()) {
 				 categoria = new Categoria(rs.getInt(1),rs.getString(2));
 			}		
 		 }catch (SQLException e) {
-			 throw new MercaditoException("error al conectar con la base");
+			 throw new MercaditoException("Error al obtener Categoria " , e);
 		 }finally {
 			finalizarConexion(st, rs);
 		}

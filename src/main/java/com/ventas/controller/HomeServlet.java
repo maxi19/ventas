@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.ProductoDao;
-import com.ventas.dao.ProductoDaoImpl;
+import com.ventas.dao.producto.ProductoDao;
+import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
+import com.ventas.service.producto.ProductoService;
+import com.ventas.service.producto.ProductoServiceImp;
 
 @WebServlet(urlPatterns = { "/home"})
 public class HomeServlet extends HttpServlet{
@@ -25,7 +27,7 @@ public class HomeServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private ProductoDao servicio = new ProductoDaoImpl();
+	private ProductoService productoService = new ProductoServiceImp();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,7 +40,7 @@ public class HomeServlet extends HttpServlet{
 		
 		List<Producto> productos = null;
 		try {
-			productos = servicio.listarProductosPorCategoria();
+			productos = productoService.listarProductos();
 		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ventas.dao.MarcasDao;
-import com.ventas.dao.MarcasDaoImpl;
+import com.ventas.dao.marca.MarcasDao;
+import com.ventas.dao.marca.MarcasDaoImpl;
 import com.ventas.entity.Marca;
 import com.ventas.excepciones.MercaditoException;
 
@@ -42,7 +42,7 @@ public  class ProxyServlet extends HttpServlet {
 				dispatcher = this.getServletContext().getRequestDispatcher("/productoForm.jsp");
 				try {
 				
-				List<Marca> marcas = marcasDao.listarMarcas();
+				List<Marca> marcas = marcasDao.list();
 				req.setAttribute("marcas", marcas);
 				
 				} catch (MercaditoException e) {

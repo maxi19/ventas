@@ -56,12 +56,15 @@
 								<% for (int i = 0; i < productos.size(); i++) { %>
 								<%if(productos.get(i).getStock() > 10) {%>
 								<tr class ="table-light">
+								<% }else{ %>
+								<tr class="table-danger">
+								<%}%>		
 								<th scope="row"><%=productos.get(i).getId() %></th>
 								<td><%=productos.get(i).getNombre() %></td>
 								<td><%=productos.get(i).getMarca().getNombre() %></td>
 								<td><%=productos.get(i).getPrecio() %></td>
 								<td><%=productos.get(i).getStock() %></td>
-								<td>
+								<td class="form-check form-switch">
 								     <a class="btn btn-primary" href="#" role="button">Stock</a>
 									 <input type="button" class="btn btn-outline-danger" id="<%=productos.get(i).getId() %>" value="Eliminar"/>
 									 <a class="btn btn-outline-danger" href="">
@@ -69,25 +72,13 @@
 									 </a>
 									 
                                    	<% if(productos.get(i).isPortada()){%>
-                                	  <a class="btn btn-outline-danger" href="#" role="button">Desactivar Portada</a>
+  										<input class="form-check-input" type="checkbox" role="switch" id="<%=productos.get(i).getId()%>" checked>
                                 	<% }else{ %>
-    								 <a class="btn btn-outline-warning" href="#" role="button">Activar Portada</a>
+  										<input class="form-check-input" type="checkbox" role="switch" id="<%=productos.get(i).getId()%>" >
                                    	<% } %>
+                                 
                                </td>
-							</tr>
-							<% }else{ %>
-							<tr class="table-danger">
-								<th scope="row"><%=productos.get(i).getId() %></th>
-								<td><%=productos.get(i).getDescripcion() %></td>
-								<td><%=productos.get(i).getMarca().getNombre() %></td>
-								<td><%=productos.get(i).getPrecio() %></td>
-								<td><%=productos.get(i).getStock() %></td>
-								<td>
-                                 <a class="btn btn-primary" href="#" role="button">Stock</a>
-									 <input type="button" class="btn btn-outline-danger" id="<%=productos.get(i).getId() %>" value="Eliminar"/>
-                                </td>
-							</tr>
-							<%}%>
+							</tr>		
 							<%}%>
 							</tbody>
 					</table>

@@ -1,4 +1,4 @@
-package com.ventas.controller;
+package com.ventas.controller.ajax;
 
 import java.io.IOException;
 
@@ -8,33 +8,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ventas.dao.producto.ProductoDao;
-import com.ventas.dao.producto.ProductoDaoImpl;
 import com.ventas.excepciones.MercaditoException;
+import com.ventas.service.producto.ProductoService;
+import com.ventas.service.producto.ProductoServiceImp;
 
-@WebServlet(urlPatterns = { "/eliminarProducto"})
-public class EliminarServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/changeFlag"})
+public class SwitchPortadaServlet extends HttpServlet{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-	private ProductoDao servicio = new ProductoDaoImpl();
-
+	
+	private ProductoService productoService =  new ProductoServiceImp();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		String Id = (String)req.getParameter("idProducto");
+		int idProducto  = Integer.parseInt(Id);
 		
-		String idProducto =req.getParameter("productoId");
 		try {
-			servicio.delete(Integer.parseInt(idProducto));
+			productoService.cambiarFlag(idProducto);
 		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-
-
-
+	
+	
+	
 }

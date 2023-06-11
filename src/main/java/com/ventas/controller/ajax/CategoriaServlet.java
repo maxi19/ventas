@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.ventas.dao.CategoriaDao;
-import com.ventas.dao.CategoriaDaoImpl;
+import com.ventas.dao.categoria.CategoriaDao;
+import com.ventas.dao.categoria.CategoriaDaoImpl;
 import com.ventas.entity.Categoria;
 
 @WebServlet(urlPatterns = { "/categorias"})
@@ -34,7 +34,7 @@ public class CategoriaServlet extends HttpServlet{
 	        resp.setCharacterEncoding("UTF-8");
 	        PrintWriter out = resp.getWriter();
 			
-			List<Categoria> categorias =  categoriaDao.obtenerCategoria();
+			List<Categoria> categorias =  categoriaDao.list();
 		
 			String json = new Gson().toJson(categorias);
 			out.println(json);

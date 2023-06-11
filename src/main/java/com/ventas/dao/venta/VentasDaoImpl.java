@@ -1,4 +1,4 @@
-package com.ventas.dao;
+package com.ventas.dao.venta;
 
 import java.util.List;
 

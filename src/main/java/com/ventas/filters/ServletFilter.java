@@ -11,13 +11,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ventas.dao.CategoriaDao;
-import com.ventas.dao.CategoriaDaoImpl;
-import com.ventas.dao.MarcasDao;
-import com.ventas.dao.MarcasDaoImpl;
-import com.ventas.dao.TipoDao;
-import com.ventas.dao.TipoDaoImpl;
-import com.ventas.excepciones.MercaditoException;
+import com.ventas.dao.categoria.CategoriaDao;
+import com.ventas.dao.categoria.CategoriaDaoImpl;
+import com.ventas.dao.marca.MarcasDao;
+import com.ventas.dao.marca.MarcasDaoImpl;
 
 @WebFilter("/filter")
 public class ServletFilter implements Filter {
@@ -33,8 +30,8 @@ public class ServletFilter implements Filter {
 		
 	
 		try {
-			request.setAttribute("categorias", categoriaDao.obtenerCategoria());
-			request.setAttribute("marcas", categoriaDao.obtenerCategoria());
+			request.setAttribute("categorias", categoriaDao.list());
+			request.setAttribute("marcas", categoriaDao.list());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
