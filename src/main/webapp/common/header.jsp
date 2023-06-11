@@ -1,3 +1,4 @@
+		  <% HttpSession misession = request.getSession(true);%>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Fixed navbar</a>
@@ -10,17 +11,18 @@
           <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%=request.getContextPath()%>/iniciar">Login</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="<%=request.getContextPath()%>/productos">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
          <li class="nav-item">
-               <a class="nav-link" href="#"><span class="material-symbols-outlined">logout</span></a>
-         </li>
+ 		<%if(misession.getAttribute("usuario") != null) {%>
+               <a class="nav-link" href="<%=request.getContextPath()%>/logOut"><span class="material-symbols-outlined">Logout</span></a>
+ 		<%}else{%>
+          <a class="nav-link" href="<%=request.getContextPath()%>/iniciar">Login</a>
+       <%}%>
+        </li>
       </ul>  
     </div>
   </div>

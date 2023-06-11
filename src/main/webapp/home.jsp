@@ -13,9 +13,23 @@
 		<!-- JavaScript Bundle with Popper -->
 	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	    <script src="scripts/jquery/jquery-3.6.4.min.js" ></script>
+	    <script src="scripts/bootstrap/js/bootstrap.min.js" ></script>
+	    <script src="scripts/bootstrap/js/bootstrap.min.js.map" ></script>
 		<script src="/scripts/home.js"></script>
   		<link rel="stylesheet" href="style/style.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+<style>
+.material-symbols-sharp {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+</style>
 
   </head>
   <body>
@@ -65,12 +79,11 @@
 								<td><%=productos.get(i).getPrecio() %></td>
 								<td><%=productos.get(i).getStock() %></td>
 								<td class="form-check form-switch">
-								     <a class="btn btn-primary" href="#" role="button">Stock</a>
-									 <input type="button" class="btn btn-outline-danger" id="<%=productos.get(i).getId() %>" value="Eliminar"/>
-									 <a class="btn btn-outline-danger" href="">
-									 	<span class="material-symbols-outlined">delete</span>
-									 </a>
-									 
+								
+									 <input type="button" class="btn btn-primary material-symbols-sharp"  value="toc"/>
+									
+									 <input type="button" class="btn btn-danger material-symbols-outlined" id="<%=productos.get(i).getId() %>" value ="Delete"/>
+									
                                    	<% if(productos.get(i).isPortada()){%>
   										<input class="form-check-input" type="checkbox" role="switch" id="<%=productos.get(i).getId()%>" checked>
                                 	<% }else{ %>
