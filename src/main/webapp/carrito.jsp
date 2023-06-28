@@ -35,7 +35,6 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  <% HttpSession misession = request.getSession(true);%>	
 		 <% List<Item> items = (List<Item>) misession.getAttribute("items");%>
 		 <% for (int i = 0; i < items.size(); i++) { %>
 		    <tr>

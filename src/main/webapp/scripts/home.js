@@ -2,7 +2,7 @@ $(function() {
     $(document).on('click', 'input[type="button"]', function(event) {
        var id = this.id;
 		$.ajax({
-			url : '/eliminarProducto',
+			url : contextPath+'/eliminarProducto',
 			data : {
 				productoId : id
 			},
@@ -20,7 +20,7 @@ $(function() {
  $(document).on('click', 'input[type="checkbox"]', function(event) {
        var idProducto = this.id;
 		$.ajax({
-			url : '/changeFlag',
+			url : contextPath+'/changeFlag',
 			data : {
 				idProducto : idProducto
 			},

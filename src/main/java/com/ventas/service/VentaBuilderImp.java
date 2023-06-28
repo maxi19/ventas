@@ -7,10 +7,13 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.ventas.config.Conexion;
 import com.ventas.entity.Item;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
+
 
 public class VentaBuilderImp implements VentaBuilder {
 
@@ -18,6 +21,8 @@ public class VentaBuilderImp implements VentaBuilder {
 	private Statement st = null;
 	private ResultSet rs = null;
 	private List<Item> items;
+	
+	private static Logger logger = Logger.getLogger(VentaBuilderImp.class.getName());
 
 	@Override
 	public void generarStatement() throws MercaditoException{
@@ -26,8 +31,9 @@ public class VentaBuilderImp implements VentaBuilder {
 			this.st =conexion.dameConnection().createStatement();
 			st.getConnection().setAutoCommit(false);
 		} catch (SQLException e) {
+			logger.error(e);
 			finalizarConexion(st);
-			new MercaditoException("error en la creacion de la conexion");
+			new MercaditoException("error en la creacion de la conexion", e);
 		}
 	}
 	
@@ -38,6 +44,7 @@ public class VentaBuilderImp implements VentaBuilder {
 				try {
 					seleccionarUnProducto(item);
 				} catch (MercaditoException e) {
+					logger.error(e);
 			        throw new RuntimeException("Error runtime en iteracion",e);
 				}
 			
@@ -58,6 +65,7 @@ public class VentaBuilderImp implements VentaBuilder {
 				 item.setProducto(productoObtenido);
 			}		
 		 }catch (SQLException ex) {
+			logger.error("Error al obtener el producto " ,ex);
 			rollBack();
 			finalizarConexion(st, rs);
 			throw new MercaditoException("error en proceso obtener producto");
@@ -85,7 +93,7 @@ public class VentaBuilderImp implements VentaBuilder {
 				int nuevoStock = producto.getStock() - item.getCantidad();
 				st.executeUpdate("UPDATE productos SET stock ="+ nuevoStock +" WHERE id=" + producto.getId() );					
 			 }catch (SQLException ex) {
-				 System.out.println("Error en consulta tabla productos : producto id -> "+ producto.getId());
+				 logger.error("Error en consulta tabla productos : producto id -> "+ producto.getId());
 				 rollBack();
 			 }catch (MercaditoException e) {
 				 rollBack();
@@ -131,7 +139,7 @@ public class VentaBuilderImp implements VentaBuilder {
 	private void finalizarConexion(Statement st) {
 		try {
 			st.close();
-			System.out.println("Se cierra la conexion");
+			logger.info("se cierra la conexion");
 		} catch (SQLException e) {
 			
 		}
@@ -139,6 +147,7 @@ public class VentaBuilderImp implements VentaBuilder {
 	
 	private void rollBack() {
 		try {
+			logger.info("se efectua rollback");
 			st.getConnection().rollback();
 		} catch (SQLException e) {
 			

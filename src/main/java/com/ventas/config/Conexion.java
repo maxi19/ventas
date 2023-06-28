@@ -8,6 +8,8 @@ import org.apache.log4j.*;
 
 public class Conexion {
 
+	private static final Logger log = Logger.getLogger(Conexion.class
+			.getPackage().getName());
 	
 	private static final String HOST = "localhost";
 	private static final String URL = "jdbc:mysql://"+HOST+":3306";
@@ -20,7 +22,6 @@ public class Conexion {
 	private static final String USUARIO = "root";
 	private static final String PASSWORD = "admin";
 	
-	final static Logger logger = Logger.getLogger(Conexion.class);
 
 	private static Conexion instance = Conexion.getInstance();
 	 
@@ -34,14 +35,15 @@ public class Conexion {
 			Class.forName(DRIVER);
 			conn = DriverManager.getConnection(URL+"/"+ DBNAME+TIMEZONE, USUARIO, PASSWORD);
 			if (!conn.isClosed()) {
-				logger.info("conectado a la base de datos");
+				
+				log.info("conectado a la base de datos");
 			}	
 			return conn;
 		} catch (ClassNotFoundException e) {
-			logger.error("Error al intentar conectar a la base");
+			log.error("Error de acceso al driver" + e.getMessage());
 			e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("Error de SQL" + e.getMessage());
 		}
 		return null;
 	}

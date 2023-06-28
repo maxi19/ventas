@@ -66,7 +66,7 @@ public class VentaServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		
-		resp.sendRedirect("/mi-comprobante?");
+		resp.sendRedirect("/comprobante?");
 	}
 	
 

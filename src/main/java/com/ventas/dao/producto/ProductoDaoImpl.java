@@ -7,15 +7,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+import org.apache.log4j.Logger;
+
 import com.ventas.config.Conexion;
-import com.ventas.entity.Categoria;
-import com.ventas.entity.Item;
 import com.ventas.entity.Marca;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
-
-
 
 
 public class ProductoDaoImpl implements ProductoDao {
@@ -29,7 +26,8 @@ public class ProductoDaoImpl implements ProductoDao {
 	
 	private static final String queryEditFlag = "UPDATE productos SET portada = ?  WHERE id = ? ";
 	
-	
+	static Logger log = Logger.getLogger(ProductoDaoImpl.class);
+
 	@Override
 	public void add(Producto t) throws MercaditoException {
 
@@ -49,6 +47,7 @@ public class ProductoDaoImpl implements ProductoDao {
 			preparedStatement.executeUpdate();
 			
 		 }catch (Exception e) {
+			 	log.error(e.getMessage());
 				throw new MercaditoException("Hubo un error al insertar un producto", e);
 		}finally {
 			try {

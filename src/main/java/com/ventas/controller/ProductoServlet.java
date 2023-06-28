@@ -4,16 +4,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ventas.dao.categoria.CategoriaDao;
-import com.ventas.dao.categoria.CategoriaDaoImpl;
-import com.ventas.dao.marca.MarcasDao;
-import com.ventas.dao.marca.MarcasDaoImpl;
-import com.ventas.dao.producto.ProductoDao;
-import com.ventas.dao.producto.ProductoDaoImpl;
-import com.ventas.entity.Categoria;
-import com.ventas.entity.Marca;
-import com.ventas.entity.Producto;
+import org.apache.log4j.Logger;
+
 import com.ventas.excepciones.MercaditoException;
+import com.ventas.service.producto.ProductoService;
+import com.ventas.service.producto.ProductoServiceImp;
 
 
 
@@ -24,11 +19,11 @@ public class ProductoServlet extends GenericServlet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ProductoDao productoDao = new ProductoDaoImpl();
-	private MarcasDao marcasDao = new MarcasDaoImpl();
-	private CategoriaDao categoriaDao = new CategoriaDaoImpl();
+
+	private ProductoService productoService = new ProductoServiceImp();
 	
-	
+	static Logger log = Logger.getLogger(ProductoServlet.class);
+
 	@Override
 	public void getUrl(HttpServletRequest req, HttpServletResponse resp) throws MercaditoException {
 		String idmarca = (String)req.getParameter("marca");
@@ -38,19 +33,9 @@ public class ProductoServlet extends GenericServlet{
 		String idCategoria = (String)req.getParameter("categoria");
 		String stock = (String)req.getParameter("stock");
 		String precio = (String)req.getParameter("precio");
-		String portada = (String)req.getParameter("portada");
-
-		Marca marca = this.marcasDao.getOne(Integer.parseInt(idmarca));
-		Categoria categoria = this.categoriaDao.getOne(Integer.parseInt(idCategoria));
-		Producto producto = new Producto(marca,titulo,nombre, descripcion,categoria,Integer.parseInt(stock),Integer.parseInt(precio),"");
 		
-		try {
-			 productoDao.add(producto);	
-			 resp.sendRedirect("/home");
-		} catch (Exception e1) {
-			
-		} 
-
+		productoService.registrarProducto(idmarca, titulo, nombre, descripcion, idCategoria, stock, precio);
+		
 	}
 
 }

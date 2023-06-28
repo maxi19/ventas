@@ -11,4 +11,6 @@ public interface ProductoService {
 	
 	public void cambiarFlag(int idProducto) throws MercaditoException;
 	
+	public void registrarProducto(String idmarca, String titulo, String nombre, String descripcion, String idCategoria, String stock, String precio) throws MercaditoException;
+	
 }

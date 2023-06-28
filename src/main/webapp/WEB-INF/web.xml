@@ -5,13 +5,17 @@
 <web-app>
   <display-name>Gestor de ventas productos</display-name>
   
+      <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+  
   <servlet>
-        <servlet-name>home-productos</servlet-name>
+        <servlet-name>productos</servlet-name>
         <servlet-class>com.ventas.controller.ProductosServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-        <servlet-name>home-productos</servlet-name>
-        <url-pattern>/Ventas/catalogo</url-pattern>
+        <servlet-name>productos</servlet-name>
+        <url-pattern>/Ventas/productos</url-pattern>
   </servlet-mapping>
   
    <servlet>
@@ -20,8 +24,19 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>comprobante-compra</servlet-name>
-        <url-pattern>/mi-comprobante</url-pattern>
-  </servlet-mapping>
+        <url-pattern>/Ventas/comprobante</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>com.ventas.controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/Ventas/home</url-pattern>
+    </servlet-mapping>
+    
+    
     
   <!-- Declaro el filtro con nombre y su implementacion -->
   <filter>

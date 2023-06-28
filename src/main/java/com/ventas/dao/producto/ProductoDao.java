@@ -1,8 +1,6 @@
 package com.ventas.dao.producto;
 
 import java.sql.Statement;
-import java.util.List;
-
 import com.ventas.dao.DaoBase;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;

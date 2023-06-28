@@ -95,3 +95,12 @@
 	 height: 40px;
 	 color: white;
 	}
+
+
+	.my-error-class {
+		color:#FF0000;  /* red */
+	}
+	.my-valid-class {
+		color: #00CC00; /* green */
+	}
+	

@@ -30,8 +30,8 @@ public class ServletFilter implements Filter {
 		
 	
 		try {
-			request.setAttribute("categorias", categoriaDao.list());
-			request.setAttribute("marcas", categoriaDao.list());
+			//request.setAttribute("categorias", categoriaDao.list());
+			//request.setAttribute("marcas", categoriaDao.list());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,12 +1,11 @@
 
-
-
-$(document).ready(function(){
+var loadMarcas = {
+    cargar: function(){
         $.ajax({
-			url : '/marcas',
+			url : contextPath +'/marcas',
             method :'POST',
 			success : function(responseText) {
-            var dropdown = '<select class = "form-control" name="marca" >';
+            var dropdown = '<select class = "form-control" name="marca" id="marca-cbo">';
             $.each(responseText, function(index,value){
             dropdown+='<option value="'+value.id+'">'+value.nombre+'</option>';
            });
@@ -15,190 +14,162 @@ $(document).ready(function(){
            container.append(dropdown);
             }, error : function(error){
                 console.log(error);
+            }})      
+    },
+    cargarSeleccion : function () {
+        $("#marcas").change(function () {
+             $("#marca-hidden").val( $( "#marca-cbo" ).val());
+          });
+    }
+}
+
+
+
+var loadCategorias = {
+    cargar:function(){
+        $.ajax({
+            url : contextPath+'/categorias',
+            method :'POST',
+            success : function(responseText) {
+            var dropdown = '<select class = "form-control" name="categoria" id="categoria-cbo" >';
+            $.each(responseText, function(index,value){
+                if(value.id =="8"){
+                    dropdown+='<option value="'+value.id+'" selected>'+value.nombre+'</option>';
+                }else{
+                    dropdown+='<option value="'+value.id+'">'+value.nombre+'</option>';
+                }
+           });
+
+           dropdown+='</select>';
+           var container=$("#categorias");
+           container.append(dropdown);
+            }, error : function(error){
+                console.log(error);
             }})
-      
 
-            $("#marcas").change(function () {
-               
-                $("#marca-hidden").val( $( "#marcas" ).val(0));
+        },
+    cargarSeleccionCategorias : function () {
+            var categoriaSelected;
+            $("#categorias").change(function () {
+             $("#categoria-hidden").val( $( "#categoria-cbo" ).val());
+        });
+    }
 
+
+}
+
+var producto = {
+    validaciones : function () {
+        $("#productoForm").validate({
+            errorClass: "my-error-class",
+               validClass: "my-valid-class",
+            rules:{
+                titulo:{
+                    required: true,
+                    minlength: 10,
+                    maxlength: 40
+                },
+                nombre:{
+                    required: true,
+                    minlength: 10,
+                    maxlength: 40
+                },
+                stock:{
+                    required: true,
+                    number: true 
+                },
+                precio:{
+                    required: true,
+                    number: true 
+                },
+                descripcion:{
+                    required: false,
+                    maxlength: 150
+                }
+            },
+            messages:{
+                titulo:{
+                    required :"Por favor ingrese un Titulo",
+                    minlength : "Titulo como minimo 10 caracteres",
+                    maxlength :"Titulo como maximo 40 caracteres"
+                },
+                nombre:{
+                    required :"Por favor ingrese un Titulo",
+                    minlength : "El nombre como minimo 10 caracteres",
+                    maxlength :"El nombre como maximo 40 caracteres"
+                } ,
+                stock: {
+                    required : "Por favor ingrese un valor numerico",
+                    number : "Debe ser valor solo numerico"
+                },
+                precio: {
+                    required : "Por favor ingrese un valor numerico",
+                    number : "Debe ser valor solo numerico"
+                },
+                descripcion :{
+                    maxlength :"La descripcion debe ser como maximo 150 caracteres"
+                }
+            }	
+        });
+    },
+
+    crearProducto :  function () {
+        $('input').on('blur', function() {
+            if ($("#productoForm").valid()) {
+                    $('#crearProductoBtn').prop('disabled', false);  
+                } else {
+                    $('#crearProductoBtn').prop('disabled', 'disabled');
+                }
             });
-
-
+    
+    
+    
+            
+        $('#crearProductoBtn').on('click', function () {
+           var titulo = $('#titulo').val();
+           var nombre = $('#nombre').val();
+           var marca = $('#marca-hidden').val();
+           var categoria = $('#categoria-hidden').val();
+           var stock = $('#stock').val();
+           var precio = $('#precio').val();
+    
+           event.preventDefault();
+    
             $.ajax({
-                url : '/categorias',
-                method :'POST',
-                success : function(responseText) {
-                var dropdown = '<select class = "form-control" name="categoria" >';
-                $.each(responseText, function(index,value){
-                dropdown+='<option value="'+value.id+'">'+value.nombre+'</option>';
-               });
-               dropdown+='</select>';
-               var container=$("#categorias");
-               container.append(dropdown);
-                }, error : function(error){
-                    console.log(error);
-                }})
-          
-    
-                $("#categorias").change(function () {
-                   
-                    $("#marca-hidden").val( $( "#categorias" ).val(0));
-    
-                });
-
-    /*--------------------------VERIFICADOR DE IMAGEN---------------------------*/
-
-	 var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-     var pesoPermitido = 10;
-     var mensajes = [];
-    // Cuando cambie #fichero
-    $("#fichero").change(function () {
-
-        $('#texto').text('');
-	    $('#img').attr('src', '');
-
-        //if(validarExtension(this)) {
-        /*    if(validarPeso(this)) {
-                if (validarTamaño(this)) {
-                    verImagen(this);                    
+                url : contextPath+'/agregarProducto',
+                
+                dataTyoe:'JSON',
+                data : {
+                    titulo : titulo,
+                    nombre : nombre,
+                    marca : marca, 
+                    categoria : categoria,
+                    stock : stock,
+                    precio : precio
+                },
+                success : function() {
+                    window.location.href= contextPath+"/home";
+                },
+                error : function(){
+                    console.log("no envio");
                 }
-
-            }*/
-
-
-            var myModal = new bootstrap.Modal(document.getElementById('#exampleModal'), {
-                keyboard: false
             });
-
-           // $(myModal).find('.modal-body p').text('You are about to remove this entry. Are you sure?');
-            //$(myModal).find('.modal-header h5').html('Remove entry');
-            //$(myModal).find('.modal-footer button').text('Remove');
-			$(myModal).modal("show");
-          
-
-            try {
-                var huboError = false;
-                mensajes=[];
-                validarExtension(this);
-                validarPeso(this);
-                validarTamanio(this);
-                if (!huboError) {
-                    throw new Error("Error al cargar el archivo");       
-                }
-                verImagen(this);                              
-            } catch (error) {
-                let mensajesAmostrar="" ;
-                    
-                for (let index = 0; index < mensajes.length; index++) {
-                    let element = mensajes[index];
-                    let p = "<p>";
-                    element = p.concat(element);
-                    element = element.concat("</p>");
-                    mensajesAmostrar += element;
-                }
-                $('.modal-body').append(mensajesAmostrar);
-                $("#exampleModal").modal("show");
-                $('#img').removeAttr('src');
-                mensajesAmostrar ="";
-         
-
-
-            }
-        //}  
-    });
-
-    // Validacion de extensiones permitidas
-
- /*   function validarExtension(datos) {
-        var ruta = datos.value;
-        var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-        var extensionValida = extensionesValidas.indexOf(extension);
-
-        if(extensionValida < 0) {
-                $('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-                return false;
-            } else {
-                return true;
-            }
+        
+        });
     }
-    */
-
-    function validarExtension(datos) {
-        var ruta = datos.value;
-        var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-        var extensionValida = extensionesValidas.indexOf(extension);
-
-            if(extensionValida < 0) {
-                mensajes.push("Extencion de imagen no valida");
-                huboError = true;
-            }                
-
-    }
+}
 
 
 
-   /*Validacion de peso del fichero en kbs */
-/*
-    function validarPeso(datos) {
+$(document).ready(function (){
+    loadMarcas.cargar();
+    loadMarcas.cargarSeleccion();
+    loadCategorias.cargar();
+    loadCategorias.cargarSeleccionCategorias();
+    producto.validaciones();
+    producto.crearProducto();
 
-        if (datos.files && datos.files[0]) {
+});
 
-	    var pesoFichero = datos.files[0].size/1024;
-
-	    if(pesoFichero > pesoPermitido) {	        
-            $( "#mensaje" ).text("El archivo es demasiado grande");
-            $("#exampleModal").modal("show");
-            $('#img').removeAttr('src');
-            return false;
-	    } else {
-	        return true;
-	    }
-	}
-    }
-
-    */
-
-    function validarPeso(datos) {
-            if (datos.files && datos.files[0]) {
-                var pesoFichero = datos.files[0].size/1024;
-
-                if(pesoFichero > pesoPermitido) {	        
-                    mensajes.push("El peso de la imagen no es la permitida");
-                    huboError = true;
-                }
-            }
-    }
-
-  // Vista preliminar de la imagen.
-  function verImagen(datos) {
-
-      if (datos.files && datos.files[0]) {
-
-          var reader = new FileReader();
-          reader.onload = function (e) {
-	          $('#img').attr('src', e.target.result);
-          };
-          reader.readAsDataURL(datos.files[0]);
-       }
-   }
-
-   function validarTamanio(datos){
-        if (!this.width.toFixed(0) === 300 || !this.height.toFixed(0) === 300) {
-            mensajes.push("Meididas de imagen correctas, tiene que ser de 200 alto x 400");
-            huboError = true;
-        }         
-   }
-    /*------------------------FIN---------------------------*/
-
-    $("#btn-delete-modal-warning").click("show.bs.modal", function (event) {
-        $(".modal-body").removeData('bs.modal');
-    });
-    /*------------------------seccion categoria---------------------------*/
-
-
-
-
-    })
 
 
