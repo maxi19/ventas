@@ -14,6 +14,9 @@ import com.ventas.entity.Item;
 import com.ventas.entity.Producto;
 import com.ventas.excepciones.MercaditoException;
 
+import utils.EstadoPedido;
+import utils.RamdomUtils;
+
 
 public class VentaBuilderImp implements VentaBuilder {
 
@@ -105,10 +108,17 @@ public class VentaBuilderImp implements VentaBuilder {
 	@Override
 	public void registrarVenta(String nombreYApellido, String direccion, String pago ) throws MercaditoException {
 		int factura = 1;
+		 String identificador = RamdomUtils.generarCodigo();
+		 Date fecha  = Date.valueOf(LocalDate.now());
 		 try{
+			 int monto = 0;
 			 for (Item item : items) {
-					registrarUnaVenta(item, nombreYApellido, direccion, pago, factura);			 
-			 }
+					registrarUnaVenta(item, nombreYApellido, direccion, pago, factura, identificador, fecha);	
+					 monto += item.getTotal();	
+			 }		 
+				st.executeUpdate("INSERT INTO pedido(factura,identificador,fecha,estado,monto,email,telefono,direccion,cp) "
+						+ "VALUES ('00000001-0000001','"+identificador+"','"+fecha+"','"+EstadoPedido.PENDIENTE_ENTREGA+"', "+monto+", 'ninguno' ,'ninguno' ,'ninguno','ninguno')");
+
 		   	st.getConnection().commit();
 		 }catch (SQLException e) {
 			 rollBack();
@@ -119,11 +129,11 @@ public class VentaBuilderImp implements VentaBuilder {
 		
 	}
 
-	private void registrarUnaVenta(Item item, String nombreYApellido, String direccion, String pago, int factura) throws SQLException {
-		 Date fecha  = Date.valueOf(LocalDate.now());
-			st.executeUpdate("INSERT INTO ventas(factura,producto,cantidad,importe,nombre,direccion,total,fecha,pago) "
-					+ "VALUES("+factura+","+item.getProducto().getId()+","+item.getCantidad()+","+item.getTotal()+",'"+nombreYApellido+"','"+direccion+"',"+0+",'"+fecha.toString()+"','"+pago+"' )");
-	}
+	private void registrarUnaVenta(Item item, String nombreYApellido, String direccion, String pago, int factura , String identificador,  Date fecha) throws SQLException {
+		
+				st.executeUpdate("INSERT INTO ventas(factura,producto,cantidad,importe,nombre,direccion,total,fecha,pago,identificador) "
+					+ "VALUES("+factura+","+item.getProducto().getId()+","+item.getCantidad()+","+item.getTotal()+",'"+nombreYApellido+"','"+direccion+"',"+0+",'"+fecha.toString()+"','"+pago+"','"+identificador+"' )");
+		}
 	
 	private void finalizarConexion(Statement st, ResultSet rs) {
 		try {

@@ -7,15 +7,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav col-4 sm-12">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/home">Home</a>
-        </li>
+      
         <li class="nav-item">
           <a class="nav-link" href="<%=request.getContextPath()%>/productos">Productos</a>
         </li>
+      	<%if(misession.getAttribute("usuario") != null) {%>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/home">Home</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link" href="<%=request.getContextPath()%>/ventashome">ventas</a>
         </li>
+        <%}%>
          <li class="nav-item">
  		<%if(misession.getAttribute("usuario") != null) {%>
                <a class="nav-link" href="<%=request.getContextPath()%>/logOut"><span class="material-symbols-outlined">Logout</span></a>
