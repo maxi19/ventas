@@ -4,7 +4,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
 
 import com.ventas.excepciones.MercaditoException;
 import com.ventas.service.producto.ProductoService;
@@ -22,7 +21,6 @@ public class ProductoServlet extends GenericServlet{
 
 	private ProductoService productoService = new ProductoServiceImp();
 	
-	static Logger log = Logger.getLogger(ProductoServlet.class);
 
 	@Override
 	public void getUrl(HttpServletRequest req, HttpServletResponse resp) throws MercaditoException {

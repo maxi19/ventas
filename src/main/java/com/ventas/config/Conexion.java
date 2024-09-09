@@ -4,12 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.apache.log4j.*;
 
 public class Conexion {
 
-	private static final Logger log = Logger.getLogger(Conexion.class
-			.getPackage().getName());
+
 	
 	private static final String HOST = "localhost";
 	private static final String URL = "jdbc:mysql://"+HOST+":3306";
@@ -36,14 +34,14 @@ public class Conexion {
 			conn = DriverManager.getConnection(URL+"/"+ DBNAME+TIMEZONE, USUARIO, PASSWORD);
 			if (!conn.isClosed()) {
 				
-				log.info("conectado a la base de datos");
+				//log.info("conectado a la base de datos");
 			}	
 			return conn;
 		} catch (ClassNotFoundException e) {
-			log.error("Error de acceso al driver" + e.getMessage());
+			//log.error("Error de acceso al driver" + e.getMessage());
 			e.printStackTrace();
 		} catch (SQLException e) {
-			log.error("Error de SQL" + e.getMessage());
+			//log.error("Error de SQL" + e.getMessage());
 		}
 		return null;
 	}

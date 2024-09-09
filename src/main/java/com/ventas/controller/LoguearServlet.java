@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -31,7 +30,6 @@ public class LoguearServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 	private UsuariosDao usuariosService = new UsuariosDaoImpl();
-	static Logger log = Logger.getLogger(LoguearServlet.class);
 
 	
 	@Override
@@ -57,7 +55,6 @@ public class LoguearServlet extends HttpServlet{
 					throw new MercaditoException("El password es incorrecto");	
 				}	
 				misession.setAttribute("usuario", usuario);
-				log.info("Se inicia con usuario ->" + usuario.getUsuario());
 
 				obj.addProperty("estatus","ok");
 				

@@ -2,7 +2,7 @@ package com.ventas.service.producto;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import com.ventas.dao.categoria.CategoriaDao;
 import com.ventas.dao.categoria.CategoriaDaoImpl;
@@ -21,7 +21,7 @@ public class ProductoServiceImp implements ProductoService{
 	private MarcasDao marcasDao = new MarcasDaoImpl();
 	private CategoriaDao categoriaDao = new CategoriaDaoImpl();
 	
-	static Logger log = Logger.getLogger(ProductoServiceImp.class);
+	//static Logger log = Logger.getLogger(ProductoServiceImp.class);
 
 	@Override
 	public List<Producto> listarProductos() throws MercaditoException {
