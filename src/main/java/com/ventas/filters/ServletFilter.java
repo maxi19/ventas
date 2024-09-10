@@ -28,14 +28,11 @@ public class ServletFilter implements Filter {
 		HttpServletRequest req	 =(HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-	
-		try {
-			//request.setAttribute("categorias", categoriaDao.list());
-			//request.setAttribute("marcas", categoriaDao.list());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		
+		
+		
+		
 
 		chain.doFilter(request, response);	
 	}

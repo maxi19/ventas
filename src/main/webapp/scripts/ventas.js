@@ -22,9 +22,8 @@ $(function() {
 
 			  } else {
 
-			    //clonning the first row and setting data over it and then appending in tbody
 			    var clonnedRow = $($("#tableOrderDetail tbody").find("tr").first()).clone();
-			    this.setDataOnRow(clonnedRow, v);
+			    setDataOnRow(clonnedRow, v);
 
 			    $("#tableOrderDetail tbody").append(clonnedRow);
 

@@ -1,25 +1,16 @@
 package com.ventas.config;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.Properties;
 
 
 public class Conexion {
-
-
-	
-	private static final String HOST = "localhost";
-	private static final String URL = "jdbc:mysql://"+HOST+":3306";
-	private static final String DBNAME = "mercado";
-	
-	
-	private static final String TIMEZONE = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
-				
-	private static final String USUARIO = "root";
-	private static final String PASSWORD = "admin";
-	
 
 	private static Conexion instance = Conexion.getInstance();
 	 
@@ -30,8 +21,13 @@ public class Conexion {
 	public Connection dameConnection() {
 		
 		try {
-			Class.forName(DRIVER);
-			conn = DriverManager.getConnection(URL+"/"+ DBNAME+TIMEZONE, USUARIO, PASSWORD);
+			
+			Properties properties = getProperties();
+			
+			String url = "jdbc:mysql://" +properties.getProperty("database.host")+":"+properties.getProperty("database.port")+"";
+			Class.forName(properties.getProperty("database.driver"));
+			conn = DriverManager.getConnection(url+"/"+ properties.getProperty("database.name")+properties.getProperty("database.timezone"), 
+					properties.getProperty("database.user"), properties.getProperty("database.password"));
 			if (!conn.isClosed()) {
 				
 				//log.info("conectado a la base de datos");
@@ -42,9 +38,32 @@ public class Conexion {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			//log.error("Error de SQL" + e.getMessage());
+		} catch (IOException e) {
+			
 		}
 		return null;
 	}
+	
+	
+	private Properties getProperties() throws IOException {
+		
+	    InputStream inputStream;
+	    
+		 Properties prop = new Properties();
+         String propFileName = "environment.properties";
+         inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+		
+         if (inputStream != null) {
+             prop.load(inputStream);
+         } else {
+             throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+         }
+		
+         inputStream.close();
+         
+         return prop;
+	}
+	
 	
 	 public static Conexion getInstance() {
 	       if (instance == null) {
