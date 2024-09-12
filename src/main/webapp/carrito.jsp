@@ -14,17 +14,13 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
   <body id="body">
-	<div class="container vh-100">
 	<%@ include file="common/header.jsp" %> 
-	
-    
-    
-    
-  <section id="productos">
-  <div id="Compras">
-  <center><h1>carrito de compras</h1>
+  <section class="productos bg-dark">
+  <div class="container vh-100">
+  <div class="p-3 border rounded bg-secondary">
+  <h1>carrito de compras</h1>
    <hr>
-		   <table class="table table-dark">
+		   <table class="table  table-dark">
 		  <thead class="thead-light">
 		    <tr>
 		      <th scope="col">#</th>
@@ -47,15 +43,14 @@
 		    <%}%>
 		   </tbody>
 		   </table>	
-	</center>
 	
 	<a class="btn btn-danger" href="<%= request.getContextPath() %>/preparacion-venta?method=listado" role="button">Confirmar compra</a>
 	<a class="btn btn-primary" href="<%= request.getContextPath() %>/productos" role="button">Continuar agregando</a>		
+  </div>
   </div>
   </section>
   
   
   <%@ include file="common/footer.jsp" %> 
-  </div>
   </body>
   </html>

@@ -1,14 +1,14 @@
-<footer class="bg-ligth text-muted">
+<footer class="bg-dark text-muted">
 	  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+  <section class="bg-dark d-flex justify-content-center justify-content-lg-between p-4 border-bottom text-light">
     <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
+    <div class="me-5 d-none d-lg-block bg-dark">
       <span>Get connected with us on social networks:</span>
     </div>
     <!-- Left -->
 
     <!-- Right -->
-    <div>
+    <div class="bg-dark">
       <a href="" class="me-4 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
@@ -34,7 +34,7 @@
 
   <!-- Section: Links  -->
   <section class="">
-    <div class="container text-center text-md-start mt-5">
+    <div class="container text-center text-md-start">
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
@@ -50,7 +50,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 ">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Products
@@ -71,7 +71,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 ">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Useful links
@@ -92,7 +92,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 ">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
           <p><i class="fas fa-home me-3"></i> Buenos Aires, Argerich 1176, Argentina</p>

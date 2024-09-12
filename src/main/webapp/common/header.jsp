@@ -1,10 +1,9 @@
+<header class="p-3 mb-2 bg-dark fixed-top text-white p-3 border rounded bg-light">
 		  <% HttpSession misession = request.getSession(true);%>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Fixed navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="/Home?"><img class="d-inline-block align-text-top"
+				src="media/logo-open.svg" width="100" height="30"></a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav col-4 sm-12">
       
@@ -26,7 +25,11 @@
           <a class="nav-link" href="<%=request.getContextPath()%>/iniciar">Login</a>
        <%}%>
         </li>
-      </ul>  
+      </ul> 
+        <li class="navbar-nav ms-auto">
+          <a class="nav-link" href="<%=request.getContextPath()%>/carrito"><i class="fas fa-shopping-cart"></i></a>
+       </li> 
     </div>
   </div>
 </nav>
+</header>

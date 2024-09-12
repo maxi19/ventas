@@ -42,11 +42,12 @@ public class CarritoServlet extends HttpServlet{
 		}
 		
 		String idProducto = (String) req.getParameter("idprod");
+		if(idProducto != null) {
 		int idProd = Integer.parseInt(idProducto);
 		 
 		Producto prod;
 		
-			prod = dao.getOne(idProd);
+		prod = dao.getOne(idProd);
 		
 		boolean existeProductoEnCarrito = false;
 		for (Item item : items) {
@@ -60,15 +61,16 @@ public class CarritoServlet extends HttpServlet{
 			Item newItem = new Item(prod);
 			items.add(newItem);
 		}
-		
+		}
 		misession.setAttribute("items", items);
 		dispatcher.forward(req, resp);
+		
 		} catch (MercaditoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
+		
 	}
 	
 }

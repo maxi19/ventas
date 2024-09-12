@@ -6,7 +6,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%List<Producto> productos = (List<Producto>) request.getAttribute("productos");%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" /> 
+<c:set var="ctx" value="${pageContext.request.contextPath}"/> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,31 +23,38 @@
 	
 </head>
 <body>
-    <div class="container vh-100">
-	<%@ include file="common/header.jsp" %> 
-  
-    <div class="listado">
-    <%for(Producto producto : productos  ){ %>
-    <%  if (producto.isPortada()){ %>
-    <div class="articulo">
-    	        <div class="card border border-dark rounded m-2">
-            <div class="card-header">
-            <h3><%=producto.getNombre()%></h3>
-            <p>$ <%=producto.getPrecio()%></p>
-            </div>
-            <div class="card-body">
-                <p><%=producto.getNombre()%></p>                
-            </div>
-            <div class="card-pie" >
-            			<a href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-info d-inline"><i class="far fa-credit-card"></i></a>
+<%@ include file="common/header.jsp" %> 
+
+<section class="p-3 mb-7 bg-dark">
+    <div class="container  p-3 mb-2 bg-dark text-white">
+		<div class="overflow-hidden">
+			<div class="row gy-5">
+			<%for(Producto producto : productos  ){ %>
+    				<%  if (producto.isPortada()){ %>
+				<div class="col-3">
+					<div class="p-3 border rounded bg-dark">
+						<img class="img-thumbnail"
+						src="media/1.jpg" alt="">
+						<hr>
+						<p class="float-start col-6">
+							<%=producto.getNombre()%>
+						
+					<p>	
+					<p class="float-start col-6 bg-blue">
+							Precio: $<%=producto.getPrecio()%>
+						
+					<p>
+                        <a href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="btn btn-info d-inline"><i class="far fa-credit-card"></i></a>
 				    	<a href="<%= request.getContextPath() %>/carrito?idprod=<%=producto.getId()%>" class="btn btn-info d-inline"><i class="fas fa-cart-plus"></i></a>
-            </div>
-        </div>
-    </div>
-     <% }} %>
-    </div>
-   
+				    	
+				</div>
+				</div>
+				 <% }} %>
+			</div>
+		</div>
    </div>
+   </section>
+   <hr>
    	<%@ include file="common/footer.jsp" %> 
 </body>
 </html>
