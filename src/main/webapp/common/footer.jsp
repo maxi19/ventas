@@ -29,4 +29,3 @@
             </div>
         <div class="credit">creado por <span>equice aylen</span> | todos los derecho estan reservados</div>
     </section>
->>>>>>> Stashed changes

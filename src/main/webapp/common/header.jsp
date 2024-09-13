@@ -3,7 +3,8 @@
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fas fa-bars"></label>
 
-        <a href="#" class="logo">FatimaSportShop<span>.</span></a>
+        <img class="" src="media/logo-open.svg" width="150"
+						height="75">
 
         <nav class="navbar">
         <%if(misession.getAttribute("usuario") != null) {%>
