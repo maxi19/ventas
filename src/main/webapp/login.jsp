@@ -23,33 +23,35 @@
 
   </head>
 </head>
-<body>
+<body class="bg-dark">
 
-<div class ="div-form-login">
-	<div class = "card  mt-5 bg-dark text-white">
-		<div class =" col-12 ">
-   	 	<h2 class="mr-2 text-center">LOGIN</h2>
-    	<p class="text-center">ingrese su usuario y password!</p>
-   	
-	    <form class ="form-login" >
-	    	<div class="col mb-4">
-				<input type="text" class="form-control form-control-lg form-control-sm" placeholder="Usuario" name="user" id="email" >
-	    	</div>
-	    	<div class="col mb-4">
-				<input type="password"  class ="form-control form-control-lg form-control-sm" placeholder="Password" name="password" id="password" >
-			</div>
-			<div class="col mt-4">
+<div class="container bg-dark text-white">
+		<div class="row justify-content-center align-items-center vh-100">
+			<form class="border rounded col-sm-5">
+			   <center>
+					<img class="" src="media/logo-open.svg" width="200"
+						height="100">
+				</center>
+				<div class="form-row">
+					<h3>User:</h3>
+					<input type="text" class="form-control form-control-lg form-control-sm" placeholder="Usuario" name="user" id="email" >
+					<h3>Password:</h3>
+					<div class="input-group">
+						<input type="password"  class ="form-control form-control-lg form-control-sm" placeholder="Password" name="password" id="password" required> <span
+							class="input-group-text"><input type="button"
+							class="btn btn-secondary" onclick="mostrarContrasena0()"
+							value="ver"></span>
+					</div>
+				</div>
+				<br>
+				<div class="col p-1 ">
 	    		<button class="btn btn-primary" id="btn-login">Iniciar sesion</button>	
-			</div>
-	  	</form>
+			   </div>
+			</form>
 		</div>
-   </div>
-
-</div>
-   
-
-
+	</div>
 </body>
+
 <script>
     function mostrarContrasena0(){
     var tipo = document.getElementById("password");
@@ -60,7 +62,5 @@
     }
    }
 </script>
-    
-
-
+  
 </html>

@@ -4,12 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class Conexion {
-
+	
 	private static final String HOST = "localhost";
 	private static final String URL = "jdbc:mysql://"+HOST+":3306";
-	private static final String DBNAME = "mercado";
+	private static final String DBNAME = "Mercado";
 	
 	
 	private static final String TIMEZONE = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
