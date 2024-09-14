@@ -60,8 +60,8 @@ public class VentasDaoImpl implements VentasDao{
 				throw new MercaditoException("Hubo un error al realizar la consulta", e);
 		}finally {
 			try {
-				st.close();
-				rs.close();
+				if(st != null)st.close();
+				if(rs != null)rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

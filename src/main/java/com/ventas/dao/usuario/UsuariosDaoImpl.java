@@ -37,8 +37,8 @@ public class UsuariosDaoImpl implements UsuariosDao {
 
 	private void finalizarConexion(Statement st, ResultSet rs) {
 		try {
-			st.close();
-			rs.close();
+			if(st != null)st.close();
+			if(rs != null)rs.close();
 		} catch (SQLException e) {
 			System.out.println("Error al intentar cerrar la conexion");
 		}

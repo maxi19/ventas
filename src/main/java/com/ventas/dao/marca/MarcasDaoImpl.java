@@ -84,8 +84,8 @@ public class MarcasDaoImpl implements MarcasDao {
 	
 	private void finalizarConexion(PreparedStatement st, ResultSet rs) {
 		try {
-			st.close();
-			rs.close();
+			if(st != null)st.close();
+			if(rs != null)rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

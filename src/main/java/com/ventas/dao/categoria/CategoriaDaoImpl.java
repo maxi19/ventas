@@ -26,8 +26,8 @@ public class CategoriaDaoImpl implements CategoriaDao {
 	
 	private void finalizarConexion(Statement st, ResultSet rs) {
 		try {
-			st.close();
-			rs.close();
+			if(st != null)st.close();
+			if(rs != null)rs.close();
 			System.out.println("Se cierra la conexion");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

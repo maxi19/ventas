@@ -22,6 +22,7 @@ public class DataBaseHelper<T> {
 	
 	private Connection con;
 	
+	@SuppressWarnings("finally")
 	public List<T> seleccionarRegistros(String consultaSql, Class clase) {
 		
 		try {
@@ -56,6 +57,7 @@ public class DataBaseHelper<T> {
 		return listaObjetos;
 		
 	}
+		
 	
 	}	
 	
