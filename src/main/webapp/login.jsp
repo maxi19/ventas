@@ -13,8 +13,7 @@
 	crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script type="text/javascript">
-	var contextPath='<%=request.getContextPath()%>
-	';
+	var contextPath='<%=request.getContextPath()%>';
 </script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
