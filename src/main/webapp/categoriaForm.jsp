@@ -1,120 +1,124 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
-  <html>
-  <head>
-	  <title>Ingreso de nuevo producto</title>
-        <link rel="stylesheet" href="style/style.css">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	     <link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+<html>
+<head>
+<title>Ingreso de nuevo producto</title>
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+<script src="scripts/jquery/jquery-3.6.4.min.js"></script>
+<script src="scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="scripts/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+<script src="scripts/bootstrap/js/browser-polyfill.min.js.map"></script>
+<script src="scripts/jquery/jquery1.13.2-ui.js"></script>
+<script src="scripts/categoria.js"></script>
 
- 		<script src="scripts/jquery/jquery-3.6.4.min.js" ></script>
-		<script src="scripts/bootstrap/js/bootstrap.bundle.min.js" ></script>
-		<script src="scripts/bootstrap/js/bootstrap.bundle.min.js.map" ></script>
-		<script src="scripts/bootstrap/js/browser-polyfill.min.js.map" ></script>
-		<script src="scripts/jquery/jquery1.13.2-ui.js" ></script>
-		<script src="scripts/categoria.js"></script>
+</head>
 
-	</head>
 
-  
-  <body>
-  <div class="container" >
-	    <header>
-			<nav class="navbar navbar-dar bg-darkk">
-			 <div class="container">
-    			<a class="navbar-brand" href="#">Gestor de Stock</a>
-  			 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-  			     <li class="nav-item active">
-       				 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    			  </li>
-  			</ul>
-  			</div>
-			</nav>
-	    </header>
+<body>
+	<div class="container">
+		<aside>
 
-	    
-	     <section class="form-crear-producto">
-			<form action="<%= request.getContextPath() %>/agregarCategoria" method="Post" class="mt-4 mb-3">
-			  <div class="form-group mb-3">
-			    <label for="formGroupExampleInput">Nombre de categoria</label>
-			    <input type="text" class="form-control" id="nombre" name = "nombre" placeholder="Nombre de categoria">
-			  </div>
-			  
-			  
-  			<div class="form-group mb-3">
-			    <label for="formGroupExampleInput">Marcas</label>
-			    <input type="text" class="form-control" id="marcas" name = "marcas" placeholder=" Marcas habilitadas a esta categoria">
+			<div class="top">
+				<div class="close" id="close_btn">
+					<span class="material-symbols-sharp"> close </span>
+				</div>
 			</div>
 
+			<div class="sidebar">
 
-			<div class="form-group mb-3" >
-				<div class="col-md-3">
-					<div id="email-html"></div>
-					<input type="hidden" name="emails" id="emails"/>
+				<a href="<%=request.getContextPath()%>/productos"> <span
+					class="material-symbols-sharp">grid_view </span>
+					<h3>Productos</h3>
+				</a>
+				<% HttpSession misession = request.getSession(true);%>
+				<%if(misession.getAttribute("usuario") != null) {%>
+				<a href="<%=request.getContextPath()%>/ventashome"> <span
+					class="material-symbols-sharp">receipt_long </span>
+					<h3>Ventas</h3>
+				</a><a href="<%= request.getContextPath() %>/proxy?method=agregarInput">
+					<span class="material-symbols-sharp">add</span>
+					<h3>Agregar Producto</h3>
+				</a><a
+					href="<%= request.getContextPath() %>/proxy?method=agregarCategoria"
+					class="active"> <span class="material-symbols-sharp">view_comfy_alt</span>
+					<h3>Marca y categoria</h3>
+				</a> <a href="<%=request.getContextPath()%>/home"> <span
+					class="material-symbols-sharp">home</span>
+					<h3>Inicio</h3>
+				</a> <a href="<%=request.getContextPath()%>/logOut"><span
+					class="material-symbols-sharp">Logout</span></a>
+				<%}%>
+			</div>
+		</aside>
+
+		<main>
+			<h1>
+				Flower <span style="color: #986842;">.</span>
+			</h1>
+
+			<section class="wrapper">
+				<div class="form signup">
+					<header style="color: #986842;">Agregar Producto</header>
+					<form action="<%= request.getContextPath() %>/agregarCategoria"
+						method="Post" class="mt-4 mb-3">
+						<div class="form-group mb-3">
+							<label for="formGroupExampleInput">Nombre de categoria</label> <input
+								type="text" class="form-control" id="nombre" name="nombre"
+								placeholder="Nombre de categoria">
+						</div>
+
+
+						<div class="form-group mb-3">
+							<label for="formGroupExampleInput">Marcas</label> <input
+								type="text" class="form-control" id="marcas" name="marcas"
+								placeholder=" Marcas habilitadas a esta categoria">
+						</div>
+
+						<div class="form-group mb-3">
+							<label class="form-label" id="texto"></label>
+							<button type="submit" class="btn btn-primary">Ingresar
+								producto</button>
+						</div>
+
+
+					</form>
 				</div>
-				<div class="col-md-3">
-					<div class="ui-widget">
-					<input id="tags">  
+			</section>
+
+		</main>
+		<div class="right">
+			<div class="top">
+				<button id="menu_bar">
+					<span class="material-symbols-sharp">menu</span>
+				</button>
+
+				<div class="theme-toggler">
+					<span class="material-symbols-sharp active">light_mode</span> <span
+						class="material-symbols-sharp">dark_mode</span>
+				</div>
+				<div class="profile">
+					<div class="info">
+						<p>
+							<b>Aylen</b>
+						</p>
+						<p>Admin</p>
+						<small class="text-muted"></small>
+					</div>
+					<div class="profile-photo">
+						<img src="images/profile-3.jpg" alt="" />
 					</div>
 				</div>
 			</div>
-			  
+		</div>
+	</div>
+	<script src="scripts/script.js"></script>
+</body>
+</html>
 
-				
-			  <div class="form-group mb-3">
-			  	 <label class="form-label" id ="texto"></label>
-			 	 <button type="submit" class="btn btn-primary">Ingresar producto</button>
-			 </div>
-			 
-
-			 
-			 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  				Launch demo modal
-			</button>
-
-
-
-
-				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.css.map">
-				<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
-
-
-
-			 
-			</form>
-	    </section>
-	  </div>
-	  
-	  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-mdb-keyboard="false" data-mdb-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-cuerpo">
-		<p></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" 
-		 data-bs-toggle="modal" 
-		 data-bs-target="#exampleModal" 
-		 data-dismiss="modal" 
-		 id="btn-delete-modal-warning">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  </body>
-  </html>

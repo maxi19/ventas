@@ -1,32 +1,26 @@
-		  <% HttpSession misession = request.getSession(true);%>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Fixed navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav col-4 sm-12">
-      
-        <li class="nav-item">
-          <a class="nav-link" href="<%=request.getContextPath()%>/productos">Productos</a>
-        </li>
-      	<%if(misession.getAttribute("usuario") != null) {%>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/home">Home</a>
-        </li>        
-        <li class="nav-item">
-          <a class="nav-link" href="<%=request.getContextPath()%>/ventashome">ventas</a>
-        </li>
-        <%}%>
-         <li class="nav-item">
- 		<%if(misession.getAttribute("usuario") != null) {%>
-               <a class="nav-link" href="<%=request.getContextPath()%>/logOut"><span class="material-symbols-outlined">Logout</span></a>
- 		<%}else{%>
-          <a class="nav-link" href="<%=request.getContextPath()%>/iniciar">Login</a>
-       <%}%>
-        </li>
-      </ul>  
-    </div>
-  </div>
-</nav>
+<% HttpSession misession = request.getSession(true);%>
+<header>
+	<input type="checkbox" name="" id="toggler"> <label
+		for="toggler" class="fas fa-bars"></label> <img class=""
+		src="media/logo-open.svg" width="150" height="75">
+
+	<nav class="navbar">
+		<%if(misession.getAttribute("usuario") != null) {%>
+		<a href="<%=request.getContextPath()%>/home">Inicio</a> <a
+			class="nav-link" href="<%=request.getContextPath()%>/ventashome">ventas</a>
+		<%}%>
+		<%if(misession.getAttribute("usuario") != null) {%>
+		<a href="<%=request.getContextPath()%>/logOut"><span
+			class="material-symbols-outlined">Logout</span></a>
+		<%}else{%>
+		<a href="<%=request.getContextPath()%>/iniciar">Login</a>
+		<%}%>
+		<a href="<%=request.getContextPath()%>/productos">Productos</a>
+	</nav>
+	<div class="icons">
+		<a href="#" class="fas fa-heart"></a> <a href="#"
+			class="fas fa-shopping-cart"></a> <a href="#" class="fas fa-user"></a>
+	</div>
+</header>
+
+>>>>>>> ad470ff (maqueta)

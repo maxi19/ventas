@@ -30,8 +30,6 @@ public class Producto {
 		this.origen = origen;
 	}
 	
-	
-	
 	public Producto(Marca marca, String titulo, String nombre, String descripcion, Categoria categoria, int stock,
 			int precio, String origen) {
 		super();
@@ -44,6 +42,7 @@ public class Producto {
 		this.precio = precio;
 		this.origen = origen;
 	}
+	
 	public int getId() {
 		return id;
 	}
