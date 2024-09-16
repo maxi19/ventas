@@ -24,7 +24,7 @@ public class LogOutServlet extends HttpServlet{
 		if (misession.getAttribute("usuario") != null) {
 			misession.removeAttribute("usuario");
 		}
-		resp.sendRedirect("/iniciar");
+		resp.sendRedirect( req.getContextPath()+"/iniciar");
 	}
 	
 	
