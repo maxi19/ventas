@@ -30,7 +30,7 @@
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
-<body>
+<body class="bg-dark">
 	<div class="container bg-dark text-white">
 		<div class="row justify-content-center align-items-center vh-100">
 			<form class="border rounded col-sm-5">
@@ -58,7 +58,6 @@
 						sesion</button>
 				</div>
 			</form>
->>>>>>> ad470ff (maqueta)
 		</div>
    </div>
 

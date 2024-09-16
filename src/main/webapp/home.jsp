@@ -70,7 +70,6 @@
 				<a href="<%=request.getContextPath()%>/logOut"><span
 					class="material-symbols-sharp">Logout</span></a>
 				<%}%>
-
 			</div>
 		</aside>
 		<main>

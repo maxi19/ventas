@@ -34,7 +34,7 @@
 			<div class="box-wrapper">
 				<div class="box">
 					<div class="image">
-						<img src="media/1.jsp" alt="">
+						<img src="media/1.jpg" width="150" height="75">
 						<div class="icons">
 							<a
 								href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>"

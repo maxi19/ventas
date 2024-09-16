@@ -22,5 +22,3 @@
 			class="fas fa-shopping-cart"></a> <a href="#" class="fas fa-user"></a>
 	</div>
 </header>
-
->>>>>>> ad470ff (maqueta)
