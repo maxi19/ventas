@@ -65,8 +65,7 @@ public class VentaServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		resp.sendRedirect("/comprobante?");
+		resp.sendRedirect( req.getContextPath() +"/comprobante?");
 	}
 	
 
