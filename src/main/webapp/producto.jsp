@@ -34,7 +34,7 @@
 			<div class="box-wrapper">
 				<div class="box">
 					<div class="image">
-						<img src="" alt="">
+						<img src="media/1.jsp" alt="">
 						<div class="icons">
 							<a
 								href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>"
@@ -58,6 +58,5 @@
 	</section>
 
 	<%@ include file="common/footer.jsp"%>
->>>>>>> ad470ff (maqueta)
 </body>
 </html>
