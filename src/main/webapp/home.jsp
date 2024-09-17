@@ -124,7 +124,7 @@
 			</div>
 
 		</main>
-		<div class="right">
+<div class="right">
 			<div class="top">
 				<button id="menu_bar">
 					<span class="material-symbols-sharp">menu</span>
@@ -137,10 +137,13 @@
 				<div class="profile">
 					<div class="info">
 						<p>
-							<b>Aylen</b>
+							<b>6 tc</b>
 						</p>
-						<p>Admin</p>
+						<p>Fatima</p>
 						<small class="text-muted"></small>
+					</div>
+					<div class="profile-photo">
+						<img src="images/profile-3.jpg" alt="" />
 					</div>
 				</div>
 			</div>

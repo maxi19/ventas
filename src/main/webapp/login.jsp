@@ -61,10 +61,6 @@
 		</div>
    </div>
 
-</div>
-   
-
-
 </body>
 <script>
 	function mostrarContrasena0() {

@@ -42,6 +42,7 @@ public class CarritoServlet extends HttpServlet{
 		}
 		
 		String idProducto = (String) req.getParameter("idprod");
+		if(idProducto != null) {
 		int idProd = Integer.parseInt(idProducto);
 		 
 		Producto prod;
@@ -60,7 +61,7 @@ public class CarritoServlet extends HttpServlet{
 			Item newItem = new Item(prod);
 			items.add(newItem);
 		}
-		
+		}
 		misession.setAttribute("items", items);
 		dispatcher.forward(req, resp);
 		} catch (MercaditoException e) {

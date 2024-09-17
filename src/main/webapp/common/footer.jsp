@@ -27,5 +27,5 @@
                 <a href="#">CABA, Argentina</a>
                 <img src="" alt="">
             </div>
-        <div class="credit">creado por <span>equice aylen</span> | todos los derecho estan reservados</div>
+        <div class="credit">creado por <span>6 TC FATIMA</span> | todos los derecho estan reservados</div>
     </section>
