@@ -70,7 +70,7 @@ public class ProductoServiceImp implements ProductoService{
 			Marca marca = this.marcasDao.getOne(Integer.parseInt(idmarca));
 			Categoria categoria = this.categoriaDao.getOne(Integer.parseInt(idCategoria));
 		
-		productoDao.add(new Producto(marca,titulo,nombre, descripcion,categoria,Integer.parseInt(stock),Integer.parseInt(precio),""));		
+		productoDao.add(new Producto(marca,titulo,nombre, descripcion,categoria,Integer.parseInt(stock),Integer.parseInt(precio),"",""));		
 	}
 
 

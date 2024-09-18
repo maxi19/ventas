@@ -12,11 +12,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carrito</title>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -54,9 +52,9 @@
 		</aside>
 
 		<main>
-			<h1>Flower.</h1>
 
 			<div class="recent_order">
+			<h1>FatimaSportShop<span style="color: #B71C1C;">.</span></h1>
 				<h2>Carrito</h2>
 				<table>
 					<thead>
@@ -95,6 +93,7 @@
 			</div>
 
 		</main>
+		</div>
 <div class="right">
 			<div class="top">
 				<button id="menu_bar">
@@ -105,21 +104,8 @@
 					<span class="material-symbols-sharp active">light_mode</span> <span
 						class="material-symbols-sharp">dark_mode</span>
 				</div>
-				<div class="profile">
-					<div class="info">
-						<p>
-							<b>6 tc</b>
-						</p>
-						<p>Fatima</p>
-						<small class="text-muted"></small>
-					</div>
-					<div class="profile-photo">
-						<img src="images/profile-3.jpg" alt="" />
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
 
 	<script src="scripts/script.js"></script>
 </body>

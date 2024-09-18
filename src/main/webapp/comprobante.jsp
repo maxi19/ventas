@@ -26,6 +26,7 @@
 			</div>
 
 			<div class="sidebar">
+			
 				<a href="<%=request.getContextPath()%>/productos"> <span
 					class="material-symbols-sharp">grid_view </span>
 					<h3>Productos</h3>
@@ -38,15 +39,14 @@
 				<a href="<%=request.getContextPath()%>/logOut"><span
 					class="material-symbols-outlined">Logout</span></a>
 				<%}%>
-
 			</div>
 
 		</aside>
 
 		<main>
-			<h1>Flower.</h1>
 
 			<div class="recent_order">
+			<h1>FatimaSportShop<span style="color: #B71C1C;">.</span></h1>
 				<%
 		List<Item> items = (List<Item>) request.getAttribute("items");
 		int totalFactura = (int) request.getAttribute("totalfactura");
@@ -80,7 +80,8 @@
 				<input type="text" name="importe" value="<%=totalFactura%>" disabled>
 			</div>
 		</main>
-		<div class="right">
+		</div>
+	<div class="right">
 			<div class="top">
 				<button id="menu_bar">
 					<span class="material-symbols-sharp">menu</span>
@@ -90,21 +91,9 @@
 					<span class="material-symbols-sharp active">light_mode</span> <span
 						class="material-symbols-sharp">dark_mode</span>
 				</div>
-				<div class="profile">
-					<div class="info">
-						<p>
-							<b>6 tc</b>
-						</p>
-						<p>Fatima</p>
-						<small class="text-muted"></small>
-					</div>
-					<div class="profile-photo">
-						<img src="images/profile-3.jpg" alt="" />
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
+
 	<script src="scripts/script.js"></script>
 </body>
 </html>

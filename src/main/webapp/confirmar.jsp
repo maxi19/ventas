@@ -50,8 +50,8 @@
 
 		</aside>
 		<main>
-			<h1>Flower.</h1>
 			<section class="wrapper">
+			<h1>FatimaSportShop<span style="color: #B71C1C;">.</span></h1>
 				<div class="form signup">
 					<form action="<%=request.getContextPath()%>/finalizarVenta?"
 						method="post">
@@ -120,6 +120,7 @@
 				</div>
 			</section>
 		</main>
+		</div>
 		<div class="right">
 			<div class="top">
 				<button id="menu_bar">
@@ -130,21 +131,8 @@
 					<span class="material-symbols-sharp active">light_mode</span> <span
 						class="material-symbols-sharp">dark_mode</span>
 				</div>
-				<div class="profile">
-					<div class="info">
-						<p>
-							<b>6 tc</b>
-						</p>
-						<p>Fatima</p>
-						<small class="text-muted"></small>
-					</div>
-					<div class="profile-photo">
-						<img src="images/profile-3.jpg" alt="" />
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
 
 	<script src="scripts/script.js"></script>
 </body>

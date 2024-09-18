@@ -20,17 +20,16 @@ html{
 }
 
 section{
-    padding: 2rem 5%;
-    color: #333;
-    background: #FFCDD2;
+    padding: 2rem 9%;
 }
 
 .heading{
     text-align: center;
     font-size: 4rem;
+    color: #333;
     padding: 1rem;
     margin: 8rem 0;
-    background: #FFCDD2;
+    background: #fdbaae;
 }
 
 .heading span{
@@ -55,7 +54,7 @@ section{
 header{
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: black;;
+    background: #fff;
     padding: 2rem 9%;
     display: flex;
     align-items: center;
@@ -111,8 +110,7 @@ header .fa-bars{
 .home{
     display: flex;
     align-items: center;
-    min-height: 100vh;
-    background: url(../img/fondo.jpg);
+    min-height: 90vh;
     /*background-color: #f3dce7;*/
     background-size:cover;
     background-position: center;
@@ -233,8 +231,8 @@ header .fa-bars{
 }
 
 .products .box-container .box-wrapper {
-    flex: 1 1 calc(20% - 1.5rem); /* Ajustar el tamaño para que quepan tres por fila */
-    max-width: calc(20% - 1.5rem); /* Limitar el ancho máximo */
+    flex: 1 1 calc(25% - 1.5rem); /* Ajustar el tamaño para que quepan tres por fila */
+    max-width: calc(25% - 1.5rem); /* Limitar el ancho máximo */
     box-sizing: border-box; /* Incluir padding y border en el tamaño total */
 }
 .products .box-container .box {
@@ -242,88 +240,82 @@ header .fa-bars{
     border-radius: .5rem;
     border: .1rem solid rgba(0, 0, 0, .1);
     position: relative;
-    background: black;
     color: white; /* Mejorar el contraste */
 }
 
-.products .box-container .box .discount {
+.products .box-container .box .discount{
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 1rem; left: 1rem;
     padding: .7rem 1rem;
     font-size: 2rem;
     color: var(--pink);
-    background: #FFCDD2;
+    background: #efe7da;
     z-index: 1;
     border-radius: .5rem;
 }
 
-.products .box-container .box .image {
+.products .box-container .box .image{
     position: relative;
     text-align: center;
     padding-top: 2rem;
     overflow: hidden;
 }
 
-.products .box-container .box .image img {
+.products .box-container .box .image img{
     height: 25rem;
-    width: 100%; /* Ajustar el ancho de la imagen */
-    object-fit: cover; /* Asegurar que la imagen se ajuste bien */
 }
 
-.products .box-container .box:hover .image img {
+.products .box-container .box:hover .image img{
     transform: scale(1.1);
 }
 
-.products .box-container .box .image .icons {
+.products .box-container .box .image .icons{
     position: absolute;
-    bottom: -7rem;
-    left: 0;
-    right: 0;
+    bottom: -7rem; left: 0; right: 0;
     display: flex;
 }
 
-.products .box-container .box:hover .image .icons {
+.products .box-container .box:hover .image .icons{
     bottom: 0;
 }
 
-.products .box-container .box .image .icons a {
+.products .box-container .box .image .icons a{
     height: 5rem;
     line-height: 5rem;
     font-size: 2rem;
-    width: 50%;
+    width:50%;
     background: var(--pink);
     color: #fff;
 }
 
-.products .box-container .box .image .icons .cart-btn {
+.products .box-container .box .image .icons .cart-btn{
     border-left: .1rem solid #fff7;
     border-right: .1rem solid #fff7;
     width: 100%;
 }
 
-.products .box-container .box .image .icons a:hover {
+.products .box-container .box .image .icons a:hover{
     background: #333;
 }
 
-.products .box-container .box .content {
+.products .box-container .box .content{
     padding: 2rem;
     text-align: center;
 }
 
-.products .box-container .box .content h3 {
+.products .box-container  .box-wrapper .box .content h3{
     font-size: 2.5rem;
-    color: #fff; /* Mejorar el contraste */
+    color: #333;
 }
 
-.products .box-container .box .content .price {
+.products .box-container .box-wrapper .box .content .price{
     font-size: 2.5rem;
     color: var(--pink);
     font-weight: bolder;
     padding-top: 1rem;
 }
 
-.products .box-container .box .content .price span {
+.products .box-container .box-wrapper .box .content .price span{
     font-size: 1.5rem;
     color: #999;
     font-weight: lighter;
@@ -352,7 +344,6 @@ header .fa-bars{
         height: 15rem;
     }
 }
-
 
 .contact .row{
     display: flex;
@@ -397,9 +388,7 @@ header .fa-bars{
     height: 15rem;
     resize: none;
 }
-.footer{
-	background: white;
-}
+
 .footer .box-container{
     display: flex;
     flex-wrap: wrap;
@@ -434,6 +423,7 @@ header .fa-bars{
 
 .footer .credit{
     text-align: center;
+    width: 100%;
     padding: 1.5rem;
     margin-top: 1.5rem;
     padding-top: 2.5rem;

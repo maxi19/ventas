@@ -67,15 +67,10 @@
 					<h3>Inicio</h3>
 				</a>
 				<% HttpSession misession = request.getSession(true);%>
-				<%if(misession.getAttribute("usuario") != null) {%>
-				<a href="<%=request.getContextPath()%>/logOut"><span
-					class="material-symbols-sharp">Logout</span></a>
-				<%}%>
-
 			</div>
 		</aside>
 		<main>
-			<h1>Flower.</h1>
+		<h1>FatimaSportShop<span style="color: #B71C1C;">.</span></h1>
 			<nav class="navbar bg-body-tertiary">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="#">Ventas</a>
@@ -114,41 +109,32 @@
 							<td width="12%" class="identificador">test</td>
 							<td width="25%" class="direccion">test</td>
 							<td width="25%" class="estado">test</td>
-							<td width="25%" class="teñefono">test</td>
+							<td width="25%" class="teï¿½efono">test</td>
 							<td width="25%" class="monto">test</td>
 							<td width="25%" class="detalles"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-
 		</main>
+		</div>
 		<div class="right">
 			<div class="top">
-				<button id="menu_bar">
-					<span class="material-symbols-sharp">menu</span>
-				</button>
-
-				<div class="theme-toggler">
-					<span class="material-symbols-sharp active">light_mode</span> <span
-						class="material-symbols-sharp">dark_mode</span>
-				</div>
-				<div class="profile">
-					<div class="info">
-						<p>
-							<b>6 tc</b>
-						</p>
-						<p>Fatima</p>
-						<small class="text-muted"></small>
-					</div>
-					<div class="profile-photo">
-						<img src="images/profile-3.jpg" alt="" />
-					</div>
-				</div>
+			  <button id="menu_bar">
+				<span class="material-symbols-sharp">menu</span>
+			  </button>
+	  
+			  <div class="theme-toggler">
+				<span class="material-symbols-sharp active">light_mode</span>
+				<span class="material-symbols-sharp">dark_mode</span>
+			  </div>
+			  <div class="profile">
+				<a href="<%=request.getContextPath()%>/logOut">
+					<span class="material-symbols-sharp">logout</span>
+				</a>
+			  </div>
 			</div>
 		</div>
-	</div>
-
 	<script src="scripts/script.js"></script>
 
 </body>

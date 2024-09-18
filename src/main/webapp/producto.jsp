@@ -34,24 +34,22 @@
 			<div class="box-wrapper">
 				<div class="box">
 					<div class="image">
-						<img src="<%= request.getContextPath() %>/media/1.jpg" width="150" height="75" alt="producto ejemplo">
+					<%if(producto.getImg() != null){ %>
+						<img src="<%=producto.getImg()%>">
+					<%}else{%>
+					<img src="media/sinFoto.png">
+					<%}%>
 						<div class="icons">
-							<a
-								href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>"
-								class="cart-btn"><i class="far fa-credit-card"></i></a> <a
-								href="<%= request.getContextPath() %>/carrito?idprod=<%=producto.getId()%>"
-								class="cart-btn"><i class="fas fa-cart-plus"></i></a>
+							<a href="<%= request.getContextPath() %>/preparacion-venta?method=unidad&idproducto=<%=producto.getId()%>" class="far fa-credit-card"></a> 
+							<a href="<%= request.getContextPath() %>/carrito?idprod=<%=producto.getId()%>" class="fas fa-cart-plus"></a>
 						</div>
 					</div>
 					<div class="content">
 						<h3><%=producto.getNombre()%></h3>
-						<div class="price">
-							$<%=producto.getPrecio()%></div>
-							
+						<div class="price"> $ <%=producto.getPrecio()%></div>
 					</div>
 				</div>
-				
-			</div>
+			</div>	
 			<% } %>
 			<% } %>
 		</div>

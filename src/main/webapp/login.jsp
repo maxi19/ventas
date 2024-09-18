@@ -35,7 +35,7 @@
 		<div class="row justify-content-center align-items-center vh-100">
 			<form class="border rounded col-sm-5">
 				<center>
-					<img class="" src="media/logo-open.svg" width="200" height="100">
+					<h1>FatimaSportShop<span style="color: #B71C1C;">.</span></h1>
 				</center>
 				<div class="form-row">
 					<h3>User:</h3>
@@ -46,7 +46,7 @@
 					<div class="input-group">
 						<input type="password"
 							class="form-control form-control-lg form-control-sm"
-							placeholder="Password" name="password" id="password" required>
+							placeholder="Contraseña" name="password" id="password" required>
 						<span class="input-group-text"><input type="button"
 							class="btn btn-secondary" onclick="mostrarContrasena0()"
 							value="ver"></span>
@@ -54,7 +54,7 @@
 				</div>
 				<br>
 				<div class="col p-1 ">
-					<button class="btn btn-primary" id="btn-login">Iniciar
+					<button class="btn btn-danger" id="btn-login">Iniciar
 						sesion</button>
 				</div>
 			</form>

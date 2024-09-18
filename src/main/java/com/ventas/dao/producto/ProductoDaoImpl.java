@@ -17,7 +17,7 @@ import com.ventas.excepciones.MercaditoException;
 public class ProductoDaoImpl implements ProductoDao {
 
 	private Conexion conexion = Conexion.getInstance();
-	private static final String queryList = "SELECT id, id_marca, titulo, nombre, descripcion, id_categoria, stock, precio, origen, portada FROM productos";
+	private static final String queryList = "SELECT id, id_marca, titulo, nombre, descripcion, id_categoria, stock, precio, origen, portada, imagen FROM productos";
 	private static final String queryGetOne = "SELECT id, id_marca, titulo, nombre, descripcion, id_categoria, stock, precio, origen, portada FROM productos WHERE id = ?";
 	private static final String queryDelete = "DELETE from productos WHERE id=?";
 	private static final String queryEdit = "UPDATE productos SET stock = ? WHERE id= ?";
@@ -124,6 +124,7 @@ public class ProductoDaoImpl implements ProductoDao {
 				 producto.setStock(rs.getInt(7));
 				 producto.setOrigen(rs.getString(9));
 				 producto.setPortada(rs.getBoolean(10));
+				 producto.setImg(rs.getString(11));
 				 productos.add(producto);
 			}
 				

@@ -12,12 +12,28 @@ public class Producto {
 	private int precio;
 	private String origen;
 	private boolean portada;
+	private String img;
 	
 	public Producto() {
 		
 	}
+
+	public Producto(Marca marca, String titulo, String nombre, String descripcion, Categoria categoria, int stock,
+			int precio, String origen,String img) {
+		super();
+		this.marca = marca;
+		this.titulo = titulo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.categoria = categoria;
+		this.stock = stock;
+		this.precio = precio;
+		this.origen = origen;
+		this.img = img;
+	}
+
 	public Producto(int id, Marca marca, String titulo, String nombre, String descripcion, Categoria categoria,
-			int stock, int precio, String origen) {
+			int stock, int precio, String origen, boolean portada, String img) {
 		super();
 		this.id = id;
 		this.marca = marca;
@@ -28,21 +44,10 @@ public class Producto {
 		this.stock = stock;
 		this.precio = precio;
 		this.origen = origen;
+		this.portada = portada;
+		this.img = img;
 	}
-	
-	public Producto(Marca marca, String titulo, String nombre, String descripcion, Categoria categoria, int stock,
-			int precio, String origen) {
-		super();
-		this.marca = marca;
-		this.titulo = titulo;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.categoria = categoria;
-		this.stock = stock;
-		this.precio = precio;
-		this.origen = origen;
-	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -103,6 +108,11 @@ public class Producto {
 	public void setPortada(boolean portada) {
 		this.portada = portada;
 	}
-
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	
 }
